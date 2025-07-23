@@ -139,6 +139,16 @@ Public Class PackUserControl
 		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.OutputPathTextBox, Me.BrowseForOutputPathButton)
 		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.OutputParentPathTextBox, Me.BrowseForOutputPathButton)
 
+		'NOTE: This code prevents Visual Studio or Windows often inexplicably incorrectly positioning or sizing these widgets.
+		Workarounds.WorkaroundForFrameworkAnchorRightLocationBug(Me.SetUpGamesButton)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.GameSetupComboBox, Me.SetUpGamesButton)
+
+		'NOTE: This code prevents Visual Studio or Windows often inexplicably incorrectly positioning these widgets.
+		Workarounds.WorkaroundForFrameworkAnchorRightLocationBug(Me.PackOptionsUseDefaultsButton)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.DirectPackOptionsTextBox, Me.DirectPackOptionsTextBox.Parent, True)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.PackOptionsTextBox, Me.PackOptionsTextBox.Parent, True)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.PackOptionsTextBoxMinScrollPanel, Me.PackOptionsTextBoxMinScrollPanel.Parent, True)
+
 		If Not Me.DesignMode Then
 			Me.Init()
 		End If
@@ -211,7 +221,7 @@ Public Class PackUserControl
 		End If
 	End Sub
 
-	Private Sub DirectPackerOptionsTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DirectPackerOptionsTextBox.TextChanged
+	Private Sub DirectPackerOptionsTextBox_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DirectPackOptionsTextBox.TextChanged
 		Me.SetPackerOptionsText()
 	End Sub
 
@@ -410,7 +420,7 @@ Public Class PackUserControl
 
 	Private Sub SetPackerOptionsText()
 		TheApp.Settings.PackOptionsText = ""
-		Me.PackerOptionsTextBox.Text = ""
+		Me.PackOptionsTextBox.Text = ""
 		If TheApp.Settings.PackMode = PackInputOptions.ParentFolder Then
 			For Each aChildPath As String In Directory.GetDirectories(TheApp.Settings.PackInputPath)
 				Me.SetPackerOptionsTextPerFolder(aChildPath)
@@ -444,19 +454,19 @@ Public Class PackUserControl
 				'End If
 			Next
 		End If
-		If Me.DirectPackerOptionsTextBox.Text.Trim() <> "" Then
+		If Me.DirectPackOptionsTextBox.Text.Trim() <> "" Then
 			packOptionsText += " "
-			packOptionsText += Me.DirectPackerOptionsTextBox.Text
+			packOptionsText += Me.DirectPackOptionsTextBox.Text
 		End If
 
 		TheApp.Settings.PackOptionsText = packOptionsText
 
-		Me.PackerOptionsTextBox.Text += """"
-		Me.PackerOptionsTextBox.Text += gameSetup.PackerPathFileName
-		Me.PackerOptionsTextBox.Text += """"
-		Me.PackerOptionsTextBox.Text += " "
+		Me.PackOptionsTextBox.Text += """"
+		Me.PackOptionsTextBox.Text += gameSetup.PackerPathFileName
+		Me.PackOptionsTextBox.Text += """"
+		Me.PackOptionsTextBox.Text += " "
 		If gamePackerFileName = "gmad.exe" Then
-			Me.PackerOptionsTextBox.Text += "create -folder "
+			Me.PackOptionsTextBox.Text += "create -folder "
 
 			Dim pathFileName As String = Path.Combine(inputPath, "addon.json")
 			Dim garrysModAppInfo As GarrysModSteamAppInfo = New GarrysModSteamAppInfo()
@@ -465,14 +475,14 @@ Public Class PackUserControl
 			Me.GmaGarrysModTagsUserControl.ItemTags = TheApp.Settings.PackGmaItemTags
 			Me.theGmaGarrysModTagsUserControlIsBeingChangedByMe = False
 		End If
-		Me.PackerOptionsTextBox.Text += """"
-		Me.PackerOptionsTextBox.Text += inputFolder
-		Me.PackerOptionsTextBox.Text += """"
-		Me.PackerOptionsTextBox.Text += " "
+		Me.PackOptionsTextBox.Text += """"
+		Me.PackOptionsTextBox.Text += inputFolder
+		Me.PackOptionsTextBox.Text += """"
+		Me.PackOptionsTextBox.Text += " "
 		If TheApp.Settings.PackOptionsText.Trim() <> "" Then
-			Me.PackerOptionsTextBox.Text += packOptionsText
+			Me.PackOptionsTextBox.Text += packOptionsText
 		End If
-		Me.PackerOptionsTextBox.Text += vbCrLf
+		Me.PackOptionsTextBox.Text += vbCrLf
 	End Sub
 
 	Private Sub CreateVpkResponseFile()

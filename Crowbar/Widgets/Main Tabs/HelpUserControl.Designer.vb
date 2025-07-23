@@ -26,14 +26,14 @@ Partial Class HelpUserControl
 		Me.ContentsLinkLabel = New System.Windows.Forms.LinkLabel()
 		Me.IndexLinkLabel = New System.Windows.Forms.LinkLabel()
 		Me.TipsLinkLabel = New System.Windows.Forms.LinkLabel()
-		Me.GroupBox1 = New GroupBoxEx()
+		Me.GroupBox1 = New Crowbar.GroupBoxEx()
 		Me.Label4 = New System.Windows.Forms.Label()
 		Me.Label3 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.Label5 = New System.Windows.Forms.Label()
 		Me.Label6 = New System.Windows.Forms.Label()
-		Me.CrowbarGuideButton = New ButtonEx()
+		Me.CrowbarGuideButton = New Crowbar.ButtonEx()
 		Me.GroupBox1.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -95,6 +95,7 @@ Partial Class HelpUserControl
 		'
 		'GroupBox1
 		'
+		Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.GroupBox1.Controls.Add(Me.Label4)
 		Me.GroupBox1.Controls.Add(Me.Label3)
 		Me.GroupBox1.Controls.Add(Me.Label2)
@@ -103,8 +104,11 @@ Partial Class HelpUserControl
 		Me.GroupBox1.Controls.Add(Me.TipsLinkLabel)
 		Me.GroupBox1.Controls.Add(Me.ContentsLinkLabel)
 		Me.GroupBox1.Controls.Add(Me.IndexLinkLabel)
+		Me.GroupBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.GroupBox1.IsReadOnly = False
 		Me.GroupBox1.Location = New System.Drawing.Point(49, 388)
 		Me.GroupBox1.Name = "GroupBox1"
+		Me.GroupBox1.SelectedValue = Nothing
 		Me.GroupBox1.Size = New System.Drawing.Size(640, 132)
 		Me.GroupBox1.TabIndex = 5
 		Me.GroupBox1.TabStop = False
@@ -175,11 +179,14 @@ Partial Class HelpUserControl
 		'
 		'CrowbarGuideButton
 		'
+		Me.CrowbarGuideButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.CrowbarGuideButton.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.CrowbarGuideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.CrowbarGuideButton.Image = Global.Crowbar.My.Resources.Resources.CrowbarGuideBanner
 		Me.CrowbarGuideButton.Location = New System.Drawing.Point(3, 3)
 		Me.CrowbarGuideButton.Name = "CrowbarGuideButton"
-		Me.CrowbarGuideButton.Size = New System.Drawing.Size(530, 147)
+		Me.CrowbarGuideButton.Size = New System.Drawing.Size(551, 166)
+		Me.CrowbarGuideButton.SpecialImage = Crowbar.ButtonEx.SpecialImageType.None
 		Me.CrowbarGuideButton.TabIndex = 9
 		Me.CrowbarGuideButton.UseVisualStyleBackColor = True
 		'

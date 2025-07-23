@@ -47,8 +47,8 @@ Partial Class UpdateUserControl
 		Me.UpdateFolderTextBox = New Crowbar.RichTextBoxEx()
 		Me.UpdateProgressBarEx = New Crowbar.ProgressBarEx()
 		Me.UpdateButton = New Crowbar.ButtonEx()
-		Me.UpdateToNewPathCheckBox = New System.Windows.Forms.CheckBox()
-		Me.UpdateCopySettingsCheckBox = New System.Windows.Forms.CheckBox()
+		Me.UpdateToNewPathCheckBox = New CheckBoxEx()
+		Me.UpdateCopySettingsCheckBox = New CheckBoxEx()
 		Me.UpdateUserControlFillPanel.SuspendLayout()
 		Me.CheckForUpdateGroupBox.SuspendLayout()
 		Me.Panel1.SuspendLayout()
@@ -118,7 +118,6 @@ Partial Class UpdateUserControl
 		Me.ChangelogTextBox.Size = New System.Drawing.Size(764, 312)
 		Me.ChangelogTextBox.TabIndex = 6
 		Me.ChangelogTextBox.Text = ""
-		Me.ChangelogTextBox.WordWrap = False
 		'
 		'CurrentVersionLabel
 		'
@@ -416,8 +415,8 @@ Partial Class UpdateUserControl
 	Friend WithEvents UpdateButton As ButtonEx
 	Friend WithEvents CheckForUpdateButton As ButtonEx
 	Friend WithEvents DownloadButton As ButtonEx
-	Friend WithEvents UpdateCopySettingsCheckBox As CheckBox
-	Friend WithEvents UpdateToNewPathCheckBox As CheckBox
+	Friend WithEvents UpdateCopySettingsCheckBox As CheckBoxEx
+	Friend WithEvents UpdateToNewPathCheckBox As CheckBoxEx
 	Friend WithEvents ChangelogTextBox As RichTextBoxEx
 	Friend WithEvents UpdateGroupBox As GroupBoxEx
 	Friend WithEvents UpdateProgressBarEx As ProgressBarEx

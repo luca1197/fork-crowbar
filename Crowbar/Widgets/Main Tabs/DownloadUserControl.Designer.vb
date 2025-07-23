@@ -71,6 +71,7 @@ Partial Class DownloadUserControl
 		Me.ItemIdTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.ItemIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.ItemIdTextBox.CueBannerText = ""
+		Me.ItemIdTextBox.DetectUrls = False
 		Me.ItemIdTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ItemIdTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.ItemIdTextBox.Location = New System.Drawing.Point(87, 4)
@@ -80,6 +81,7 @@ Partial Class DownloadUserControl
 		Me.ItemIdTextBox.Size = New System.Drawing.Size(616, 22)
 		Me.ItemIdTextBox.TabIndex = 1
 		Me.ItemIdTextBox.Text = ""
+		Me.ItemIdTextBox.WordWrap = False
 		'
 		'DownloadButton
 		'
@@ -92,9 +94,10 @@ Partial Class DownloadUserControl
 		'
 		'LogTextBox
 		'
-		Me.LogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.LogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.LogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.LogTextBox.CueBannerText = ""
+		Me.LogTextBox.DetectUrls = False
 		Me.LogTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.LogTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.LogTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -146,6 +149,7 @@ Partial Class DownloadUserControl
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputPathTextBox.CueBannerText = ""
+		Me.OutputPathTextBox.DetectUrls = False
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputPathTextBox.Location = New System.Drawing.Point(233, 33)
@@ -215,6 +219,7 @@ Partial Class DownloadUserControl
 		'UseIdCheckBox
 		'
 		Me.UseIdCheckBox.AutoSize = True
+		Me.UseIdCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.UseIdCheckBox.IsReadOnly = False
 		Me.UseIdCheckBox.Location = New System.Drawing.Point(3, 3)
 		Me.UseIdCheckBox.Name = "UseIdCheckBox"
@@ -226,6 +231,7 @@ Partial Class DownloadUserControl
 		'PrependTitleCheckBox
 		'
 		Me.PrependTitleCheckBox.AutoSize = True
+		Me.PrependTitleCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.PrependTitleCheckBox.IsReadOnly = False
 		Me.PrependTitleCheckBox.Location = New System.Drawing.Point(3, 26)
 		Me.PrependTitleCheckBox.Name = "PrependTitleCheckBox"
@@ -237,6 +243,7 @@ Partial Class DownloadUserControl
 		'AppendDateTimeCheckBox
 		'
 		Me.AppendDateTimeCheckBox.AutoSize = True
+		Me.AppendDateTimeCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.AppendDateTimeCheckBox.IsReadOnly = False
 		Me.AppendDateTimeCheckBox.Location = New System.Drawing.Point(3, 49)
 		Me.AppendDateTimeCheckBox.Name = "AppendDateTimeCheckBox"
@@ -248,6 +255,7 @@ Partial Class DownloadUserControl
 		'ReplaceSpacesWithUnderscoresCheckBox
 		'
 		Me.ReplaceSpacesWithUnderscoresCheckBox.AutoSize = True
+		Me.ReplaceSpacesWithUnderscoresCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ReplaceSpacesWithUnderscoresCheckBox.IsReadOnly = False
 		Me.ReplaceSpacesWithUnderscoresCheckBox.Location = New System.Drawing.Point(3, 72)
 		Me.ReplaceSpacesWithUnderscoresCheckBox.Name = "ReplaceSpacesWithUnderscoresCheckBox"
@@ -268,6 +276,7 @@ Partial Class DownloadUserControl
 		'ConvertToExpectedFileOrFolderCheckBox
 		'
 		Me.ConvertToExpectedFileOrFolderCheckBox.AutoSize = True
+		Me.ConvertToExpectedFileOrFolderCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ConvertToExpectedFileOrFolderCheckBox.IsReadOnly = False
 		Me.ConvertToExpectedFileOrFolderCheckBox.Location = New System.Drawing.Point(230, 3)
 		Me.ConvertToExpectedFileOrFolderCheckBox.Name = "ConvertToExpectedFileOrFolderCheckBox"
@@ -290,9 +299,10 @@ Partial Class DownloadUserControl
 		'
 		Me.ExampleOutputFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.ExampleOutputFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.ExampleOutputFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.ExampleOutputFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.ExampleOutputFileNameTextBox.CueBannerText = ""
+		Me.ExampleOutputFileNameTextBox.DetectUrls = False
 		Me.ExampleOutputFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ExampleOutputFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.ExampleOutputFileNameTextBox.Location = New System.Drawing.Point(3, 147)
@@ -339,9 +349,10 @@ Partial Class DownloadUserControl
 		'
 		Me.DocumentsOutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.DocumentsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.DocumentsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.DocumentsOutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.DocumentsOutputPathTextBox.CueBannerText = ""
+		Me.DocumentsOutputPathTextBox.DetectUrls = False
 		Me.DocumentsOutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.DocumentsOutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.DocumentsOutputPathTextBox.Location = New System.Drawing.Point(233, 32)
@@ -357,9 +368,10 @@ Partial Class DownloadUserControl
 		'
 		Me.DownloadedItemTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.DownloadedItemTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.DownloadedItemTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.DownloadedItemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.DownloadedItemTextBox.CueBannerText = ""
+		Me.DownloadedItemTextBox.DetectUrls = False
 		Me.DownloadedItemTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.DownloadedItemTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.DownloadedItemTextBox.Location = New System.Drawing.Point(83, 3)

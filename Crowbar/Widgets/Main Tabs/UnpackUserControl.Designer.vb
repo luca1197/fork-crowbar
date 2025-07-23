@@ -25,7 +25,7 @@ Partial Class UnpackUserControl
 		Me.components = New System.ComponentModel.Container()
 		Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
 		Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-		Me.LogFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.LogFileCheckBox = New Crowbar.CheckBoxEx()
 		Me.RefreshListingButton = New Crowbar.ButtonEx()
 		Me.Panel2 = New Crowbar.PanelEx()
 		Me.OutputSamePathTextBox = New Crowbar.RichTextBoxEx()
@@ -51,8 +51,7 @@ Partial Class UnpackUserControl
 		Me.PackageListView = New Crowbar.ListViewEx()
 		Me.Panel3 = New Crowbar.PanelEx()
 		Me.SelectionPathTextBox = New Crowbar.RichTextBoxEx()
-		Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-		Me.SearchToolStripComboBox = New Crowbar.ToolStripComboBoxEx()
+		Me.ToolStrip1 = New Crowbar.ToolStripEx()
 		Me.FindToolStripTextBox = New Crowbar.ToolStripSpringTextBox()
 		Me.FindToolStripButton = New Crowbar.ToolStripButtonEx()
 		Me.ToolStripSeparator1 = New Crowbar.ToolStripSeparatorEx()
@@ -62,12 +61,12 @@ Partial Class UnpackUserControl
 		Me.ContentsMinScrollerPanel = New Crowbar.PanelEx()
 		Me.OptionsGroupBox = New Crowbar.GroupBoxEx()
 		Me.OptionsGroupBoxFillPanel = New Crowbar.PanelEx()
-		Me.KeepFullPathCheckBox = New System.Windows.Forms.CheckBox()
-		Me.FolderForEachPackageCheckBox = New System.Windows.Forms.CheckBox()
+		Me.KeepFullPathCheckBox = New Crowbar.CheckBoxEx()
+		Me.FolderForEachPackageCheckBox = New Crowbar.CheckBoxEx()
 		Me.Label3 = New System.Windows.Forms.Label()
 		Me.EditGameSetupButton = New Crowbar.ButtonEx()
 		Me.GameSetupComboBox = New Crowbar.ComboBoxEx()
-		Me.SelectAllModelsAndMaterialsFoldersCheckBox = New System.Windows.Forms.CheckBox()
+		Me.SelectAllModelsAndMaterialsFoldersCheckBox = New Crowbar.CheckBoxEx()
 		Me.UnpackOptionsUseDefaultsButton = New Crowbar.ButtonEx()
 		Me.UnpackerLogTextBox = New Crowbar.RichTextBoxEx()
 		Me.UnpackButtonsPanel = New Crowbar.PanelEx()
@@ -112,6 +111,8 @@ Partial Class UnpackUserControl
 		'LogFileCheckBox
 		'
 		Me.LogFileCheckBox.AutoSize = True
+		Me.LogFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.LogFileCheckBox.IsReadOnly = False
 		Me.LogFileCheckBox.Location = New System.Drawing.Point(3, 72)
 		Me.LogFileCheckBox.Name = "LogFileCheckBox"
 		Me.LogFileCheckBox.Size = New System.Drawing.Size(116, 17)
@@ -167,9 +168,10 @@ Partial Class UnpackUserControl
 		'
 		Me.OutputSamePathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.OutputSamePathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.OutputSamePathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.OutputSamePathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputSamePathTextBox.CueBannerText = ""
+		Me.OutputSamePathTextBox.DetectUrls = False
 		Me.OutputSamePathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputSamePathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputSamePathTextBox.Location = New System.Drawing.Point(209, 33)
@@ -186,9 +188,10 @@ Partial Class UnpackUserControl
 		'
 		Me.GameModelsOutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.GameModelsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.GameModelsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.GameModelsOutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.GameModelsOutputPathTextBox.CueBannerText = ""
+		Me.GameModelsOutputPathTextBox.DetectUrls = False
 		Me.GameModelsOutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.GameModelsOutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.GameModelsOutputPathTextBox.Location = New System.Drawing.Point(209, 33)
@@ -242,6 +245,7 @@ Partial Class UnpackUserControl
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputPathTextBox.CueBannerText = ""
+		Me.OutputPathTextBox.DetectUrls = False
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputPathTextBox.Location = New System.Drawing.Point(209, 33)
@@ -259,6 +263,7 @@ Partial Class UnpackUserControl
 		Me.OutputSubfolderTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.OutputSubfolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputSubfolderTextBox.CueBannerText = ""
+		Me.OutputSubfolderTextBox.DetectUrls = False
 		Me.OutputSubfolderTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputSubfolderTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputSubfolderTextBox.Location = New System.Drawing.Point(209, 33)
@@ -318,6 +323,7 @@ Partial Class UnpackUserControl
 		Me.PackagePathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.PackagePathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.PackagePathFileNameTextBox.CueBannerText = ""
+		Me.PackagePathFileNameTextBox.DetectUrls = False
 		Me.PackagePathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.PackagePathFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.PackagePathFileNameTextBox.Location = New System.Drawing.Point(209, 4)
@@ -389,7 +395,7 @@ Partial Class UnpackUserControl
 		'
 		Me.SplitContainer2.Panel2.Controls.Add(Me.OptionsGroupBox)
 		Me.SplitContainer2.Size = New System.Drawing.Size(770, 347)
-		Me.SplitContainer2.SplitterDistance = 572
+		Me.SplitContainer2.SplitterDistance = 560
 		Me.SplitContainer2.SplitterWidth = 6
 		Me.SplitContainer2.TabIndex = 0
 		'
@@ -403,7 +409,7 @@ Partial Class UnpackUserControl
 		Me.ContentsGroupBox.Location = New System.Drawing.Point(0, 0)
 		Me.ContentsGroupBox.Name = "ContentsGroupBox"
 		Me.ContentsGroupBox.SelectedValue = Nothing
-		Me.ContentsGroupBox.Size = New System.Drawing.Size(572, 347)
+		Me.ContentsGroupBox.Size = New System.Drawing.Size(560, 347)
 		Me.ContentsGroupBox.TabIndex = 0
 		Me.ContentsGroupBox.TabStop = False
 		Me.ContentsGroupBox.Text = "Contents of package"
@@ -422,7 +428,7 @@ Partial Class UnpackUserControl
 		Me.ContentsGroupBoxFillPanel.Name = "ContentsGroupBoxFillPanel"
 		Me.ContentsGroupBoxFillPanel.SelectedIndex = -1
 		Me.ContentsGroupBoxFillPanel.SelectedValue = Nothing
-		Me.ContentsGroupBoxFillPanel.Size = New System.Drawing.Size(566, 326)
+		Me.ContentsGroupBoxFillPanel.Size = New System.Drawing.Size(554, 326)
 		Me.ContentsGroupBoxFillPanel.TabIndex = 12
 		'
 		'SplitContainer3
@@ -439,7 +445,7 @@ Partial Class UnpackUserControl
 		'SplitContainer3.Panel2
 		'
 		Me.SplitContainer3.Panel2.Controls.Add(Me.PackageListView)
-		Me.SplitContainer3.Size = New System.Drawing.Size(566, 274)
+		Me.SplitContainer3.Size = New System.Drawing.Size(554, 275)
 		Me.SplitContainer3.SplitterDistance = 250
 		Me.SplitContainer3.TabIndex = 6
 		'
@@ -447,7 +453,7 @@ Partial Class UnpackUserControl
 		'
 		Me.PackageTreeView.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.PackageTreeView.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.PackageTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText
+		Me.PackageTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll
 		Me.PackageTreeView.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.PackageTreeView.HideSelection = False
 		Me.PackageTreeView.ImageIndex = 0
@@ -455,7 +461,7 @@ Partial Class UnpackUserControl
 		Me.PackageTreeView.Location = New System.Drawing.Point(0, 0)
 		Me.PackageTreeView.Name = "PackageTreeView"
 		Me.PackageTreeView.SelectedImageIndex = 0
-		Me.PackageTreeView.Size = New System.Drawing.Size(250, 274)
+		Me.PackageTreeView.Size = New System.Drawing.Size(250, 275)
 		Me.PackageTreeView.TabIndex = 0
 		'
 		'PackageListView
@@ -469,7 +475,7 @@ Partial Class UnpackUserControl
 		Me.PackageListView.Name = "PackageListView"
 		Me.PackageListView.OwnerDraw = True
 		Me.PackageListView.ShowGroups = False
-		Me.PackageListView.Size = New System.Drawing.Size(312, 274)
+		Me.PackageListView.Size = New System.Drawing.Size(300, 275)
 		Me.PackageListView.SmallImageList = Me.ImageList1
 		Me.PackageListView.Sorting = System.Windows.Forms.SortOrder.Ascending
 		Me.PackageListView.TabIndex = 1
@@ -486,14 +492,15 @@ Partial Class UnpackUserControl
 		Me.Panel3.Name = "Panel3"
 		Me.Panel3.SelectedIndex = -1
 		Me.Panel3.SelectedValue = Nothing
-		Me.Panel3.Size = New System.Drawing.Size(566, 26)
+		Me.Panel3.Size = New System.Drawing.Size(554, 26)
 		Me.Panel3.TabIndex = 11
 		'
 		'SelectionPathTextBox
 		'
-		Me.SelectionPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.SelectionPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.SelectionPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.SelectionPathTextBox.CueBannerText = ""
+		Me.SelectionPathTextBox.DetectUrls = False
 		Me.SelectionPathTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.SelectionPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.SelectionPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -502,40 +509,31 @@ Partial Class UnpackUserControl
 		Me.SelectionPathTextBox.Name = "SelectionPathTextBox"
 		Me.SelectionPathTextBox.ReadOnly = True
 		Me.SelectionPathTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-		Me.SelectionPathTextBox.Size = New System.Drawing.Size(566, 26)
+		Me.SelectionPathTextBox.Size = New System.Drawing.Size(554, 26)
 		Me.SelectionPathTextBox.TabIndex = 1
 		Me.SelectionPathTextBox.Text = ""
 		Me.SelectionPathTextBox.WordWrap = False
 		'
 		'ToolStrip1
 		'
+		Me.ToolStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.ToolStrip1.CanOverflow = False
 		Me.ToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom
 		Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-		Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripComboBox, Me.FindToolStripTextBox, Me.FindToolStripButton, Me.ToolStripSeparator1, Me.FilesSelectedCountToolStripLabel, Me.ToolStripSeparator3, Me.SizeSelectedTotalToolStripLabel})
-		Me.ToolStrip1.Location = New System.Drawing.Point(0, 300)
+		Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FindToolStripTextBox, Me.FindToolStripButton, Me.ToolStripSeparator1, Me.FilesSelectedCountToolStripLabel, Me.ToolStripSeparator3, Me.SizeSelectedTotalToolStripLabel})
+		Me.ToolStrip1.Location = New System.Drawing.Point(0, 301)
 		Me.ToolStrip1.Name = "ToolStrip1"
-		Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-		Me.ToolStrip1.Size = New System.Drawing.Size(566, 26)
+		Me.ToolStrip1.Size = New System.Drawing.Size(554, 25)
 		Me.ToolStrip1.Stretch = True
 		Me.ToolStrip1.TabIndex = 10
 		Me.ToolStrip1.Text = "ToolStrip1"
-		'
-		'SearchToolStripComboBox
-		'
-		Me.SearchToolStripComboBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
-		Me.SearchToolStripComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.SearchToolStripComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.SearchToolStripComboBox.Name = "SearchToolStripComboBox"
-		Me.SearchToolStripComboBox.Size = New System.Drawing.Size(121, 23)
-		Me.SearchToolStripComboBox.ToolTipText = "What to search"
 		'
 		'FindToolStripTextBox
 		'
 		Me.FindToolStripTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.FindToolStripTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.FindToolStripTextBox.Name = "FindToolStripTextBox"
-		Me.FindToolStripTextBox.Size = New System.Drawing.Size(313, 26)
+		Me.FindToolStripTextBox.Size = New System.Drawing.Size(422, 25)
 		Me.FindToolStripTextBox.ToolTipText = "Text to find"
 		'
 		'FindToolStripButton
@@ -547,7 +545,7 @@ Partial Class UnpackUserControl
 		Me.FindToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
 		Me.FindToolStripButton.Name = "FindToolStripButton"
 		Me.FindToolStripButton.RightToLeftAutoMirrorImage = True
-		Me.FindToolStripButton.Size = New System.Drawing.Size(23, 23)
+		Me.FindToolStripButton.Size = New System.Drawing.Size(23, 22)
 		Me.FindToolStripButton.Text = "Find"
 		Me.FindToolStripButton.ToolTipText = "Find"
 		'
@@ -556,15 +554,14 @@ Partial Class UnpackUserControl
 		Me.ToolStripSeparator1.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.ToolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
 		Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-		Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 26)
+		Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
 		'
 		'FilesSelectedCountToolStripLabel
 		'
-		Me.FilesSelectedCountToolStripLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.FilesSelectedCountToolStripLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.FilesSelectedCountToolStripLabel.Name = "FilesSelectedCountToolStripLabel"
 		Me.FilesSelectedCountToolStripLabel.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
-		Me.FilesSelectedCountToolStripLabel.Size = New System.Drawing.Size(40, 23)
+		Me.FilesSelectedCountToolStripLabel.Size = New System.Drawing.Size(40, 22)
 		Me.FilesSelectedCountToolStripLabel.Text = "0 / 0"
 		Me.FilesSelectedCountToolStripLabel.ToolTipText = "Selected item count / Total item count"
 		'
@@ -573,15 +570,14 @@ Partial Class UnpackUserControl
 		Me.ToolStripSeparator3.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.ToolStripSeparator3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
 		Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-		Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 26)
+		Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 25)
 		'
 		'SizeSelectedTotalToolStripLabel
 		'
-		Me.SizeSelectedTotalToolStripLabel.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.SizeSelectedTotalToolStripLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.SizeSelectedTotalToolStripLabel.Name = "SizeSelectedTotalToolStripLabel"
 		Me.SizeSelectedTotalToolStripLabel.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
-		Me.SizeSelectedTotalToolStripLabel.Size = New System.Drawing.Size(23, 23)
+		Me.SizeSelectedTotalToolStripLabel.Size = New System.Drawing.Size(23, 22)
 		Me.SizeSelectedTotalToolStripLabel.Text = "0"
 		Me.SizeSelectedTotalToolStripLabel.ToolTipText = "Byte count of selected items"
 		'
@@ -606,7 +602,7 @@ Partial Class UnpackUserControl
 		Me.OptionsGroupBox.Location = New System.Drawing.Point(0, 0)
 		Me.OptionsGroupBox.Name = "OptionsGroupBox"
 		Me.OptionsGroupBox.SelectedValue = Nothing
-		Me.OptionsGroupBox.Size = New System.Drawing.Size(192, 347)
+		Me.OptionsGroupBox.Size = New System.Drawing.Size(204, 347)
 		Me.OptionsGroupBox.TabIndex = 0
 		Me.OptionsGroupBox.TabStop = False
 		Me.OptionsGroupBox.Text = "Options"
@@ -629,12 +625,14 @@ Partial Class UnpackUserControl
 		Me.OptionsGroupBoxFillPanel.Name = "OptionsGroupBoxFillPanel"
 		Me.OptionsGroupBoxFillPanel.SelectedIndex = -1
 		Me.OptionsGroupBoxFillPanel.SelectedValue = Nothing
-		Me.OptionsGroupBoxFillPanel.Size = New System.Drawing.Size(186, 326)
+		Me.OptionsGroupBoxFillPanel.Size = New System.Drawing.Size(198, 326)
 		Me.OptionsGroupBoxFillPanel.TabIndex = 0
 		'
 		'KeepFullPathCheckBox
 		'
 		Me.KeepFullPathCheckBox.AutoSize = True
+		Me.KeepFullPathCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.KeepFullPathCheckBox.IsReadOnly = False
 		Me.KeepFullPathCheckBox.Location = New System.Drawing.Point(3, 26)
 		Me.KeepFullPathCheckBox.Name = "KeepFullPathCheckBox"
 		Me.KeepFullPathCheckBox.Size = New System.Drawing.Size(98, 17)
@@ -645,6 +643,8 @@ Partial Class UnpackUserControl
 		'FolderForEachPackageCheckBox
 		'
 		Me.FolderForEachPackageCheckBox.AutoSize = True
+		Me.FolderForEachPackageCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.FolderForEachPackageCheckBox.IsReadOnly = False
 		Me.FolderForEachPackageCheckBox.Location = New System.Drawing.Point(3, 3)
 		Me.FolderForEachPackageCheckBox.Name = "FolderForEachPackageCheckBox"
 		Me.FolderForEachPackageCheckBox.Size = New System.Drawing.Size(150, 17)
@@ -665,7 +665,7 @@ Partial Class UnpackUserControl
 		'EditGameSetupButton
 		'
 		Me.EditGameSetupButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.EditGameSetupButton.Location = New System.Drawing.Point(7845, 229)
+		Me.EditGameSetupButton.Location = New System.Drawing.Point(7857, 229)
 		Me.EditGameSetupButton.Name = "EditGameSetupButton"
 		Me.EditGameSetupButton.Size = New System.Drawing.Size(90, 23)
 		Me.EditGameSetupButton.TabIndex = 1
@@ -685,13 +685,15 @@ Partial Class UnpackUserControl
 		Me.GameSetupComboBox.IsReadOnly = False
 		Me.GameSetupComboBox.Location = New System.Drawing.Point(3, 255)
 		Me.GameSetupComboBox.Name = "GameSetupComboBox"
-		Me.GameSetupComboBox.Size = New System.Drawing.Size(7932, 23)
+		Me.GameSetupComboBox.Size = New System.Drawing.Size(7944, 23)
 		Me.GameSetupComboBox.TabIndex = 2
 		Me.GameSetupComboBox.Visible = False
 		'
 		'SelectAllModelsAndMaterialsFoldersCheckBox
 		'
 		Me.SelectAllModelsAndMaterialsFoldersCheckBox.AutoSize = True
+		Me.SelectAllModelsAndMaterialsFoldersCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.SelectAllModelsAndMaterialsFoldersCheckBox.IsReadOnly = False
 		Me.SelectAllModelsAndMaterialsFoldersCheckBox.Location = New System.Drawing.Point(33, 180)
 		Me.SelectAllModelsAndMaterialsFoldersCheckBox.Name = "SelectAllModelsAndMaterialsFoldersCheckBox"
 		Me.SelectAllModelsAndMaterialsFoldersCheckBox.Size = New System.Drawing.Size(238, 17)
@@ -712,9 +714,10 @@ Partial Class UnpackUserControl
 		'
 		'UnpackerLogTextBox
 		'
-		Me.UnpackerLogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.UnpackerLogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.UnpackerLogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.UnpackerLogTextBox.CueBannerText = ""
+		Me.UnpackerLogTextBox.DetectUrls = False
 		Me.UnpackerLogTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.UnpackerLogTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.UnpackerLogTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -905,12 +908,12 @@ Partial Class UnpackUserControl
 	Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
 	Friend WithEvents UnpackOptionsUseDefaultsButton As ButtonEx
 	Friend WithEvents SelectionPathTextBox As Crowbar.RichTextBoxEx
-	Friend WithEvents SelectAllModelsAndMaterialsFoldersCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents SelectAllModelsAndMaterialsFoldersCheckBox As CheckBoxEx
 	Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 	Friend WithEvents Label3 As System.Windows.Forms.Label
 	Friend WithEvents GameSetupComboBox As ComboBoxEx
 	Friend WithEvents EditGameSetupButton As ButtonEx
-	Friend WithEvents LogFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents LogFileCheckBox As CheckBoxEx
 	Friend WithEvents OptionsGroupBoxFillPanel As PanelEx
 	Friend WithEvents PackageListView As ListViewEx
 	Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
@@ -923,15 +926,14 @@ Partial Class UnpackUserControl
 	Friend WithEvents UseDefaultOutputSubfolderButton As ButtonEx
 	Friend WithEvents OutputSubfolderTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents OutputSamePathTextBox As Crowbar.RichTextBoxEx
-	Friend WithEvents FolderForEachPackageCheckBox As CheckBox
-	Friend WithEvents KeepFullPathCheckBox As CheckBox
+	Friend WithEvents FolderForEachPackageCheckBox As CheckBoxEx
+	Friend WithEvents KeepFullPathCheckBox As CheckBoxEx
 	Friend WithEvents PostUnpackPanel As PanelEx
 	Friend WithEvents UnpackButtonsPanel As PanelEx
 	Friend WithEvents Panel3 As PanelEx
 	Friend WithEvents ContentsGroupBoxFillPanel As PanelEx
 	Friend WithEvents ContentsMinScrollerPanel As PanelEx
-	Friend WithEvents ToolStrip1 As ToolStrip
-	Friend WithEvents SearchToolStripComboBox As ToolStripComboBoxEx
+	Friend WithEvents ToolStrip1 As ToolStripEx
 	Friend WithEvents FindToolStripTextBox As ToolStripSpringTextBox
 	Friend WithEvents FindToolStripButton As ToolStripButtonEx
 	Friend WithEvents ToolStripSeparator1 As ToolStripSeparatorEx

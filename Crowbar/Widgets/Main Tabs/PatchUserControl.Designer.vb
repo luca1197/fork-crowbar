@@ -61,9 +61,9 @@ Partial Class PatchUserControl
 		Me.Button1 = New Crowbar.ButtonEx()
 		Me.Button3 = New Crowbar.ButtonEx()
 		Me.Button2 = New Crowbar.ButtonEx()
-		Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-		Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox3 = New CheckBoxEx()
+		Me.CheckBox2 = New CheckBoxEx()
+		Me.CheckBox1 = New CheckBoxEx()
 		Me.Label4 = New System.Windows.Forms.Label()
 		Me.Label5 = New System.Windows.Forms.Label()
 		Me.TextBoxEx2 = New Crowbar.RichTextBoxEx()
@@ -98,9 +98,9 @@ Partial Class PatchUserControl
 		Me.Button19 = New Crowbar.ButtonEx()
 		Me.Button20 = New Crowbar.ButtonEx()
 		Me.Button21 = New Crowbar.ButtonEx()
-		Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-		Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-		Me.CheckBox6 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox4 = New CheckBoxEx()
+		Me.CheckBox5 = New CheckBoxEx()
+		Me.CheckBox6 = New CheckBoxEx()
 		Me.Label12 = New System.Windows.Forms.Label()
 		Me.CancelDecompileButton = New Crowbar.ButtonEx()
 		Me.SkipCurrentModelButton = New Crowbar.ButtonEx()
@@ -1182,9 +1182,9 @@ Partial Class PatchUserControl
 	Friend WithEvents Label3 As System.Windows.Forms.Label
 	Friend WithEvents Label2 As System.Windows.Forms.Label
 	Friend WithEvents TextBoxEx1 As Crowbar.RichTextBoxEx
-	Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
-	Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-	Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+	Friend WithEvents CheckBox3 As CheckBoxEx
+	Friend WithEvents CheckBox2 As CheckBoxEx
+	Friend WithEvents CheckBox1 As CheckBoxEx
 	Friend WithEvents Button4 As ButtonEx
 	Friend WithEvents Button3 As ButtonEx
 	Friend WithEvents Button2 As ButtonEx
@@ -1242,8 +1242,8 @@ Partial Class PatchUserControl
 	Friend WithEvents Button19 As ButtonEx
 	Friend WithEvents Button20 As ButtonEx
 	Friend WithEvents Button21 As ButtonEx
-	Friend WithEvents CheckBox4 As CheckBox
-	Friend WithEvents CheckBox5 As CheckBox
-	Friend WithEvents CheckBox6 As CheckBox
+	Friend WithEvents CheckBox4 As CheckBoxEx
+	Friend WithEvents CheckBox5 As CheckBoxEx
+	Friend WithEvents CheckBox6 As CheckBoxEx
 	Friend WithEvents Label12 As Label
 End Class

@@ -19,58 +19,58 @@ Partial Class OptionsUserControl
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.IntegrateContextMenuItemsCheckBox = New System.Windows.Forms.CheckBox()
+		Me.IntegrateContextMenuItemsCheckBox = New CheckBoxEx()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.IntegrateAsSubmenuCheckBox = New System.Windows.Forms.CheckBox()
+		Me.IntegrateAsSubmenuCheckBox = New CheckBoxEx()
 		Me.GroupBox1 = New Crowbar.GroupBoxEx()
 		Me.Panel7 = New Crowbar.PanelEx()
-		Me.OptionsContextMenuCompileFolderAndSubfoldersCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuCompileFolderCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuCompileQcFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuDecompileFolderAndSubfoldersCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuDecompileFolderCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuDecompileMdlFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuViewMdlFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.OptionsContextMenuOpenWithCrowbarCheckBox = New System.Windows.Forms.CheckBox()
+		Me.OptionsContextMenuCompileFolderAndSubfoldersCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuCompileFolderCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuCompileQcFileCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuDecompileFolderAndSubfoldersCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuDecompileFolderCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuDecompileMdlFileCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuViewMdlFileCheckBox = New CheckBoxEx()
+		Me.OptionsContextMenuOpenWithCrowbarCheckBox = New CheckBoxEx()
 		Me.ContextMenuUseDefaultsButton = New Crowbar.ButtonEx()
-		Me.AutoOpenMdlFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.AutoOpenQcFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.AutoOpenMdlFileCheckBox = New CheckBoxEx()
+		Me.AutoOpenQcFileCheckBox = New CheckBoxEx()
 		Me.GroupBox2 = New Crowbar.GroupBoxEx()
 		Me.Panel2 = New Crowbar.PanelEx()
-		Me.AutoOpenGmaFileForPublishRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenGmaFileForUnpackRadioButton = New System.Windows.Forms.RadioButton()
+		Me.AutoOpenGmaFileForPublishRadioButton = New RadioButtonEx()
+		Me.AutoOpenGmaFileForUnpackRadioButton = New RadioButtonEx()
 		Me.AutoOpenVpkPanel = New Crowbar.PanelEx()
-		Me.AutoOpenVpkFileForPublishRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenVpkFileForUnpackRadioButton = New System.Windows.Forms.RadioButton()
+		Me.AutoOpenVpkFileForPublishRadioButton = New RadioButtonEx()
+		Me.AutoOpenVpkFileForUnpackRadioButton = New RadioButtonEx()
 		Me.Label14 = New System.Windows.Forms.Label()
-		Me.AutoOpenFpxFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.AutoOpenGmaFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.AutoOpenFpxFileCheckBox = New CheckBoxEx()
+		Me.AutoOpenGmaFileCheckBox = New CheckBoxEx()
 		Me.Label5 = New System.Windows.Forms.Label()
 		Me.AutoOpenFolderPanel = New Crowbar.PanelEx()
-		Me.AutoOpenFolderForPackRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenFolderForCompileRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenFolderForDecompileRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenFolderForUnpackRadioButton = New System.Windows.Forms.RadioButton()
+		Me.AutoOpenFolderForPackRadioButton = New RadioButtonEx()
+		Me.AutoOpenFolderForCompileRadioButton = New RadioButtonEx()
+		Me.AutoOpenFolderForDecompileRadioButton = New RadioButtonEx()
+		Me.AutoOpenFolderForUnpackRadioButton = New RadioButtonEx()
 		Me.Label4 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.AutoOpenUseDefaultsButton = New Crowbar.ButtonEx()
 		Me.Panel1 = New Crowbar.PanelEx()
 		Me.Label9 = New System.Windows.Forms.Label()
 		Me.Label8 = New System.Windows.Forms.Label()
-		Me.AutoOpenMdlFileForViewCheckBox = New System.Windows.Forms.CheckBox()
-		Me.AutoOpenMdlFileForDecompileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.AutoOpenMdlFileForPreviewCheckBox = New System.Windows.Forms.CheckBox()
-		Me.AutoOpenMdlFileForViewingRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenMdlFileForPreviewingRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenMdlFileForDecompilingRadioButton = New System.Windows.Forms.RadioButton()
-		Me.AutoOpenVpkFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.AutoOpenMdlFileForViewCheckBox = New CheckBoxEx()
+		Me.AutoOpenMdlFileForDecompileCheckBox = New CheckBoxEx()
+		Me.AutoOpenMdlFileForPreviewCheckBox = New CheckBoxEx()
+		Me.AutoOpenMdlFileForViewingRadioButton = New RadioButtonEx()
+		Me.AutoOpenMdlFileForPreviewingRadioButton = New RadioButtonEx()
+		Me.AutoOpenMdlFileForDecompilingRadioButton = New RadioButtonEx()
+		Me.AutoOpenVpkFileCheckBox = New CheckBoxEx()
 		Me.GroupBox3 = New Crowbar.GroupBoxEx()
 		Me.Panel5 = New Crowbar.PanelEx()
-		Me.DragAndDropGmaFileForPublishRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropGmaFileForUnpackRadioButton = New System.Windows.Forms.RadioButton()
+		Me.DragAndDropGmaFileForPublishRadioButton = New RadioButtonEx()
+		Me.DragAndDropGmaFileForUnpackRadioButton = New RadioButtonEx()
 		Me.Panel6 = New Crowbar.PanelEx()
-		Me.DragAndDropVpkFileForPublishRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropVpkFileForUnpackRadioButton = New System.Windows.Forms.RadioButton()
+		Me.DragAndDropVpkFileForPublishRadioButton = New RadioButtonEx()
+		Me.DragAndDropVpkFileForUnpackRadioButton = New RadioButtonEx()
 		Me.Label7 = New System.Windows.Forms.Label()
 		Me.Label6 = New System.Windows.Forms.Label()
 		Me.Label13 = New System.Windows.Forms.Label()
@@ -78,23 +78,23 @@ Partial Class OptionsUserControl
 		Me.Panel3 = New Crowbar.PanelEx()
 		Me.Label10 = New System.Windows.Forms.Label()
 		Me.Label11 = New System.Windows.Forms.Label()
-		Me.DragAndDropMdlFileForViewCheckBox = New System.Windows.Forms.CheckBox()
-		Me.DragAndDropMdlFileForDecompileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.DragAndDropMdlFileForPreviewCheckBox = New System.Windows.Forms.CheckBox()
-		Me.DragAndDropMdlFileForPreviewingRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropMdlFileForDecompilingRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropMdlFileForViewingRadioButton = New System.Windows.Forms.RadioButton()
+		Me.DragAndDropMdlFileForViewCheckBox = New CheckBoxEx()
+		Me.DragAndDropMdlFileForDecompileCheckBox = New CheckBoxEx()
+		Me.DragAndDropMdlFileForPreviewCheckBox = New CheckBoxEx()
+		Me.DragAndDropMdlFileForPreviewingRadioButton = New RadioButtonEx()
+		Me.DragAndDropMdlFileForDecompilingRadioButton = New RadioButtonEx()
+		Me.DragAndDropMdlFileForViewingRadioButton = New RadioButtonEx()
 		Me.Label3 = New System.Windows.Forms.Label()
 		Me.DragAndDropUseDefaultsButton = New Crowbar.ButtonEx()
 		Me.Panel4 = New Crowbar.PanelEx()
-		Me.DragAndDropFolderForPackRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropFolderForCompileRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropFolderForDecompileRadioButton = New System.Windows.Forms.RadioButton()
-		Me.DragAndDropFolderForUnpackRadioButton = New System.Windows.Forms.RadioButton()
+		Me.DragAndDropFolderForPackRadioButton = New RadioButtonEx()
+		Me.DragAndDropFolderForCompileRadioButton = New RadioButtonEx()
+		Me.DragAndDropFolderForDecompileRadioButton = New RadioButtonEx()
+		Me.DragAndDropFolderForUnpackRadioButton = New RadioButtonEx()
 		Me.ApplyLabel = New System.Windows.Forms.Label()
 		Me.ApplyButton = New Crowbar.ButtonEx()
 		Me.ApplyPanel = New Crowbar.PanelEx()
-		Me.SingleInstanceCheckBox = New System.Windows.Forms.CheckBox()
+		Me.SingleInstanceCheckBox = New CheckBoxEx()
 		Me.GroupBox1.SuspendLayout()
 		Me.Panel7.SuspendLayout()
 		Me.GroupBox2.SuspendLayout()
@@ -1015,52 +1015,52 @@ Partial Class OptionsUserControl
 		Me.PerformLayout()
 
 	End Sub
-	Friend WithEvents IntegrateContextMenuItemsCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents IntegrateContextMenuItemsCheckBox As CheckBoxEx
 	Friend WithEvents Label1 As System.Windows.Forms.Label
-	Friend WithEvents IntegrateAsSubmenuCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents IntegrateAsSubmenuCheckBox As CheckBoxEx
 	Friend WithEvents GroupBox1 As GroupBoxEx
-	Friend WithEvents AutoOpenMdlFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents AutoOpenQcFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents AutoOpenMdlFileCheckBox As CheckBoxEx
+	Friend WithEvents AutoOpenQcFileCheckBox As CheckBoxEx
 	Friend WithEvents GroupBox2 As GroupBoxEx
-	Friend WithEvents AutoOpenVpkFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents AutoOpenVpkFileCheckBox As CheckBoxEx
 	Friend WithEvents Panel1 As PanelEx
-	Friend WithEvents AutoOpenMdlFileForDecompilingRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents AutoOpenMdlFileForViewingRadioButton As System.Windows.Forms.RadioButton
+	Friend WithEvents AutoOpenMdlFileForDecompilingRadioButton As RadioButtonEx
+	Friend WithEvents AutoOpenMdlFileForViewingRadioButton As RadioButtonEx
 	Friend WithEvents GroupBox3 As GroupBoxEx
 	Friend WithEvents Panel4 As PanelEx
-	Friend WithEvents DragAndDropFolderForCompileRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents DragAndDropFolderForDecompileRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents DragAndDropFolderForUnpackRadioButton As System.Windows.Forms.RadioButton
+	Friend WithEvents DragAndDropFolderForCompileRadioButton As RadioButtonEx
+	Friend WithEvents DragAndDropFolderForDecompileRadioButton As RadioButtonEx
+	Friend WithEvents DragAndDropFolderForUnpackRadioButton As RadioButtonEx
 	Friend WithEvents AutoOpenUseDefaultsButton As ButtonEx
 	Friend WithEvents DragAndDropUseDefaultsButton As ButtonEx
 	Friend WithEvents ContextMenuUseDefaultsButton As ButtonEx
 	Friend WithEvents Panel7 As PanelEx
-	Friend WithEvents OptionsContextMenuCompileFolderAndSubfoldersCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuCompileFolderCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuCompileQcFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuDecompileFolderAndSubfoldersCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuDecompileFolderCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuDecompileMdlFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuViewMdlFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents OptionsContextMenuOpenWithCrowbarCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents OptionsContextMenuCompileFolderAndSubfoldersCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuCompileFolderCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuCompileQcFileCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuDecompileFolderAndSubfoldersCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuDecompileFolderCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuDecompileMdlFileCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuViewMdlFileCheckBox As CheckBoxEx
+	Friend WithEvents OptionsContextMenuOpenWithCrowbarCheckBox As CheckBoxEx
 	Friend WithEvents Label4 As System.Windows.Forms.Label
 	Friend WithEvents Label2 As System.Windows.Forms.Label
 	Friend WithEvents Label3 As System.Windows.Forms.Label
-	Friend WithEvents AutoOpenMdlFileForPreviewingRadioButton As System.Windows.Forms.RadioButton
+	Friend WithEvents AutoOpenMdlFileForPreviewingRadioButton As RadioButtonEx
 	Friend WithEvents Label9 As System.Windows.Forms.Label
 	Friend WithEvents Label8 As System.Windows.Forms.Label
-	Friend WithEvents AutoOpenMdlFileForDecompileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents AutoOpenMdlFileForViewCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents AutoOpenMdlFileForPreviewCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents AutoOpenMdlFileForDecompileCheckBox As CheckBoxEx
+	Friend WithEvents AutoOpenMdlFileForViewCheckBox As CheckBoxEx
+	Friend WithEvents AutoOpenMdlFileForPreviewCheckBox As CheckBoxEx
 	Friend WithEvents Panel3 As PanelEx
 	Friend WithEvents Label10 As System.Windows.Forms.Label
 	Friend WithEvents Label11 As System.Windows.Forms.Label
-	Friend WithEvents DragAndDropMdlFileForDecompileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents DragAndDropMdlFileForViewCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents DragAndDropMdlFileForPreviewCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents DragAndDropMdlFileForPreviewingRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents DragAndDropMdlFileForDecompilingRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents DragAndDropMdlFileForViewingRadioButton As System.Windows.Forms.RadioButton
+	Friend WithEvents DragAndDropMdlFileForDecompileCheckBox As CheckBoxEx
+	Friend WithEvents DragAndDropMdlFileForViewCheckBox As CheckBoxEx
+	Friend WithEvents DragAndDropMdlFileForPreviewCheckBox As CheckBoxEx
+	Friend WithEvents DragAndDropMdlFileForPreviewingRadioButton As RadioButtonEx
+	Friend WithEvents DragAndDropMdlFileForDecompilingRadioButton As RadioButtonEx
+	Friend WithEvents DragAndDropMdlFileForViewingRadioButton As RadioButtonEx
 	Friend WithEvents Label13 As System.Windows.Forms.Label
 	Friend WithEvents Label12 As System.Windows.Forms.Label
 	Friend WithEvents ApplyLabel As System.Windows.Forms.Label
@@ -1068,13 +1068,13 @@ Partial Class OptionsUserControl
 	Friend WithEvents ApplyPanel As PanelEx
 	Friend WithEvents Label5 As System.Windows.Forms.Label
 	Friend WithEvents AutoOpenFolderPanel As PanelEx
-	Friend WithEvents AutoOpenFolderForCompileRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents AutoOpenFolderForDecompileRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents AutoOpenFolderForUnpackRadioButton As System.Windows.Forms.RadioButton
-	Friend WithEvents SingleInstanceCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents AutoOpenFolderForCompileRadioButton As RadioButtonEx
+	Friend WithEvents AutoOpenFolderForDecompileRadioButton As RadioButtonEx
+	Friend WithEvents AutoOpenFolderForUnpackRadioButton As RadioButtonEx
+	Friend WithEvents SingleInstanceCheckBox As CheckBoxEx
 	Friend WithEvents Label14 As System.Windows.Forms.Label
-	Friend WithEvents AutoOpenFpxFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents AutoOpenGmaFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents AutoOpenFpxFileCheckBox As CheckBoxEx
+	Friend WithEvents AutoOpenGmaFileCheckBox As CheckBoxEx
 	Friend WithEvents AutoOpenFolderForPackRadioButton As RadioButton
 	Friend WithEvents DragAndDropFolderForPackRadioButton As RadioButton
 	Friend WithEvents AutoOpenVpkFileForPublishRadioButton As RadioButton

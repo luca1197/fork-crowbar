@@ -28,31 +28,31 @@ Partial Class MainForm
 		Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.AboutCrowbarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.MainTabControl = New Crowbar.TabControlEx()
-		Me.SetUpGamesTabPage = New System.Windows.Forms.TabPage()
+		Me.SetUpGamesTabPage = New TabPageEx()
 		Me.SetUpGamesUserControl1 = New Crowbar.SetUpGamesUserControl()
-		Me.DownloadTabPage = New System.Windows.Forms.TabPage()
+		Me.DownloadTabPage = New TabPageEx()
 		Me.DownloadUserControl1 = New Crowbar.DownloadUserControl()
-		Me.UnpackTabPage = New System.Windows.Forms.TabPage()
+		Me.UnpackTabPage = New TabPageEx()
 		Me.UnpackUserControl1 = New Crowbar.UnpackUserControl()
-		Me.PreviewTabPage = New System.Windows.Forms.TabPage()
+		Me.PreviewTabPage = New TabPageEx()
 		Me.PreviewViewUserControl = New Crowbar.ViewUserControl()
-		Me.DecompileTabPage = New System.Windows.Forms.TabPage()
+		Me.DecompileTabPage = New TabPageEx()
 		Me.DecompilerUserControl1 = New Crowbar.DecompileUserControl()
-		Me.CompileTabPage = New System.Windows.Forms.TabPage()
+		Me.CompileTabPage = New TabPageEx()
 		Me.CompilerUserControl1 = New Crowbar.CompileUserControl()
-		Me.ViewTabPage = New System.Windows.Forms.TabPage()
+		Me.ViewTabPage = New TabPageEx()
 		Me.ViewViewUserControl = New Crowbar.ViewUserControl()
-		Me.PackTabPage = New System.Windows.Forms.TabPage()
+		Me.PackTabPage = New TabPageEx()
 		Me.PackUserControl1 = New Crowbar.PackUserControl()
-		Me.PublishTabPage = New System.Windows.Forms.TabPage()
+		Me.PublishTabPage = New TabPageEx()
 		Me.PublishUserControl1 = New Crowbar.PublishUserControl()
-		Me.OptionsTabPage = New System.Windows.Forms.TabPage()
+		Me.OptionsTabPage = New TabPageEx()
 		Me.OptionsUserControl1 = New Crowbar.OptionsUserControl()
-		Me.HelpTabPage = New System.Windows.Forms.TabPage()
+		Me.HelpTabPage = New TabPageEx()
 		Me.HelpUserControl1 = New Crowbar.HelpUserControl()
-		Me.AboutTabPage = New System.Windows.Forms.TabPage()
+		Me.AboutTabPage = New TabPageEx()
 		Me.AboutUserControl1 = New Crowbar.AboutUserControl()
-		Me.UpdateTabPage = New System.Windows.Forms.TabPage()
+		Me.UpdateTabPage = New TabPageEx()
 		Me.UpdateUserControl1 = New Crowbar.UpdateUserControl()
 		Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.AboutCrowbarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -416,29 +416,29 @@ Partial Class MainForm
 	End Sub
 	Friend WithEvents MainTabControl As Crowbar.TabControlEx
 	Friend WithEvents MainToolTip As System.Windows.Forms.ToolTip
-	Friend WithEvents SetUpGamesTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents SetUpGamesTabPage As TabPageEx
 	Friend WithEvents SetUpGamesUserControl1 As Crowbar.SetUpGamesUserControl
-	Friend WithEvents DownloadTabPage As TabPage
+	Friend WithEvents DownloadTabPage As TabPageEx
 	Friend WithEvents DownloadUserControl1 As DownloadUserControl
-	Friend WithEvents UnpackTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents UnpackTabPage As TabPageEx
 	Friend WithEvents UnpackUserControl1 As Crowbar.UnpackUserControl
-	Friend WithEvents PreviewTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents PreviewTabPage As TabPageEx
 	Friend WithEvents PreviewViewUserControl As Crowbar.ViewUserControl
-	Friend WithEvents DecompileTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents DecompileTabPage As TabPageEx
 	Friend WithEvents DecompilerUserControl1 As Crowbar.DecompileUserControl
-	Friend WithEvents CompileTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents CompileTabPage As TabPageEx
 	Friend WithEvents CompilerUserControl1 As Crowbar.CompileUserControl
-	Friend WithEvents ViewTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents ViewTabPage As TabPageEx
 	Friend WithEvents ViewViewUserControl As Crowbar.ViewUserControl
-	Friend WithEvents PackTabPage As TabPage
+	Friend WithEvents PackTabPage As TabPageEx
 	Friend WithEvents PackUserControl1 As PackUserControl
-	Friend WithEvents PublishTabPage As TabPage
+	Friend WithEvents PublishTabPage As TabPageEx
 	Friend WithEvents PublishUserControl1 As PublishUserControl
-	Friend WithEvents OptionsTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents OptionsTabPage As TabPageEx
 	Friend WithEvents OptionsUserControl1 As Crowbar.OptionsUserControl
-	Friend WithEvents HelpTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents HelpTabPage As TabPageEx
 	Friend WithEvents HelpUserControl1 As Crowbar.HelpUserControl
-	Friend WithEvents AboutTabPage As System.Windows.Forms.TabPage
+	Friend WithEvents AboutTabPage As TabPageEx
 	Friend WithEvents AboutUserControl1 As Crowbar.AboutUserControl
 	Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
 	Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -447,6 +447,6 @@ Partial Class MainForm
 	Friend WithEvents AboutCrowbarToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 	Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
-	Friend WithEvents UpdateTabPage As TabPage
+	Friend WithEvents UpdateTabPage As TabPageEx
 	Friend WithEvents UpdateUserControl1 As UpdateUserControl
 End Class

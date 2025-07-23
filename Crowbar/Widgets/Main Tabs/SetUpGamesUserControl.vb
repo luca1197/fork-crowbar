@@ -16,10 +16,16 @@ Public Class SetUpGamesUserControl
 #Region "Init and Free"
 
 	Protected Sub Init()
-		Me.GameSetupComboBox.DisplayMember = "GameName"
-		Me.GameSetupComboBox.ValueMember = "GameName"
-		Me.GameSetupComboBox.DataSource = TheApp.Settings.GameSetups
-		Me.GameSetupComboBox.DataBindings.Add("SelectedIndex", TheApp.Settings, "SetUpGamesGameSetupSelectedIndex", False, DataSourceUpdateMode.OnPropertyChanged)
+		'Me.GameSetupComboBox.DisplayMember = "GameName"
+		'Me.GameSetupComboBox.ValueMember = "GameName"
+		'Me.GameSetupComboBox.DataSource = TheApp.Settings.GameSetups
+		'Me.GameSetupComboBox.DataBindings.Add("SelectedIndex", TheApp.Settings, "SetUpGamesGameSetupSelectedIndex", False, DataSourceUpdateMode.OnPropertyChanged)
+
+		'NOTE: For ListBox (which is inside ComboUserControl), must assign DataSource before ValueMember.
+		Me.ComboUserControl1.DataSource = TheApp.Settings.GameSetups
+		'Me.ComboUserControl1.DisplayMember = "GameName"
+		Me.ComboUserControl1.ValueMember = "GameName"
+		Me.ComboUserControl1.DataBindings.Add("SelectedIndex", TheApp.Settings, "SetUpGamesGameSetupSelectedIndex", False, DataSourceUpdateMode.OnPropertyChanged)
 
 		Dim textColumn As DataGridViewTextBoxColumn
 		Dim buttonColumn As DataGridViewButtonColumn
@@ -95,8 +101,10 @@ Public Class SetUpGamesUserControl
 		RemoveHandler Me.SteamLibraryPathsDataGridView.ChangeToThisMacroInSelectedGameSetupToolStripMenuItem.Click, AddressOf Me.ChangeToThisMacroInSelectedGameSetupToolStripMenuItem_Click
 		RemoveHandler Me.SteamLibraryPathsDataGridView.ChangeToThisMacroInAllGameSetupsToolStripMenuItem.Click, AddressOf Me.ChangeToThisMacroInAllGameSetupsToolStripMenuItem_Click
 
-		Me.GameSetupComboBox.DataSource = Nothing
-		Me.GameSetupComboBox.DataBindings.Clear()
+		Me.ComboUserControl1.DataSource = Nothing
+		Me.ComboUserControl1.DataBindings.Clear()
+		'Me.GameSetupComboBox.DataSource = Nothing
+		'Me.GameSetupComboBox.DataBindings.Clear()
 		Me.SteamAppPathFileNameTextBox.DataBindings.Clear()
 		Me.SteamLibraryPathsDataGridView.DataSource = Nothing
 	End Sub
@@ -119,7 +127,12 @@ Public Class SetUpGamesUserControl
 
 #Region "Child Widget Event Handlers"
 
-	Private Sub GameSetupComboBox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GameSetupComboBox.SelectedIndexChanged
+	'Private Sub GameSetupComboBox_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GameSetupComboBox.SelectedIndexChanged
+	'	Me.UpdateWidgets()
+	'	Me.UpdateWidgetsBasedOnGameEngine()
+	'End Sub
+	'------
+	Private Sub ComboUserControl1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboUserControl1.SelectedIndexChanged
 		Me.UpdateWidgets()
 		Me.UpdateWidgetsBasedOnGameEngine()
 	End Sub
@@ -129,7 +142,8 @@ Public Class SetUpGamesUserControl
 		gamesetup.GameName = "<New Game>"
 		TheApp.Settings.GameSetups.Add(gamesetup)
 
-		Me.GameSetupComboBox.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(gamesetup)
+		'Me.GameSetupComboBox.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(gamesetup)
+		Me.ComboUserControl1.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(gamesetup)
 
 		Me.UpdateWidgets()
 		Me.UpdateUseCounts()
@@ -287,7 +301,8 @@ Public Class SetUpGamesUserControl
 		cloneGameSetup.GameName = "Clone of " + Me.theSelectedGameSetup.GameName
 		TheApp.Settings.GameSetups.Add(cloneGameSetup)
 
-		Me.GameSetupComboBox.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(cloneGameSetup)
+		'Me.GameSetupComboBox.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(cloneGameSetup)
+		Me.ComboUserControl1.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(cloneGameSetup)
 
 		Me.UpdateWidgets()
 		Me.UpdateUseCounts()
@@ -458,7 +473,8 @@ Public Class SetUpGamesUserControl
 		Dim gameSetupCount As Integer
 		gameSetupCount = TheApp.Settings.GameSetups.Count
 
-		Me.GameSetupComboBox.Enabled = (gameSetupCount > 0)
+		'Me.GameSetupComboBox.Enabled = (gameSetupCount > 0)
+		Me.ComboUserControl1.Enabled = (gameSetupCount > 0)
 
 		Me.GamePathFileNameTextBox.Enabled = (gameSetupCount > 0)
 		Me.BrowseForGamePathFileNameButton.Enabled = (gameSetupCount > 0)
@@ -483,7 +499,8 @@ Public Class SetUpGamesUserControl
 
 		'NOTE: Reset the bindings, because a new game setup has been chosen.
 
-		Me.theSelectedGameSetup = TheApp.Settings.GameSetups(Me.GameSetupComboBox.SelectedIndex)
+		'Me.theSelectedGameSetup = TheApp.Settings.GameSetups(Me.GameSetupComboBox.SelectedIndex)
+		Me.theSelectedGameSetup = TheApp.Settings.GameSetups(Me.ComboUserControl1.SelectedIndex)
 
 		Me.GameNameTextBox.DataBindings.Clear()
 		Me.GameNameTextBox.DataBindings.Add("Text", Me.theSelectedGameSetup, "GameName", False, DataSourceUpdateMode.OnValidation)

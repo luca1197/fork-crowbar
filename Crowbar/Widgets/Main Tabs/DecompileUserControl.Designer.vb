@@ -24,16 +24,16 @@ Partial Class DecompileUserControl
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-		Me.DebugInfoCheckBox = New System.Windows.Forms.CheckBox()
-		Me.LogFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.DeclareSequenceQciCheckBox = New System.Windows.Forms.CheckBox()
-		Me.FormatForStricterImportersCheckBox = New System.Windows.Forms.CheckBox()
-		Me.UseMixedCaseForKeywordsCheckBox = New System.Windows.Forms.CheckBox()
-		Me.RemovePathFromMaterialFileNamesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.UseNonValveUvConversionCheckBox = New System.Windows.Forms.CheckBox()
+		Me.DebugInfoCheckBox = New CheckBoxEx()
+		Me.LogFileCheckBox = New CheckBoxEx()
+		Me.DeclareSequenceQciCheckBox = New CheckBoxEx()
+		Me.FormatForStricterImportersCheckBox = New CheckBoxEx()
+		Me.UseMixedCaseForKeywordsCheckBox = New CheckBoxEx()
+		Me.RemovePathFromMaterialFileNamesCheckBox = New CheckBoxEx()
+		Me.UseNonValveUvConversionCheckBox = New CheckBoxEx()
 		Me.OverrideMdlVersionLabel = New System.Windows.Forms.Label()
 		Me.OverrideMdlVersionComboBox = New Crowbar.ComboBoxEx()
-		Me.PrefixMeshFileNamesWithModelNameCheckBox = New System.Windows.Forms.CheckBox()
+		Me.PrefixMeshFileNamesWithModelNameCheckBox = New CheckBoxEx()
 		Me.Panel2 = New Crowbar.PanelEx()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.DecompileComboBox = New Crowbar.ComboBoxEx()
@@ -51,25 +51,25 @@ Partial Class DecompileUserControl
 		Me.DecompileOptionsPanel = New Crowbar.PanelEx()
 		Me.ReCreateFilesGroupBox = New Crowbar.GroupBoxEx()
 		Me.Panel1 = New Crowbar.PanelEx()
-		Me.OnlyChangedMaterialsInTextureGroupLinesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.SkinFamilyOnSingleLineCheckBox = New System.Windows.Forms.CheckBox()
-		Me.TextureBmpFilesCheckBox = New System.Windows.Forms.CheckBox()
+		Me.OnlyChangedMaterialsInTextureGroupLinesCheckBox = New CheckBoxEx()
+		Me.SkinFamilyOnSingleLineCheckBox = New CheckBoxEx()
+		Me.TextureBmpFilesCheckBox = New CheckBoxEx()
 		Me.DecompileOptionsUseDefaultsButton = New Crowbar.ButtonEx()
 		Me.ComboBox2 = New Crowbar.ComboBoxEx()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.IncludeDefineBoneLinesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.GroupIntoQciFilesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.PlaceInAnimsSubfolderCheckBox = New System.Windows.Forms.CheckBox()
-		Me.LodMeshSmdFilesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.ProceduralBonesVrdFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.BoneAnimationSmdFilesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.VertexAnimationVtaFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.PhysicsMeshSmdFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.ReferenceMeshSmdFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.QcFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.IncludeDefineBoneLinesCheckBox = New CheckBoxEx()
+		Me.GroupIntoQciFilesCheckBox = New CheckBoxEx()
+		Me.PlaceInAnimsSubfolderCheckBox = New CheckBoxEx()
+		Me.LodMeshSmdFilesCheckBox = New CheckBoxEx()
+		Me.ProceduralBonesVrdFileCheckBox = New CheckBoxEx()
+		Me.BoneAnimationSmdFilesCheckBox = New CheckBoxEx()
+		Me.VertexAnimationVtaFileCheckBox = New CheckBoxEx()
+		Me.PhysicsMeshSmdFileCheckBox = New CheckBoxEx()
+		Me.ReferenceMeshSmdFileCheckBox = New CheckBoxEx()
+		Me.QcFileCheckBox = New CheckBoxEx()
 		Me.OptionsGroupBox = New Crowbar.GroupBoxEx()
 		Me.Panel3 = New Crowbar.PanelEx()
-		Me.FolderForEachModelCheckBox = New System.Windows.Forms.CheckBox()
+		Me.FolderForEachModelCheckBox = New CheckBoxEx()
 		Me.DecompilerLogTextBox = New Crowbar.RichTextBoxEx()
 		Me.DecompileButtonsPanel = New Crowbar.PanelEx()
 		Me.DecompileButton = New Crowbar.ButtonEx()
@@ -436,7 +436,7 @@ Partial Class DecompileUserControl
 		Me.ReCreateFilesGroupBox.Location = New System.Drawing.Point(0, 0)
 		Me.ReCreateFilesGroupBox.Name = "ReCreateFilesGroupBox"
 		Me.ReCreateFilesGroupBox.SelectedValue = Nothing
-		Me.ReCreateFilesGroupBox.Size = New System.Drawing.Size(522, 247)
+		Me.ReCreateFilesGroupBox.Size = New System.Drawing.Size(520, 247)
 		Me.ReCreateFilesGroupBox.TabIndex = 0
 		Me.ReCreateFilesGroupBox.TabStop = False
 		Me.ReCreateFilesGroupBox.Text = "Re-Create Files"
@@ -470,7 +470,7 @@ Partial Class DecompileUserControl
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.SelectedIndex = -1
 		Me.Panel1.SelectedValue = Nothing
-		Me.Panel1.Size = New System.Drawing.Size(516, 226)
+		Me.Panel1.Size = New System.Drawing.Size(514, 226)
 		Me.Panel1.TabIndex = 11
 		'
 		'OnlyChangedMaterialsInTextureGroupLinesCheckBox
@@ -644,10 +644,10 @@ Partial Class DecompileUserControl
 		Me.OptionsGroupBox.Controls.Add(Me.Panel3)
 		Me.OptionsGroupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OptionsGroupBox.IsReadOnly = False
-		Me.OptionsGroupBox.Location = New System.Drawing.Point(528, 0)
+		Me.OptionsGroupBox.Location = New System.Drawing.Point(526, 0)
 		Me.OptionsGroupBox.Name = "OptionsGroupBox"
 		Me.OptionsGroupBox.SelectedValue = Nothing
-		Me.OptionsGroupBox.Size = New System.Drawing.Size(242, 247)
+		Me.OptionsGroupBox.Size = New System.Drawing.Size(244, 247)
 		Me.OptionsGroupBox.TabIndex = 6
 		Me.OptionsGroupBox.TabStop = False
 		Me.OptionsGroupBox.Text = "Options"
@@ -670,7 +670,7 @@ Partial Class DecompileUserControl
 		Me.Panel3.Name = "Panel3"
 		Me.Panel3.SelectedIndex = -1
 		Me.Panel3.SelectedValue = Nothing
-		Me.Panel3.Size = New System.Drawing.Size(236, 226)
+		Me.Panel3.Size = New System.Drawing.Size(238, 226)
 		Me.Panel3.TabIndex = 0
 		'
 		'FolderForEachModelCheckBox
@@ -850,14 +850,14 @@ Partial Class DecompileUserControl
 	Friend WithEvents Label1 As System.Windows.Forms.Label
 	Friend WithEvents ReCreateFilesGroupBox As GroupBoxEx
 	Friend WithEvents Panel1 As PanelEx
-	Friend WithEvents LodMeshSmdFilesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents ProceduralBonesVrdFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents BoneAnimationSmdFilesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents VertexAnimationVtaFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents PhysicsMeshSmdFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents DebugInfoCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents ReferenceMeshSmdFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents QcFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents LodMeshSmdFilesCheckBox As CheckBoxEx
+	Friend WithEvents ProceduralBonesVrdFileCheckBox As CheckBoxEx
+	Friend WithEvents BoneAnimationSmdFilesCheckBox As CheckBoxEx
+	Friend WithEvents VertexAnimationVtaFileCheckBox As CheckBoxEx
+	Friend WithEvents PhysicsMeshSmdFileCheckBox As CheckBoxEx
+	Friend WithEvents DebugInfoCheckBox As CheckBoxEx
+	Friend WithEvents ReferenceMeshSmdFileCheckBox As CheckBoxEx
+	Friend WithEvents QcFileCheckBox As CheckBoxEx
 	Friend WithEvents Panel2 As PanelEx
 	Friend WithEvents DecompilerLogTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents CancelDecompileButton As ButtonEx
@@ -866,13 +866,13 @@ Partial Class DecompileUserControl
 	Friend WithEvents Options_LogSplitContainer As System.Windows.Forms.SplitContainer
 	Friend WithEvents Label2 As System.Windows.Forms.Label
 	Friend WithEvents ComboBox2 As ComboBoxEx
-	Friend WithEvents FormatForStricterImportersCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents GroupIntoQciFilesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents PlaceInAnimsSubfolderCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents LogFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents FormatForStricterImportersCheckBox As CheckBoxEx
+	Friend WithEvents GroupIntoQciFilesCheckBox As CheckBoxEx
+	Friend WithEvents PlaceInAnimsSubfolderCheckBox As CheckBoxEx
+	Friend WithEvents LogFileCheckBox As CheckBoxEx
 	Friend WithEvents GotoMdlButton As ButtonEx
-	Friend WithEvents IncludeDefineBoneLinesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents FolderForEachModelCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents IncludeDefineBoneLinesCheckBox As CheckBoxEx
+	Friend WithEvents FolderForEachModelCheckBox As CheckBoxEx
 	Friend WithEvents DecompiledFilesComboBox As ComboBoxEx
 	Friend WithEvents GotoDecompiledFileButton As ButtonEx
 	Friend WithEvents UseInEditButton As ButtonEx
@@ -880,11 +880,11 @@ Partial Class DecompileUserControl
 	Friend WithEvents UseAllInCompileButton As ButtonEx
 	Friend WithEvents DecompileOptionsUseDefaultsButton As ButtonEx
 	Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-	Friend WithEvents TextureBmpFilesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents SkinFamilyOnSingleLineCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents DeclareSequenceQciCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents RemovePathFromMaterialFileNamesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents UseMixedCaseForKeywordsCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents TextureBmpFilesCheckBox As CheckBoxEx
+	Friend WithEvents SkinFamilyOnSingleLineCheckBox As CheckBoxEx
+	Friend WithEvents DeclareSequenceQciCheckBox As CheckBoxEx
+	Friend WithEvents RemovePathFromMaterialFileNamesCheckBox As CheckBoxEx
+	Friend WithEvents UseMixedCaseForKeywordsCheckBox As CheckBoxEx
 	Friend WithEvents GotoOutputPathButton As ButtonEx
 	Friend WithEvents BrowseForOutputPathButton As ButtonEx
 	Friend WithEvents OutputPathTextBox As Crowbar.RichTextBoxEx
@@ -893,12 +893,12 @@ Partial Class DecompileUserControl
 	Friend WithEvents UseDefaultOutputSubfolderButton As ButtonEx
 	Friend WithEvents OptionsGroupBox As GroupBoxEx
 	Friend WithEvents Panel3 As PanelEx
-	Friend WithEvents OnlyChangedMaterialsInTextureGroupLinesCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents OnlyChangedMaterialsInTextureGroupLinesCheckBox As CheckBoxEx
 	Friend WithEvents OutputSubfolderTextBox As Crowbar.RichTextBoxEx
-	Friend WithEvents UseNonValveUvConversionCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents UseNonValveUvConversionCheckBox As CheckBoxEx
 	Friend WithEvents OverrideMdlVersionLabel As System.Windows.Forms.Label
 	Friend WithEvents OverrideMdlVersionComboBox As ComboBoxEx
-	Friend WithEvents PrefixMeshFileNamesWithModelNameCheckBox As CheckBox
+	Friend WithEvents PrefixMeshFileNamesWithModelNameCheckBox As CheckBoxEx
 	Friend WithEvents DecompileButtonsPanel As PanelEx
 	Friend WithEvents DecompileOptionsPanel As PanelEx
 	Friend WithEvents Panel4 As PanelEx

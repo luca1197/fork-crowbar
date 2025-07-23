@@ -38,21 +38,24 @@ Partial Class PackUserControl
 		Me.Options_LogSplitContainer = New System.Windows.Forms.SplitContainer()
 		Me.OptionsGroupBox = New Crowbar.GroupBoxEx()
 		Me.OptionsGroupBoxFillPanel = New Crowbar.PanelEx()
-		Me.PackerOptionsPanel = New Crowbar.PanelEx()
-		Me.MultiFileVpkCheckBox = New System.Windows.Forms.CheckBox()
+		Me.PackOptionsPanel = New Crowbar.PanelEx()
+		Me.MultiFileVpkCheckBox = New Crowbar.CheckBoxEx()
 		Me.PackOptionsUseDefaultsButton = New Crowbar.ButtonEx()
-		Me.LogFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.Label3 = New System.Windows.Forms.Label()
-		Me.GameSetupComboBox = New Crowbar.ComboBoxEx()
-		Me.SetUpGamesButton = New Crowbar.ButtonEx()
+		Me.LogFileCheckBox = New Crowbar.CheckBoxEx()
 		Me.GmaPanel = New Crowbar.PanelEx()
 		Me.GmaTitleTextBox = New Crowbar.RichTextBoxEx()
 		Me.GmaTitleLabel = New System.Windows.Forms.Label()
 		Me.GmaGarrysModTagsUserControl = New Crowbar.GarrysModTagsUserControl()
-		Me.DirectPackerOptionsLabel = New System.Windows.Forms.Label()
-		Me.DirectPackerOptionsTextBox = New Crowbar.RichTextBoxEx()
-		Me.PackerOptionsTextBox = New Crowbar.RichTextBoxEx()
-		Me.PackerOptionsTextBoxMinScrollPanel = New Crowbar.PanelEx()
+		Me.GameSetupPanel = New Crowbar.PanelEx()
+		Me.GameSetupLabel = New System.Windows.Forms.Label()
+		Me.GameSetupComboBox = New Crowbar.ComboBoxEx()
+		Me.SetUpGamesButton = New Crowbar.ButtonEx()
+		Me.DirectPackOptionsLabel = New System.Windows.Forms.Label()
+		Me.DirectPackOptionsPanel = New Crowbar.PanelEx()
+		Me.DirectPackOptionsTextBox = New Crowbar.RichTextBoxEx()
+		Me.PackOptionsTextPanel = New Crowbar.PanelEx()
+		Me.PackOptionsTextBox = New Crowbar.RichTextBoxEx()
+		Me.PackOptionsTextBoxMinScrollPanel = New Crowbar.PanelEx()
 		Me.LogRichTextBox = New Crowbar.RichTextBoxEx()
 		Me.PackButtonsPanel = New Crowbar.PanelEx()
 		Me.PackButton = New Crowbar.ButtonEx()
@@ -71,8 +74,11 @@ Partial Class PackUserControl
 		Me.Options_LogSplitContainer.SuspendLayout()
 		Me.OptionsGroupBox.SuspendLayout()
 		Me.OptionsGroupBoxFillPanel.SuspendLayout()
-		Me.PackerOptionsPanel.SuspendLayout()
+		Me.PackOptionsPanel.SuspendLayout()
 		Me.GmaPanel.SuspendLayout()
+		Me.GameSetupPanel.SuspendLayout()
+		Me.DirectPackOptionsPanel.SuspendLayout()
+		Me.PackOptionsTextPanel.SuspendLayout()
 		Me.PackButtonsPanel.SuspendLayout()
 		Me.PostPackPanel.SuspendLayout()
 		Me.SuspendLayout()
@@ -129,6 +135,7 @@ Partial Class PackUserControl
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputPathTextBox.CueBannerText = ""
+		Me.OutputPathTextBox.DetectUrls = False
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputPathTextBox.Location = New System.Drawing.Point(223, 32)
@@ -143,9 +150,10 @@ Partial Class PackUserControl
 		'
 		Me.OutputParentPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.OutputParentPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.OutputParentPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.OutputParentPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputParentPathTextBox.CueBannerText = ""
+		Me.OutputParentPathTextBox.DetectUrls = False
 		Me.OutputParentPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputParentPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputParentPathTextBox.Location = New System.Drawing.Point(223, 32)
@@ -219,6 +227,7 @@ Partial Class PackUserControl
 		Me.InputPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.InputPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.InputPathFileNameTextBox.CueBannerText = ""
+		Me.InputPathFileNameTextBox.DetectUrls = False
 		Me.InputPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.InputPathFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.InputPathFileNameTextBox.Location = New System.Drawing.Point(223, 3)
@@ -283,11 +292,11 @@ Partial Class PackUserControl
 		'
 		Me.OptionsGroupBoxFillPanel.AutoScroll = True
 		Me.OptionsGroupBoxFillPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PackerOptionsPanel)
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.DirectPackerOptionsLabel)
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.DirectPackerOptionsTextBox)
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PackerOptionsTextBox)
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PackerOptionsTextBoxMinScrollPanel)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PackOptionsPanel)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.DirectPackOptionsLabel)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.DirectPackOptionsPanel)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PackOptionsTextPanel)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PackOptionsTextBoxMinScrollPanel)
 		Me.OptionsGroupBoxFillPanel.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.OptionsGroupBoxFillPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OptionsGroupBoxFillPanel.Location = New System.Drawing.Point(3, 18)
@@ -297,29 +306,28 @@ Partial Class PackUserControl
 		Me.OptionsGroupBoxFillPanel.Size = New System.Drawing.Size(764, 239)
 		Me.OptionsGroupBoxFillPanel.TabIndex = 19
 		'
-		'PackerOptionsPanel
+		'PackOptionsPanel
 		'
-		Me.PackerOptionsPanel.AutoScroll = True
-		Me.PackerOptionsPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.PackerOptionsPanel.Controls.Add(Me.MultiFileVpkCheckBox)
-		Me.PackerOptionsPanel.Controls.Add(Me.PackOptionsUseDefaultsButton)
-		Me.PackerOptionsPanel.Controls.Add(Me.LogFileCheckBox)
-		Me.PackerOptionsPanel.Controls.Add(Me.Label3)
-		Me.PackerOptionsPanel.Controls.Add(Me.GameSetupComboBox)
-		Me.PackerOptionsPanel.Controls.Add(Me.SetUpGamesButton)
-		Me.PackerOptionsPanel.Controls.Add(Me.GmaPanel)
-		Me.PackerOptionsPanel.Dock = System.Windows.Forms.DockStyle.Top
-		Me.PackerOptionsPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.PackerOptionsPanel.Location = New System.Drawing.Point(0, 0)
-		Me.PackerOptionsPanel.Name = "PackerOptionsPanel"
-		Me.PackerOptionsPanel.SelectedIndex = -1
-		Me.PackerOptionsPanel.SelectedValue = Nothing
-		Me.PackerOptionsPanel.Size = New System.Drawing.Size(764, 153)
-		Me.PackerOptionsPanel.TabIndex = 0
+		Me.PackOptionsPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.PackOptionsPanel.Controls.Add(Me.MultiFileVpkCheckBox)
+		Me.PackOptionsPanel.Controls.Add(Me.PackOptionsUseDefaultsButton)
+		Me.PackOptionsPanel.Controls.Add(Me.LogFileCheckBox)
+		Me.PackOptionsPanel.Controls.Add(Me.GmaPanel)
+		Me.PackOptionsPanel.Controls.Add(Me.GameSetupPanel)
+		Me.PackOptionsPanel.Dock = System.Windows.Forms.DockStyle.Top
+		Me.PackOptionsPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.PackOptionsPanel.Location = New System.Drawing.Point(0, 0)
+		Me.PackOptionsPanel.Name = "PackOptionsPanel"
+		Me.PackOptionsPanel.SelectedIndex = -1
+		Me.PackOptionsPanel.SelectedValue = Nothing
+		Me.PackOptionsPanel.Size = New System.Drawing.Size(764, 153)
+		Me.PackOptionsPanel.TabIndex = 0
 		'
 		'MultiFileVpkCheckBox
 		'
 		Me.MultiFileVpkCheckBox.AutoSize = True
+		Me.MultiFileVpkCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.MultiFileVpkCheckBox.IsReadOnly = False
 		Me.MultiFileVpkCheckBox.Location = New System.Drawing.Point(6, 51)
 		Me.MultiFileVpkCheckBox.Name = "MultiFileVpkCheckBox"
 		Me.MultiFileVpkCheckBox.Size = New System.Drawing.Size(125, 17)
@@ -341,46 +349,14 @@ Partial Class PackUserControl
 		'LogFileCheckBox
 		'
 		Me.LogFileCheckBox.AutoSize = True
+		Me.LogFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.LogFileCheckBox.IsReadOnly = False
 		Me.LogFileCheckBox.Location = New System.Drawing.Point(6, 28)
 		Me.LogFileCheckBox.Name = "LogFileCheckBox"
 		Me.LogFileCheckBox.Size = New System.Drawing.Size(116, 17)
 		Me.LogFileCheckBox.TabIndex = 4
 		Me.LogFileCheckBox.Text = "Write log to a file"
 		Me.LogFileCheckBox.UseVisualStyleBackColor = True
-		'
-		'Label3
-		'
-		Me.Label3.AutoSize = True
-		Me.Label3.Location = New System.Drawing.Point(0, 5)
-		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(165, 13)
-		Me.Label3.TabIndex = 0
-		Me.Label3.Text = "Game that has the packer tool:"
-		'
-		'GameSetupComboBox
-		'
-		Me.GameSetupComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.GameSetupComboBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
-		Me.GameSetupComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-		Me.GameSetupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.GameSetupComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.GameSetupComboBox.FormattingEnabled = True
-		Me.GameSetupComboBox.IsReadOnly = False
-		Me.GameSetupComboBox.Location = New System.Drawing.Point(171, 1)
-		Me.GameSetupComboBox.Name = "GameSetupComboBox"
-		Me.GameSetupComboBox.Size = New System.Drawing.Size(497, 23)
-		Me.GameSetupComboBox.TabIndex = 1
-		'
-		'SetUpGamesButton
-		'
-		Me.SetUpGamesButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.SetUpGamesButton.Location = New System.Drawing.Point(674, 0)
-		Me.SetUpGamesButton.Name = "SetUpGamesButton"
-		Me.SetUpGamesButton.Size = New System.Drawing.Size(90, 23)
-		Me.SetUpGamesButton.TabIndex = 2
-		Me.SetUpGamesButton.Text = "Set Up Games"
-		Me.SetUpGamesButton.UseVisualStyleBackColor = True
 		'
 		'GmaPanel
 		'
@@ -401,6 +377,7 @@ Partial Class PackUserControl
 		Me.GmaTitleTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.GmaTitleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.GmaTitleTextBox.CueBannerText = ""
+		Me.GmaTitleTextBox.DetectUrls = False
 		Me.GmaTitleTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.GmaTitleTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.GmaTitleTextBox.Location = New System.Drawing.Point(42, 1)
@@ -429,65 +406,144 @@ Partial Class PackUserControl
 		Me.GmaGarrysModTagsUserControl.Size = New System.Drawing.Size(362, 94)
 		Me.GmaGarrysModTagsUserControl.TabIndex = 15
 		'
-		'DirectPackerOptionsLabel
+		'GameSetupPanel
 		'
-		Me.DirectPackerOptionsLabel.Location = New System.Drawing.Point(0, 154)
-		Me.DirectPackerOptionsLabel.Name = "DirectPackerOptionsLabel"
-		Me.DirectPackerOptionsLabel.Size = New System.Drawing.Size(764, 13)
-		Me.DirectPackerOptionsLabel.TabIndex = 16
-		Me.DirectPackerOptionsLabel.Text = "Direct entry of command-line options (in case they are not included above):"
+		Me.GameSetupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.GameSetupPanel.Controls.Add(Me.GameSetupLabel)
+		Me.GameSetupPanel.Controls.Add(Me.GameSetupComboBox)
+		Me.GameSetupPanel.Controls.Add(Me.SetUpGamesButton)
+		Me.GameSetupPanel.Dock = System.Windows.Forms.DockStyle.Top
+		Me.GameSetupPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.GameSetupPanel.Location = New System.Drawing.Point(0, 0)
+		Me.GameSetupPanel.Name = "GameSetupPanel"
+		Me.GameSetupPanel.SelectedIndex = -1
+		Me.GameSetupPanel.SelectedValue = Nothing
+		Me.GameSetupPanel.Size = New System.Drawing.Size(764, 26)
+		Me.GameSetupPanel.TabIndex = 14
 		'
-		'DirectPackerOptionsTextBox
+		'GameSetupLabel
 		'
-		Me.DirectPackerOptionsTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+		Me.GameSetupLabel.AutoSize = True
+		Me.GameSetupLabel.Location = New System.Drawing.Point(0, 5)
+		Me.GameSetupLabel.Name = "GameSetupLabel"
+		Me.GameSetupLabel.Size = New System.Drawing.Size(165, 13)
+		Me.GameSetupLabel.TabIndex = 0
+		Me.GameSetupLabel.Text = "Game that has the packer tool:"
+		'
+		'GameSetupComboBox
+		'
+		Me.GameSetupComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.DirectPackerOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.DirectPackerOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.DirectPackerOptionsTextBox.CueBannerText = ""
-		Me.DirectPackerOptionsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-		Me.DirectPackerOptionsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.DirectPackerOptionsTextBox.Location = New System.Drawing.Point(0, 170)
-		Me.DirectPackerOptionsTextBox.Multiline = False
-		Me.DirectPackerOptionsTextBox.Name = "DirectPackerOptionsTextBox"
-		Me.DirectPackerOptionsTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-		Me.DirectPackerOptionsTextBox.Size = New System.Drawing.Size(764, 22)
-		Me.DirectPackerOptionsTextBox.TabIndex = 17
-		Me.DirectPackerOptionsTextBox.Text = ""
+		Me.GameSetupComboBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
+		Me.GameSetupComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+		Me.GameSetupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.GameSetupComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.GameSetupComboBox.FormattingEnabled = True
+		Me.GameSetupComboBox.IsReadOnly = False
+		Me.GameSetupComboBox.Location = New System.Drawing.Point(171, 1)
+		Me.GameSetupComboBox.Name = "GameSetupComboBox"
+		Me.GameSetupComboBox.Size = New System.Drawing.Size(497, 23)
+		Me.GameSetupComboBox.TabIndex = 1
 		'
-		'PackerOptionsTextBox
+		'SetUpGamesButton
 		'
-		Me.PackerOptionsTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+		Me.SetUpGamesButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.SetUpGamesButton.Location = New System.Drawing.Point(674, 0)
+		Me.SetUpGamesButton.Name = "SetUpGamesButton"
+		Me.SetUpGamesButton.Size = New System.Drawing.Size(90, 23)
+		Me.SetUpGamesButton.TabIndex = 2
+		Me.SetUpGamesButton.Text = "Set Up Games"
+		Me.SetUpGamesButton.UseVisualStyleBackColor = True
+		'
+		'DirectPackOptionsLabel
+		'
+		Me.DirectPackOptionsLabel.Location = New System.Drawing.Point(0, 154)
+		Me.DirectPackOptionsLabel.Name = "DirectPackOptionsLabel"
+		Me.DirectPackOptionsLabel.Size = New System.Drawing.Size(761, 13)
+		Me.DirectPackOptionsLabel.TabIndex = 16
+		Me.DirectPackOptionsLabel.Text = "Direct entry of command-line options (in case they are not included above):"
+		'
+		'DirectPackOptionsPanel
+		'
+		Me.DirectPackOptionsPanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.DirectPackOptionsPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.DirectPackOptionsPanel.Controls.Add(Me.DirectPackOptionsTextBox)
+		Me.DirectPackOptionsPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.DirectPackOptionsPanel.Location = New System.Drawing.Point(0, 170)
+		Me.DirectPackOptionsPanel.Name = "DirectPackOptionsPanel"
+		Me.DirectPackOptionsPanel.SelectedIndex = -1
+		Me.DirectPackOptionsPanel.SelectedValue = Nothing
+		Me.DirectPackOptionsPanel.Size = New System.Drawing.Size(761, 22)
+		Me.DirectPackOptionsPanel.TabIndex = 43
+		'
+		'DirectPackOptionsTextBox
+		'
+		Me.DirectPackOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.DirectPackOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.DirectPackOptionsTextBox.CueBannerText = ""
+		Me.DirectPackOptionsTextBox.DetectUrls = False
+		Me.DirectPackOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.DirectPackOptionsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.DirectPackOptionsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.DirectPackOptionsTextBox.Location = New System.Drawing.Point(0, 0)
+		Me.DirectPackOptionsTextBox.Multiline = False
+		Me.DirectPackOptionsTextBox.Name = "DirectPackOptionsTextBox"
+		Me.DirectPackOptionsTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+		Me.DirectPackOptionsTextBox.Size = New System.Drawing.Size(761, 22)
+		Me.DirectPackOptionsTextBox.TabIndex = 17
+		Me.DirectPackOptionsTextBox.Text = ""
+		Me.DirectPackOptionsTextBox.WordWrap = False
+		'
+		'PackOptionsTextPanel
+		'
+		Me.PackOptionsTextPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
 			Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.PackerOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.PackerOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-		Me.PackerOptionsTextBox.CueBannerText = ""
-		Me.PackerOptionsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-		Me.PackerOptionsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.PackerOptionsTextBox.Location = New System.Drawing.Point(0, 198)
-		Me.PackerOptionsTextBox.Name = "PackerOptionsTextBox"
-		Me.PackerOptionsTextBox.ReadOnly = True
-		Me.PackerOptionsTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-		Me.PackerOptionsTextBox.Size = New System.Drawing.Size(764, 37)
-		Me.PackerOptionsTextBox.TabIndex = 18
-		Me.PackerOptionsTextBox.Text = ""
+		Me.PackOptionsTextPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.PackOptionsTextPanel.Controls.Add(Me.PackOptionsTextBox)
+		Me.PackOptionsTextPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.PackOptionsTextPanel.Location = New System.Drawing.Point(0, 198)
+		Me.PackOptionsTextPanel.Name = "PackOptionsTextPanel"
+		Me.PackOptionsTextPanel.SelectedIndex = -1
+		Me.PackOptionsTextPanel.SelectedValue = Nothing
+		Me.PackOptionsTextPanel.Size = New System.Drawing.Size(761, 37)
+		Me.PackOptionsTextPanel.TabIndex = 8
 		'
-		'PackerOptionsTextBoxMinScrollPanel
+		'PackOptionsTextBox
 		'
-		Me.PackerOptionsTextBoxMinScrollPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.PackerOptionsTextBoxMinScrollPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.PackerOptionsTextBoxMinScrollPanel.Location = New System.Drawing.Point(0, 198)
-		Me.PackerOptionsTextBoxMinScrollPanel.Name = "PackerOptionsTextBoxMinScrollPanel"
-		Me.PackerOptionsTextBoxMinScrollPanel.SelectedIndex = -1
-		Me.PackerOptionsTextBoxMinScrollPanel.SelectedValue = Nothing
-		Me.PackerOptionsTextBoxMinScrollPanel.Size = New System.Drawing.Size(764, 37)
-		Me.PackerOptionsTextBoxMinScrollPanel.TabIndex = 42
+		Me.PackOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.PackOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.PackOptionsTextBox.CueBannerText = ""
+		Me.PackOptionsTextBox.DetectUrls = False
+		Me.PackOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.PackOptionsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.PackOptionsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.PackOptionsTextBox.Location = New System.Drawing.Point(0, 0)
+		Me.PackOptionsTextBox.Name = "PackOptionsTextBox"
+		Me.PackOptionsTextBox.ReadOnly = True
+		Me.PackOptionsTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
+		Me.PackOptionsTextBox.Size = New System.Drawing.Size(761, 37)
+		Me.PackOptionsTextBox.TabIndex = 18
+		Me.PackOptionsTextBox.Text = ""
+		'
+		'PackOptionsTextBoxMinScrollPanel
+		'
+		Me.PackOptionsTextBoxMinScrollPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.PackOptionsTextBoxMinScrollPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.PackOptionsTextBoxMinScrollPanel.Location = New System.Drawing.Point(0, 198)
+		Me.PackOptionsTextBoxMinScrollPanel.Name = "PackOptionsTextBoxMinScrollPanel"
+		Me.PackOptionsTextBoxMinScrollPanel.SelectedIndex = -1
+		Me.PackOptionsTextBoxMinScrollPanel.SelectedValue = Nothing
+		Me.PackOptionsTextBoxMinScrollPanel.Size = New System.Drawing.Size(761, 37)
+		Me.PackOptionsTextBoxMinScrollPanel.TabIndex = 42
 		'
 		'LogRichTextBox
 		'
-		Me.LogRichTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.LogRichTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.LogRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.LogRichTextBox.CueBannerText = ""
+		Me.LogRichTextBox.DetectUrls = False
 		Me.LogRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.LogRichTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.LogRichTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -623,10 +679,14 @@ Partial Class PackUserControl
 		Me.Options_LogSplitContainer.ResumeLayout(False)
 		Me.OptionsGroupBox.ResumeLayout(False)
 		Me.OptionsGroupBoxFillPanel.ResumeLayout(False)
-		Me.PackerOptionsPanel.ResumeLayout(False)
-		Me.PackerOptionsPanel.PerformLayout()
+		Me.PackOptionsPanel.ResumeLayout(False)
+		Me.PackOptionsPanel.PerformLayout()
 		Me.GmaPanel.ResumeLayout(False)
 		Me.GmaPanel.PerformLayout()
+		Me.GameSetupPanel.ResumeLayout(False)
+		Me.GameSetupPanel.PerformLayout()
+		Me.DirectPackOptionsPanel.ResumeLayout(False)
+		Me.PackOptionsTextPanel.ResumeLayout(False)
 		Me.PackButtonsPanel.ResumeLayout(False)
 		Me.PostPackPanel.ResumeLayout(False)
 		Me.ResumeLayout(False)
@@ -647,10 +707,10 @@ Partial Class PackUserControl
 	Friend WithEvents Options_LogSplitContainer As System.Windows.Forms.SplitContainer
 	Friend WithEvents UseAllInPublishButton As ButtonEx
 	Friend WithEvents OptionsGroupBox As GroupBoxEx
-	Friend WithEvents PackerOptionsPanel As PanelEx
+	Friend WithEvents PackOptionsPanel As PanelEx
 	Friend WithEvents PackOptionsUseDefaultsButton As ButtonEx
-	Friend WithEvents LogFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents Label3 As System.Windows.Forms.Label
+	Friend WithEvents LogFileCheckBox As CheckBoxEx
+	Friend WithEvents GameSetupLabel As System.Windows.Forms.Label
 	Friend WithEvents GameSetupComboBox As ComboBoxEx
 	Friend WithEvents SetUpGamesButton As ButtonEx
 	Friend WithEvents CancelPackButton As ButtonEx
@@ -660,17 +720,20 @@ Partial Class PackUserControl
 	Friend WithEvents LogRichTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents PackedFilesComboBox As ComboBoxEx
 	Friend WithEvents GotoPackedFileButton As ButtonEx
-	Friend WithEvents DirectPackerOptionsLabel As Label
-	Friend WithEvents DirectPackerOptionsTextBox As Crowbar.RichTextBoxEx
-	Friend WithEvents PackerOptionsTextBox As Crowbar.RichTextBoxEx
+	Friend WithEvents DirectPackOptionsLabel As Label
+	Friend WithEvents DirectPackOptionsTextBox As Crowbar.RichTextBoxEx
+	Friend WithEvents PackOptionsTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents ToolTip1 As ToolTip
-	Friend WithEvents MultiFileVpkCheckBox As CheckBox
+	Friend WithEvents MultiFileVpkCheckBox As CheckBoxEx
 	Friend WithEvents GmaTitleLabel As Label
 	Friend WithEvents GmaTitleTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents GmaGarrysModTagsUserControl As GarrysModTagsUserControl
 	Friend WithEvents PackButtonsPanel As PanelEx
 	Friend WithEvents PostPackPanel As PanelEx
 	Friend WithEvents OptionsGroupBoxFillPanel As PanelEx
-	Friend WithEvents PackerOptionsTextBoxMinScrollPanel As PanelEx
+	Friend WithEvents PackOptionsTextBoxMinScrollPanel As PanelEx
 	Friend WithEvents GmaPanel As PanelEx
+	Friend WithEvents DirectPackOptionsPanel As PanelEx
+	Friend WithEvents PackOptionsTextPanel As PanelEx
+	Friend WithEvents GameSetupPanel As PanelEx
 End Class

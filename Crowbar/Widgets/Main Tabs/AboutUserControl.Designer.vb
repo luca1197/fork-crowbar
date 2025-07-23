@@ -44,13 +44,14 @@ Partial Class AboutUserControl
 		'
 		'ProductInfoTextBox
 		'
-		Me.ProductInfoTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.ProductInfoTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.ProductInfoTextBox.BorderColor = System.Drawing.Color.Green
 		Me.ProductInfoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.ProductInfoTextBox.CueBannerText = ""
+		Me.ProductInfoTextBox.DetectUrls = False
 		Me.ProductInfoTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ProductInfoTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.ProductInfoTextBox.Location = New System.Drawing.Point(3, 183)
-		Me.ProductInfoTextBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+		Me.ProductInfoTextBox.Location = New System.Drawing.Point(3, 203)
 		Me.ProductInfoTextBox.Name = "ProductInfoTextBox"
 		Me.ProductInfoTextBox.ReadOnly = True
 		Me.ProductInfoTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
@@ -62,9 +63,11 @@ Partial Class AboutUserControl
 		'
 		'ProductDescriptionTextBox
 		'
-		Me.ProductDescriptionTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.ProductDescriptionTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.ProductDescriptionTextBox.BorderColor = System.Drawing.Color.Green
 		Me.ProductDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.ProductDescriptionTextBox.CueBannerText = ""
+		Me.ProductDescriptionTextBox.DetectUrls = False
 		Me.ProductDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ProductDescriptionTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.ProductDescriptionTextBox.Location = New System.Drawing.Point(175, 3)
@@ -78,29 +81,35 @@ Partial Class AboutUserControl
 		'
 		'ProductLogoButton
 		'
+		Me.ProductLogoButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.ProductLogoButton.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.ProductLogoButton.Image = Global.Crowbar.My.Resources.Resources.crowbar_icon_large
-		Me.ProductLogoButton.Location = New System.Drawing.Point(21, 3)
+		Me.ProductLogoButton.Location = New System.Drawing.Point(15, 3)
 		Me.ProductLogoButton.Name = "ProductLogoButton"
-		Me.ProductLogoButton.Size = New System.Drawing.Size(128, 128)
+		Me.ProductLogoButton.Size = New System.Drawing.Size(148, 148)
+		Me.ProductLogoButton.SpecialImage = Crowbar.ButtonEx.SpecialImageType.None
 		Me.ProductLogoButton.TabIndex = 0
 		Me.ProductLogoButton.UseVisualStyleBackColor = True
 		'
 		'AuthorIconButton
 		'
+		Me.AuthorIconButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
 		Me.AuthorIconButton.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.AuthorIconButton.Image = Global.Crowbar.My.Resources.Resources.macaw
-		Me.AuthorIconButton.Location = New System.Drawing.Point(21, 236)
+		Me.AuthorIconButton.Location = New System.Drawing.Point(15, 257)
 		Me.AuthorIconButton.Name = "AuthorIconButton"
-		Me.AuthorIconButton.Size = New System.Drawing.Size(128, 128)
+		Me.AuthorIconButton.Size = New System.Drawing.Size(148, 148)
+		Me.AuthorIconButton.SpecialImage = Crowbar.ButtonEx.SpecialImageType.None
 		Me.AuthorIconButton.TabIndex = 4
 		Me.AuthorIconButton.UseVisualStyleBackColor = True
 		'
 		'CreditsTextBox
 		'
-		Me.CreditsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.CreditsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.CreditsTextBox.BorderColor = System.Drawing.Color.Green
 		Me.CreditsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.CreditsTextBox.CueBannerText = ""
+		Me.CreditsTextBox.DetectUrls = False
 		Me.CreditsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.CreditsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.CreditsTextBox.Location = New System.Drawing.Point(6, 20)
@@ -120,7 +129,7 @@ Partial Class AboutUserControl
 		Me.AuthorLinkLabel.ActiveLinkColor = System.Drawing.Color.LimeGreen
 		Me.AuthorLinkLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.AuthorLinkLabel.LinkColor = System.Drawing.Color.Green
-		Me.AuthorLinkLabel.Location = New System.Drawing.Point(3, 367)
+		Me.AuthorLinkLabel.Location = New System.Drawing.Point(3, 408)
 		Me.AuthorLinkLabel.Name = "AuthorLinkLabel"
 		Me.AuthorLinkLabel.Size = New System.Drawing.Size(165, 20)
 		Me.AuthorLinkLabel.TabIndex = 5
@@ -134,7 +143,7 @@ Partial Class AboutUserControl
 		Me.ProductNameLinkLabel.ActiveLinkColor = System.Drawing.Color.LimeGreen
 		Me.ProductNameLinkLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.ProductNameLinkLabel.LinkColor = System.Drawing.Color.Green
-		Me.ProductNameLinkLabel.Location = New System.Drawing.Point(3, 134)
+		Me.ProductNameLinkLabel.Location = New System.Drawing.Point(3, 154)
 		Me.ProductNameLinkLabel.Name = "ProductNameLinkLabel"
 		Me.ProductNameLinkLabel.Size = New System.Drawing.Size(165, 23)
 		Me.ProductNameLinkLabel.TabIndex = 1
@@ -171,7 +180,7 @@ Partial Class AboutUserControl
 		Me.GotoSteamGroupLinkLabel.ActiveLinkColor = System.Drawing.Color.LimeGreen
 		Me.GotoSteamGroupLinkLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GotoSteamGroupLinkLabel.LinkColor = System.Drawing.Color.Green
-		Me.GotoSteamGroupLinkLabel.Location = New System.Drawing.Point(3, 160)
+		Me.GotoSteamGroupLinkLabel.Location = New System.Drawing.Point(3, 180)
 		Me.GotoSteamGroupLinkLabel.Name = "GotoSteamGroupLinkLabel"
 		Me.GotoSteamGroupLinkLabel.Size = New System.Drawing.Size(165, 21)
 		Me.GotoSteamGroupLinkLabel.TabIndex = 2
@@ -185,7 +194,7 @@ Partial Class AboutUserControl
 		Me.GotoSteamProfileLinkLabel.ActiveLinkColor = System.Drawing.Color.LimeGreen
 		Me.GotoSteamProfileLinkLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.GotoSteamProfileLinkLabel.LinkColor = System.Drawing.Color.Green
-		Me.GotoSteamProfileLinkLabel.Location = New System.Drawing.Point(3, 389)
+		Me.GotoSteamProfileLinkLabel.Location = New System.Drawing.Point(3, 430)
 		Me.GotoSteamProfileLinkLabel.Name = "GotoSteamProfileLinkLabel"
 		Me.GotoSteamProfileLinkLabel.Size = New System.Drawing.Size(165, 20)
 		Me.GotoSteamProfileLinkLabel.TabIndex = 6
@@ -198,7 +207,7 @@ Partial Class AboutUserControl
 		'
 		Me.PayPalPictureBox.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.PayPalPictureBox.Image = Global.Crowbar.My.Resources.Resources._26_Grey_PayPal_Pill_Button
-		Me.PayPalPictureBox.Location = New System.Drawing.Point(43, 412)
+		Me.PayPalPictureBox.Location = New System.Drawing.Point(43, 453)
 		Me.PayPalPictureBox.Name = "PayPalPictureBox"
 		Me.PayPalPictureBox.Size = New System.Drawing.Size(84, 26)
 		Me.PayPalPictureBox.TabIndex = 11
@@ -222,9 +231,11 @@ Partial Class AboutUserControl
 		'
 		'Credits2TextBox
 		'
-		Me.Credits2TextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.Credits2TextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.Credits2TextBox.BorderColor = System.Drawing.Color.Green
 		Me.Credits2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.Credits2TextBox.CueBannerText = ""
+		Me.Credits2TextBox.DetectUrls = False
 		Me.Credits2TextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.Credits2TextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.Credits2TextBox.Location = New System.Drawing.Point(203, 20)
@@ -241,9 +252,11 @@ Partial Class AboutUserControl
 		'
 		'Credits3TextBox
 		'
-		Me.Credits3TextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.Credits3TextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.Credits3TextBox.BorderColor = System.Drawing.Color.Green
 		Me.Credits3TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.Credits3TextBox.CueBannerText = ""
+		Me.Credits3TextBox.DetectUrls = False
 		Me.Credits3TextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.Credits3TextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.Credits3TextBox.Location = New System.Drawing.Point(400, 20)

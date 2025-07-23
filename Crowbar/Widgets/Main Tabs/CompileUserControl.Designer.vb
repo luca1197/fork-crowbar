@@ -25,19 +25,19 @@ Partial Class CompileUserControl
 		Me.components = New System.ComponentModel.Container()
 		Me.CompilerOptionsTextBox = New Crowbar.RichTextBoxEx()
 		Me.GameSetupComboBox = New Crowbar.ComboBoxEx()
-		Me.FolderForEachModelCheckBox = New System.Windows.Forms.CheckBox()
-		Me.SourceEngineLogFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.CompilerOptionDefineBonesCheckBox = New System.Windows.Forms.CheckBox()
-		Me.CompilerOptionNoP4CheckBox = New System.Windows.Forms.CheckBox()
-		Me.CompilerOptionVerboseCheckBox = New System.Windows.Forms.CheckBox()
-		Me.CompilerOptionDefineBonesModifyQcFileCheckBox = New System.Windows.Forms.CheckBox()
-		Me.CompilerOptionDefineBonesWriteQciFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.FolderForEachModelCheckBox = New Crowbar.CheckBoxEx()
+		Me.SourceEngineLogFileCheckBox = New Crowbar.CheckBoxEx()
+		Me.CompilerOptionDefineBonesCheckBox = New Crowbar.CheckBoxEx()
+		Me.CompilerOptionNoP4CheckBox = New Crowbar.CheckBoxEx()
+		Me.CompilerOptionVerboseCheckBox = New Crowbar.CheckBoxEx()
+		Me.CompilerOptionDefineBonesModifyQcFileCheckBox = New Crowbar.CheckBoxEx()
+		Me.CompilerOptionDefineBonesWriteQciFileCheckBox = New Crowbar.CheckBoxEx()
 		Me.CompilerOptionDefineBonesFileNameTextBox = New Crowbar.RichTextBoxEx()
 		Me.DirectCompilerOptionsLabel = New System.Windows.Forms.Label()
 		Me.DirectCompilerOptionsTextBox = New Crowbar.RichTextBoxEx()
 		Me.BrowseForQcPathFolderOrFileNameButton = New Crowbar.ButtonEx()
 		Me.Label6 = New System.Windows.Forms.Label()
-		Me.EditGameSetupButton = New Crowbar.ButtonEx()
+		Me.SetUpGamesButton = New Crowbar.ButtonEx()
 		Me.GameSetupLabel = New System.Windows.Forms.Label()
 		Me.CompileButton = New Crowbar.ButtonEx()
 		Me.Panel1 = New Crowbar.PanelEx()
@@ -54,14 +54,16 @@ Partial Class CompileUserControl
 		Me.Options_LogSplitContainer = New System.Windows.Forms.SplitContainer()
 		Me.OptionsGroupBox = New Crowbar.GroupBoxEx()
 		Me.OptionsGroupBoxFillPanel = New Crowbar.PanelEx()
-		Me.GameSetupPanel = New Crowbar.PanelEx()
 		Me.CompilerOptionsSourceEnginePanel = New Crowbar.PanelEx()
 		Me.DefineBonesGroupBox = New Crowbar.GroupBoxEx()
-		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox = New Crowbar.CheckBoxEx()
 		Me.CompileOptionsSourceEngineUseDefaultsButton = New Crowbar.ButtonEx()
 		Me.CompilerOptionsGoldSourceEnginePanel = New Crowbar.PanelEx()
-		Me.GoldSourceEngineLogFileCheckBox = New System.Windows.Forms.CheckBox()
+		Me.GoldSourceEngineLogFileCheckBox = New Crowbar.CheckBoxEx()
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton = New Crowbar.ButtonEx()
+		Me.GameSetupPanel = New Crowbar.PanelEx()
+		Me.PanelEx1 = New Crowbar.PanelEx()
+		Me.PanelEx2 = New Crowbar.PanelEx()
 		Me.CompilerOptionsTextBoxMinScrollPanel = New Crowbar.PanelEx()
 		Me.CompileLogRichTextBox = New Crowbar.RichTextBoxEx()
 		Me.CompileButtonsPanel = New Crowbar.PanelEx()
@@ -83,29 +85,31 @@ Partial Class CompileUserControl
 		Me.Options_LogSplitContainer.SuspendLayout()
 		Me.OptionsGroupBox.SuspendLayout()
 		Me.OptionsGroupBoxFillPanel.SuspendLayout()
-		Me.GameSetupPanel.SuspendLayout()
 		Me.CompilerOptionsSourceEnginePanel.SuspendLayout()
 		Me.DefineBonesGroupBox.SuspendLayout()
 		Me.CompilerOptionsGoldSourceEnginePanel.SuspendLayout()
+		Me.GameSetupPanel.SuspendLayout()
+		Me.PanelEx1.SuspendLayout()
+		Me.PanelEx2.SuspendLayout()
 		Me.CompileButtonsPanel.SuspendLayout()
 		Me.PostCompilePanel.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'CompilerOptionsTextBox
 		'
-		Me.CompilerOptionsTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-			Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.CompilerOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.CompilerOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.CompilerOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.CompilerOptionsTextBox.CueBannerText = ""
+		Me.CompilerOptionsTextBox.DetectUrls = False
+		Me.CompilerOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.CompilerOptionsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.CompilerOptionsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.CompilerOptionsTextBox.Location = New System.Drawing.Point(0, 169)
+		Me.CompilerOptionsTextBox.Location = New System.Drawing.Point(0, 0)
+		Me.CompilerOptionsTextBox.MinimumSize = New System.Drawing.Size(0, 37)
 		Me.CompilerOptionsTextBox.Name = "CompilerOptionsTextBox"
 		Me.CompilerOptionsTextBox.ReadOnly = True
 		Me.CompilerOptionsTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-		Me.CompilerOptionsTextBox.Size = New System.Drawing.Size(764, 37)
+		Me.CompilerOptionsTextBox.Size = New System.Drawing.Size(761, 37)
 		Me.CompilerOptionsTextBox.TabIndex = 15
 		Me.CompilerOptionsTextBox.Text = ""
 		'
@@ -127,6 +131,8 @@ Partial Class CompileUserControl
 		'FolderForEachModelCheckBox
 		'
 		Me.FolderForEachModelCheckBox.AutoSize = True
+		Me.FolderForEachModelCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.FolderForEachModelCheckBox.IsReadOnly = False
 		Me.FolderForEachModelCheckBox.Location = New System.Drawing.Point(502, 74)
 		Me.FolderForEachModelCheckBox.Name = "FolderForEachModelCheckBox"
 		Me.FolderForEachModelCheckBox.Size = New System.Drawing.Size(139, 17)
@@ -138,6 +144,8 @@ Partial Class CompileUserControl
 		'SourceEngineLogFileCheckBox
 		'
 		Me.SourceEngineLogFileCheckBox.AutoSize = True
+		Me.SourceEngineLogFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.SourceEngineLogFileCheckBox.IsReadOnly = False
 		Me.SourceEngineLogFileCheckBox.Location = New System.Drawing.Point(6, 3)
 		Me.SourceEngineLogFileCheckBox.Name = "SourceEngineLogFileCheckBox"
 		Me.SourceEngineLogFileCheckBox.Size = New System.Drawing.Size(116, 17)
@@ -149,6 +157,8 @@ Partial Class CompileUserControl
 		'CompilerOptionDefineBonesCheckBox
 		'
 		Me.CompilerOptionDefineBonesCheckBox.AutoSize = True
+		Me.CompilerOptionDefineBonesCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.CompilerOptionDefineBonesCheckBox.IsReadOnly = False
 		Me.CompilerOptionDefineBonesCheckBox.Location = New System.Drawing.Point(179, 4)
 		Me.CompilerOptionDefineBonesCheckBox.Name = "CompilerOptionDefineBonesCheckBox"
 		Me.CompilerOptionDefineBonesCheckBox.Size = New System.Drawing.Size(91, 17)
@@ -159,6 +169,8 @@ Partial Class CompileUserControl
 		'CompilerOptionNoP4CheckBox
 		'
 		Me.CompilerOptionNoP4CheckBox.AutoSize = True
+		Me.CompilerOptionNoP4CheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.CompilerOptionNoP4CheckBox.IsReadOnly = False
 		Me.CompilerOptionNoP4CheckBox.Location = New System.Drawing.Point(6, 26)
 		Me.CompilerOptionNoP4CheckBox.Name = "CompilerOptionNoP4CheckBox"
 		Me.CompilerOptionNoP4CheckBox.Size = New System.Drawing.Size(56, 17)
@@ -170,6 +182,8 @@ Partial Class CompileUserControl
 		'CompilerOptionVerboseCheckBox
 		'
 		Me.CompilerOptionVerboseCheckBox.AutoSize = True
+		Me.CompilerOptionVerboseCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.CompilerOptionVerboseCheckBox.IsReadOnly = False
 		Me.CompilerOptionVerboseCheckBox.Location = New System.Drawing.Point(6, 49)
 		Me.CompilerOptionVerboseCheckBox.Name = "CompilerOptionVerboseCheckBox"
 		Me.CompilerOptionVerboseCheckBox.Size = New System.Drawing.Size(67, 17)
@@ -182,6 +196,8 @@ Partial Class CompileUserControl
 		'
 		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.AutoSize = True
 		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.Enabled = False
+		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.IsReadOnly = False
 		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.Location = New System.Drawing.Point(19, 65)
 		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.Name = "CompilerOptionDefineBonesModifyQcFileCheckBox"
 		Me.CompilerOptionDefineBonesModifyQcFileCheckBox.Size = New System.Drawing.Size(238, 17)
@@ -193,6 +209,8 @@ Partial Class CompileUserControl
 		'
 		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.AutoSize = True
 		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.Enabled = False
+		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.IsReadOnly = False
 		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.Location = New System.Drawing.Point(6, 22)
 		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.Name = "CompilerOptionDefineBonesWriteQciFileCheckBox"
 		Me.CompilerOptionDefineBonesWriteQciFileCheckBox.Size = New System.Drawing.Size(97, 17)
@@ -205,6 +223,7 @@ Partial Class CompileUserControl
 		Me.CompilerOptionDefineBonesFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.CompilerOptionDefineBonesFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.CompilerOptionDefineBonesFileNameTextBox.CueBannerText = ""
+		Me.CompilerOptionDefineBonesFileNameTextBox.DetectUrls = False
 		Me.CompilerOptionDefineBonesFileNameTextBox.Enabled = False
 		Me.CompilerOptionDefineBonesFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.CompilerOptionDefineBonesFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -221,24 +240,24 @@ Partial Class CompileUserControl
 		'
 		Me.DirectCompilerOptionsLabel.Location = New System.Drawing.Point(0, 125)
 		Me.DirectCompilerOptionsLabel.Name = "DirectCompilerOptionsLabel"
-		Me.DirectCompilerOptionsLabel.Size = New System.Drawing.Size(764, 13)
+		Me.DirectCompilerOptionsLabel.Size = New System.Drawing.Size(761, 13)
 		Me.DirectCompilerOptionsLabel.TabIndex = 13
 		Me.DirectCompilerOptionsLabel.Text = "Direct entry of command-line options (in case they are not included above):"
 		'
 		'DirectCompilerOptionsTextBox
 		'
-		Me.DirectCompilerOptionsTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.DirectCompilerOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.DirectCompilerOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.DirectCompilerOptionsTextBox.CueBannerText = ""
+		Me.DirectCompilerOptionsTextBox.DetectUrls = False
+		Me.DirectCompilerOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.DirectCompilerOptionsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.DirectCompilerOptionsTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.DirectCompilerOptionsTextBox.Location = New System.Drawing.Point(0, 141)
+		Me.DirectCompilerOptionsTextBox.Location = New System.Drawing.Point(0, 0)
 		Me.DirectCompilerOptionsTextBox.Multiline = False
 		Me.DirectCompilerOptionsTextBox.Name = "DirectCompilerOptionsTextBox"
 		Me.DirectCompilerOptionsTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-		Me.DirectCompilerOptionsTextBox.Size = New System.Drawing.Size(764, 22)
+		Me.DirectCompilerOptionsTextBox.Size = New System.Drawing.Size(761, 22)
 		Me.DirectCompilerOptionsTextBox.TabIndex = 14
 		Me.DirectCompilerOptionsTextBox.Text = ""
 		Me.DirectCompilerOptionsTextBox.WordWrap = False
@@ -261,15 +280,15 @@ Partial Class CompileUserControl
 		Me.Label6.TabIndex = 0
 		Me.Label6.Text = "QC input:"
 		'
-		'EditGameSetupButton
+		'SetUpGamesButton
 		'
-		Me.EditGameSetupButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.EditGameSetupButton.Location = New System.Drawing.Point(674, 0)
-		Me.EditGameSetupButton.Name = "EditGameSetupButton"
-		Me.EditGameSetupButton.Size = New System.Drawing.Size(90, 23)
-		Me.EditGameSetupButton.TabIndex = 2
-		Me.EditGameSetupButton.Text = "Set Up Games"
-		Me.EditGameSetupButton.UseVisualStyleBackColor = True
+		Me.SetUpGamesButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.SetUpGamesButton.Location = New System.Drawing.Point(674, 0)
+		Me.SetUpGamesButton.Name = "SetUpGamesButton"
+		Me.SetUpGamesButton.Size = New System.Drawing.Size(90, 23)
+		Me.SetUpGamesButton.TabIndex = 2
+		Me.SetUpGamesButton.Text = "Set Up Games"
+		Me.SetUpGamesButton.UseVisualStyleBackColor = True
 		'
 		'GameSetupLabel
 		'
@@ -322,6 +341,7 @@ Partial Class CompileUserControl
 		Me.QcPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.QcPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.QcPathFileNameTextBox.CueBannerText = ""
+		Me.QcPathFileNameTextBox.DetectUrls = False
 		Me.QcPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.QcPathFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.QcPathFileNameTextBox.Location = New System.Drawing.Point(209, 4)
@@ -341,6 +361,7 @@ Partial Class CompileUserControl
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputPathTextBox.CueBannerText = ""
+		Me.OutputPathTextBox.DetectUrls = False
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputPathTextBox.Location = New System.Drawing.Point(209, 33)
@@ -356,9 +377,10 @@ Partial Class CompileUserControl
 		'
 		Me.GameModelsOutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.GameModelsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.GameModelsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.GameModelsOutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.GameModelsOutputPathTextBox.CueBannerText = ""
+		Me.GameModelsOutputPathTextBox.DetectUrls = False
 		Me.GameModelsOutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.GameModelsOutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.GameModelsOutputPathTextBox.Location = New System.Drawing.Point(209, 32)
@@ -378,6 +400,7 @@ Partial Class CompileUserControl
 		Me.OutputSubfolderTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
 		Me.OutputSubfolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputSubfolderTextBox.CueBannerText = ""
+		Me.OutputSubfolderTextBox.DetectUrls = False
 		Me.OutputSubfolderTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputSubfolderTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		Me.OutputSubfolderTextBox.Location = New System.Drawing.Point(209, 32)
@@ -482,7 +505,7 @@ Partial Class CompileUserControl
 		'
 		'OptionsGroupBox
 		'
-		Me.OptionsGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.OptionsGroupBox.BackColor = System.Drawing.Color.Fuchsia
 		Me.OptionsGroupBox.Controls.Add(Me.OptionsGroupBoxFillPanel)
 		Me.OptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.OptionsGroupBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -499,12 +522,12 @@ Partial Class CompileUserControl
 		'
 		Me.OptionsGroupBoxFillPanel.AutoScroll = True
 		Me.OptionsGroupBoxFillPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.GameSetupPanel)
 		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.CompilerOptionsSourceEnginePanel)
 		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.CompilerOptionsGoldSourceEnginePanel)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.GameSetupPanel)
 		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.DirectCompilerOptionsLabel)
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.DirectCompilerOptionsTextBox)
-		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.CompilerOptionsTextBox)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PanelEx1)
+		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.PanelEx2)
 		Me.OptionsGroupBoxFillPanel.Controls.Add(Me.CompilerOptionsTextBoxMinScrollPanel)
 		Me.OptionsGroupBoxFillPanel.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.OptionsGroupBoxFillPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -515,25 +538,8 @@ Partial Class CompileUserControl
 		Me.OptionsGroupBoxFillPanel.Size = New System.Drawing.Size(764, 209)
 		Me.OptionsGroupBoxFillPanel.TabIndex = 0
 		'
-		'GameSetupPanel
-		'
-		Me.GameSetupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.GameSetupPanel.Controls.Add(Me.GameSetupLabel)
-		Me.GameSetupPanel.Controls.Add(Me.GameSetupComboBox)
-		Me.GameSetupPanel.Controls.Add(Me.EditGameSetupButton)
-		Me.GameSetupPanel.Dock = System.Windows.Forms.DockStyle.Top
-		Me.GameSetupPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.GameSetupPanel.Location = New System.Drawing.Point(0, 0)
-		Me.GameSetupPanel.Name = "GameSetupPanel"
-		Me.GameSetupPanel.SelectedIndex = -1
-		Me.GameSetupPanel.SelectedValue = Nothing
-		Me.GameSetupPanel.Size = New System.Drawing.Size(764, 26)
-		Me.GameSetupPanel.TabIndex = 40
-		'
 		'CompilerOptionsSourceEnginePanel
 		'
-		Me.CompilerOptionsSourceEnginePanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.CompilerOptionsSourceEnginePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.CompilerOptionsSourceEnginePanel.Controls.Add(Me.CompilerOptionDefineBonesCheckBox)
 		Me.CompilerOptionsSourceEnginePanel.Controls.Add(Me.DefineBonesGroupBox)
@@ -542,8 +548,9 @@ Partial Class CompileUserControl
 		Me.CompilerOptionsSourceEnginePanel.Controls.Add(Me.CompilerOptionNoP4CheckBox)
 		Me.CompilerOptionsSourceEnginePanel.Controls.Add(Me.FolderForEachModelCheckBox)
 		Me.CompilerOptionsSourceEnginePanel.Controls.Add(Me.CompileOptionsSourceEngineUseDefaultsButton)
+		Me.CompilerOptionsSourceEnginePanel.Dock = System.Windows.Forms.DockStyle.Top
 		Me.CompilerOptionsSourceEnginePanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.CompilerOptionsSourceEnginePanel.Location = New System.Drawing.Point(0, 24)
+		Me.CompilerOptionsSourceEnginePanel.Location = New System.Drawing.Point(0, 126)
 		Me.CompilerOptionsSourceEnginePanel.Name = "CompilerOptionsSourceEnginePanel"
 		Me.CompilerOptionsSourceEnginePanel.SelectedIndex = -1
 		Me.CompilerOptionsSourceEnginePanel.SelectedValue = Nothing
@@ -570,6 +577,8 @@ Partial Class CompileUserControl
 		'
 		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.AutoSize = True
 		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.Enabled = False
+		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.IsReadOnly = False
 		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.Location = New System.Drawing.Point(19, 45)
 		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.Name = "CompilerOptionDefineBonesOverwriteQciFileCheckBox"
 		Me.CompilerOptionDefineBonesOverwriteQciFileCheckBox.Size = New System.Drawing.Size(116, 17)
@@ -580,7 +589,7 @@ Partial Class CompileUserControl
 		'CompileOptionsSourceEngineUseDefaultsButton
 		'
 		Me.CompileOptionsSourceEngineUseDefaultsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.CompileOptionsSourceEngineUseDefaultsButton.Location = New System.Drawing.Point(674, 68)
+		Me.CompileOptionsSourceEngineUseDefaultsButton.Location = New System.Drawing.Point(674, 64)
 		Me.CompileOptionsSourceEngineUseDefaultsButton.Name = "CompileOptionsSourceEngineUseDefaultsButton"
 		Me.CompileOptionsSourceEngineUseDefaultsButton.Size = New System.Drawing.Size(90, 23)
 		Me.CompileOptionsSourceEngineUseDefaultsButton.TabIndex = 12
@@ -590,13 +599,12 @@ Partial Class CompileUserControl
 		'
 		'CompilerOptionsGoldSourceEnginePanel
 		'
-		Me.CompilerOptionsGoldSourceEnginePanel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.CompilerOptionsGoldSourceEnginePanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.CompilerOptionsGoldSourceEnginePanel.Controls.Add(Me.GoldSourceEngineLogFileCheckBox)
 		Me.CompilerOptionsGoldSourceEnginePanel.Controls.Add(Me.CompileOptionsGoldSourceEngineUseDefaultsButton)
+		Me.CompilerOptionsGoldSourceEnginePanel.Dock = System.Windows.Forms.DockStyle.Top
 		Me.CompilerOptionsGoldSourceEnginePanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
-		Me.CompilerOptionsGoldSourceEnginePanel.Location = New System.Drawing.Point(0, 24)
+		Me.CompilerOptionsGoldSourceEnginePanel.Location = New System.Drawing.Point(0, 26)
 		Me.CompilerOptionsGoldSourceEnginePanel.Name = "CompilerOptionsGoldSourceEnginePanel"
 		Me.CompilerOptionsGoldSourceEnginePanel.SelectedIndex = -1
 		Me.CompilerOptionsGoldSourceEnginePanel.SelectedValue = Nothing
@@ -606,6 +614,8 @@ Partial Class CompileUserControl
 		'GoldSourceEngineLogFileCheckBox
 		'
 		Me.GoldSourceEngineLogFileCheckBox.AutoSize = True
+		Me.GoldSourceEngineLogFileCheckBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.GoldSourceEngineLogFileCheckBox.IsReadOnly = False
 		Me.GoldSourceEngineLogFileCheckBox.Location = New System.Drawing.Point(6, 3)
 		Me.GoldSourceEngineLogFileCheckBox.Name = "GoldSourceEngineLogFileCheckBox"
 		Me.GoldSourceEngineLogFileCheckBox.Size = New System.Drawing.Size(116, 17)
@@ -617,13 +627,57 @@ Partial Class CompileUserControl
 		'CompileOptionsGoldSourceEngineUseDefaultsButton
 		'
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.Location = New System.Drawing.Point(674, 68)
+		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.Location = New System.Drawing.Point(656, 68)
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.Name = "CompileOptionsGoldSourceEngineUseDefaultsButton"
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.Size = New System.Drawing.Size(90, 23)
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.TabIndex = 13
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.Text = "Use Defaults"
 		Me.ToolTip1.SetToolTip(Me.CompileOptionsGoldSourceEngineUseDefaultsButton, "Set the compiler options back to default settings")
 		Me.CompileOptionsGoldSourceEngineUseDefaultsButton.UseVisualStyleBackColor = True
+		'
+		'GameSetupPanel
+		'
+		Me.GameSetupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.GameSetupPanel.Controls.Add(Me.GameSetupLabel)
+		Me.GameSetupPanel.Controls.Add(Me.GameSetupComboBox)
+		Me.GameSetupPanel.Controls.Add(Me.SetUpGamesButton)
+		Me.GameSetupPanel.Dock = System.Windows.Forms.DockStyle.Top
+		Me.GameSetupPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.GameSetupPanel.Location = New System.Drawing.Point(0, 0)
+		Me.GameSetupPanel.Name = "GameSetupPanel"
+		Me.GameSetupPanel.SelectedIndex = -1
+		Me.GameSetupPanel.SelectedValue = Nothing
+		Me.GameSetupPanel.Size = New System.Drawing.Size(764, 26)
+		Me.GameSetupPanel.TabIndex = 40
+		'
+		'PanelEx1
+		'
+		Me.PanelEx1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.PanelEx1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.PanelEx1.Controls.Add(Me.DirectCompilerOptionsTextBox)
+		Me.PanelEx1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.PanelEx1.Location = New System.Drawing.Point(0, 141)
+		Me.PanelEx1.Name = "PanelEx1"
+		Me.PanelEx1.SelectedIndex = -1
+		Me.PanelEx1.SelectedValue = Nothing
+		Me.PanelEx1.Size = New System.Drawing.Size(761, 22)
+		Me.PanelEx1.TabIndex = 42
+		'
+		'PanelEx2
+		'
+		Me.PanelEx2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.PanelEx2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+		Me.PanelEx2.Controls.Add(Me.CompilerOptionsTextBox)
+		Me.PanelEx2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
+		Me.PanelEx2.Location = New System.Drawing.Point(0, 169)
+		Me.PanelEx2.Name = "PanelEx2"
+		Me.PanelEx2.SelectedIndex = -1
+		Me.PanelEx2.SelectedValue = Nothing
+		Me.PanelEx2.Size = New System.Drawing.Size(761, 37)
+		Me.PanelEx2.TabIndex = 15
 		'
 		'CompilerOptionsTextBoxMinScrollPanel
 		'
@@ -633,14 +687,15 @@ Partial Class CompileUserControl
 		Me.CompilerOptionsTextBoxMinScrollPanel.Name = "CompilerOptionsTextBoxMinScrollPanel"
 		Me.CompilerOptionsTextBoxMinScrollPanel.SelectedIndex = -1
 		Me.CompilerOptionsTextBoxMinScrollPanel.SelectedValue = Nothing
-		Me.CompilerOptionsTextBoxMinScrollPanel.Size = New System.Drawing.Size(764, 37)
+		Me.CompilerOptionsTextBoxMinScrollPanel.Size = New System.Drawing.Size(761, 37)
 		Me.CompilerOptionsTextBoxMinScrollPanel.TabIndex = 41
 		'
 		'CompileLogRichTextBox
 		'
-		Me.CompileLogRichTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+		Me.CompileLogRichTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.CompileLogRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.CompileLogRichTextBox.CueBannerText = ""
+		Me.CompileLogRichTextBox.DetectUrls = False
 		Me.CompileLogRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.CompileLogRichTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.CompileLogRichTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -800,13 +855,15 @@ Partial Class CompileUserControl
 		Me.Options_LogSplitContainer.ResumeLayout(False)
 		Me.OptionsGroupBox.ResumeLayout(False)
 		Me.OptionsGroupBoxFillPanel.ResumeLayout(False)
-		Me.GameSetupPanel.ResumeLayout(False)
 		Me.CompilerOptionsSourceEnginePanel.ResumeLayout(False)
 		Me.CompilerOptionsSourceEnginePanel.PerformLayout()
 		Me.DefineBonesGroupBox.ResumeLayout(False)
 		Me.DefineBonesGroupBox.PerformLayout()
 		Me.CompilerOptionsGoldSourceEnginePanel.ResumeLayout(False)
 		Me.CompilerOptionsGoldSourceEnginePanel.PerformLayout()
+		Me.GameSetupPanel.ResumeLayout(False)
+		Me.PanelEx1.ResumeLayout(False)
+		Me.PanelEx2.ResumeLayout(False)
 		Me.CompileButtonsPanel.ResumeLayout(False)
 		Me.PostCompilePanel.ResumeLayout(False)
 		Me.ResumeLayout(False)
@@ -816,11 +873,11 @@ Partial Class CompileUserControl
 	Friend WithEvents GameSetupComboBox As ComboBoxEx
 	Friend WithEvents BrowseForQcPathFolderOrFileNameButton As ButtonEx
 	Friend WithEvents Label6 As System.Windows.Forms.Label
-	Friend WithEvents EditGameSetupButton As ButtonEx
+	Friend WithEvents SetUpGamesButton As ButtonEx
 	Friend WithEvents GameSetupLabel As System.Windows.Forms.Label
 	Friend WithEvents CompileButton As ButtonEx
-	Friend WithEvents CompilerOptionNoP4CheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents CompilerOptionVerboseCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents CompilerOptionNoP4CheckBox As CheckBoxEx
+	Friend WithEvents CompilerOptionVerboseCheckBox As CheckBoxEx
 	Friend WithEvents DirectCompilerOptionsLabel As System.Windows.Forms.Label
 	Friend WithEvents DirectCompilerOptionsTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents Options_LogSplitContainer As System.Windows.Forms.SplitContainer
@@ -833,17 +890,17 @@ Partial Class CompileUserControl
 	Friend WithEvents GotoQcButton As ButtonEx
 	Friend WithEvents GotoCompiledMdlButton As ButtonEx
 	Friend WithEvents Panel1 As PanelEx
-	Friend WithEvents SourceEngineLogFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents SourceEngineLogFileCheckBox As CheckBoxEx
 	Friend WithEvents OptionsGroupBox As GroupBoxEx
 	Friend WithEvents OptionsGroupBoxFillPanel As PanelEx
 	Friend WithEvents UseInViewButton As ButtonEx
 	Friend WithEvents UseInPackButton As ButtonEx
 	Friend WithEvents UseAllInPackButton As ButtonEx
-	Friend WithEvents FolderForEachModelCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents FolderForEachModelCheckBox As CheckBoxEx
 	Friend WithEvents CompilerOptionDefineBonesFileNameTextBox As Crowbar.RichTextBoxEx
-	Friend WithEvents CompilerOptionDefineBonesCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents CompilerOptionDefineBonesWriteQciFileCheckBox As System.Windows.Forms.CheckBox
-	Friend WithEvents CompilerOptionDefineBonesModifyQcFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents CompilerOptionDefineBonesCheckBox As CheckBoxEx
+	Friend WithEvents CompilerOptionDefineBonesWriteQciFileCheckBox As CheckBoxEx
+	Friend WithEvents CompilerOptionDefineBonesModifyQcFileCheckBox As CheckBoxEx
 	Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 	Friend WithEvents CompileOptionsSourceEngineUseDefaultsButton As ButtonEx
 	Friend WithEvents GotoOutputPathButton As ButtonEx
@@ -855,14 +912,16 @@ Partial Class CompileUserControl
 	Friend WithEvents GameModelsOutputPathTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents CompilerOptionsSourceEnginePanel As PanelEx
 	Friend WithEvents CompilerOptionsGoldSourceEnginePanel As PanelEx
-	Friend WithEvents GoldSourceEngineLogFileCheckBox As System.Windows.Forms.CheckBox
+	Friend WithEvents GoldSourceEngineLogFileCheckBox As CheckBoxEx
 	Friend WithEvents CompileOptionsGoldSourceEngineUseDefaultsButton As ButtonEx
 	Friend WithEvents OutputSubfolderTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents QcPathFileNameTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents DefineBonesGroupBox As GroupBoxEx
-	Friend WithEvents CompilerOptionDefineBonesOverwriteQciFileCheckBox As CheckBox
+	Friend WithEvents CompilerOptionDefineBonesOverwriteQciFileCheckBox As CheckBoxEx
 	Friend WithEvents GameSetupPanel As PanelEx
 	Friend WithEvents CompileButtonsPanel As PanelEx
 	Friend WithEvents CompilerOptionsTextBoxMinScrollPanel As PanelEx
 	Friend WithEvents PostCompilePanel As PanelEx
+	Friend WithEvents PanelEx1 As PanelEx
+	Friend WithEvents PanelEx2 As PanelEx
 End Class

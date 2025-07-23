@@ -7,6 +7,8 @@ Public Class CompileUserControl
 
 	Public Sub New()
 		MyBase.New()
+		'NOTE: Due to unexplained reason, the Designer shows "Size(764," for the full-width Controls in OptionsGroupBox
+		'      even though set manually to "Size(761,)" to avoid showing unneeded horizontal scrollbar.
 		' This call is required by the Windows Form Designer.
 		InitializeComponent()
 	End Sub
@@ -145,6 +147,19 @@ Public Class CompileUserControl
 		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.OutputPathTextBox, Me.BrowseForOutputPathButton)
 		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.OutputSubfolderTextBox, Me.BrowseForOutputPathButton)
 		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.GameModelsOutputPathTextBox, Me.BrowseForOutputPathButton)
+
+		'NOTE: This code prevents Visual Studio or Windows often inexplicably incorrectly positioning or sizing these widgets.
+		Workarounds.WorkaroundForFrameworkAnchorRightLocationBug(Me.SetUpGamesButton)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.GameSetupComboBox, Me.SetUpGamesButton)
+
+		'NOTE: This code prevents Visual Studio or Windows often inexplicably incorrectly positioning these widgets.
+		'Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.CompilerOptionsGoldSourceEnginePanel, Me.CompilerOptionsGoldSourceEnginePanel.Parent, True)
+		'Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.CompilerOptionsSourceEnginePanel, Me.CompilerOptionsSourceEnginePanel.Parent, True)
+		Workarounds.WorkaroundForFrameworkAnchorRightLocationBug(Me.CompileOptionsGoldSourceEngineUseDefaultsButton)
+		Workarounds.WorkaroundForFrameworkAnchorRightLocationBug(Me.CompileOptionsSourceEngineUseDefaultsButton)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.DirectCompilerOptionsTextBox, Me.DirectCompilerOptionsTextBox.Parent, True)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.CompilerOptionsTextBox, Me.CompilerOptionsTextBox.Parent, True)
+		Workarounds.WorkaroundForFrameworkAnchorRightSizingBug(Me.CompilerOptionsTextBoxMinScrollPanel, Me.CompilerOptionsTextBoxMinScrollPanel.Parent, True)
 
 		If Not Me.DesignMode Then
 			Me.Init()

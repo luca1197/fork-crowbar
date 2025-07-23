@@ -113,7 +113,32 @@
     <Compile Include="Core\- General\Bitmap\BitmapFileHeader.vb" />
     <Compile Include="Core\- General\Bitmap\BitmapInfoHeader.vb" />
     <Compile Include="Core\- General\Bitmap\BitmapRgbQuad.vb" />
-    <Compile Include="Core\- General\Workarounds.vb" />
+    <Compile Include="Widgets\- Application\TESTUserControlForm.Designer.vb">
+      <DependentUpon>TESTUserControlForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\- Application\TESTUserControlForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\- General\RadioButtonEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\- General\ComboUserControl.Designer.vb">
+      <DependentUpon>ComboUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\- General\ComboUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\- General\HelperFunctions.vb" />
+    <Compile Include="Widgets\- General\ListBoxEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\- General\TabPageEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\- General\TabScroller.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\- General\Workarounds.vb" />
     <Compile Include="Core\- General\XmlColor.vb" />
     <Compile Include="Core\- General\DuplicateKeyComparer.vb" />
     <Compile Include="Core\- General\EnumHelper.vb" />
@@ -565,6 +590,9 @@
     <Compile Include="Widgets\- General\PanelEx.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Widgets\- General\Popup.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Widgets\- General\ScrollBarEx.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -837,6 +865,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Widgets\- Application\TESTFORM.resx">
       <DependentUpon>TESTFORM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\- Application\TESTUserControlForm.resx">
+      <DependentUpon>TESTUserControlForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\- General\ComboUserControl.resx">
+      <DependentUpon>ComboUserControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Widgets\- General\DataGridViewEx.resx">
       <DependentUpon>DataGridViewEx.vb</DependentUpon>

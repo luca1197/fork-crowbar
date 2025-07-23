@@ -10,6 +10,9 @@ Public Class ToolStripSpringTextBox
 
 		Me.ForeColor = WidgetTextColor
 		Me.BackColor = WidgetDeepBackColor
+
+		'NOTE: Disable to use custom.
+		MyBase.BorderStyle = BorderStyle.FixedSingle
 	End Sub
 
 	'IMPORTANT: The control must have AutoSize = True for this to be called.
@@ -67,5 +70,25 @@ Public Class ToolStripSpringTextBox
 		Return preferredSize
 
 	End Function
+
+	'Protected Overrides Sub OnPaint(e As PaintEventArgs)
+	'	MyBase.OnPaint(e)
+
+	'	' Draw a border.
+	'	' Me.Bounds is too big for top and bottom, and is overwritten on left and right sides.
+	'	Dim aRect As Rectangle = Me.Bounds
+	'	' Me.ContentRectangle is too big for top and bottom, and is overwritten on left and right sides.
+	'	'Dim aRect As Rectangle = Me.ContentRectangle
+	'	Using borderColorPen As New Pen(Color.Green)
+	'		''aRect.X -= 3
+	'		'aRect.X = -1
+	'		'aRect.Y = 0
+	'		''NOTE: DrawRectangle width and height are interpreted as the right and bottom pixels to draw.
+	'		'aRect.Width -= 1
+	'		'aRect.Height -= 1
+	'		aRect.Inflate(1, 0)
+	'		e.Graphics.DrawRectangle(borderColorPen, aRect.Left, aRect.Top, aRect.Width, aRect.Height)
+	'	End Using
+	'End Sub
 
 End Class

@@ -9,7 +9,7 @@
 	Public WidgetHighSelectedBackColor As Color = Color.FromArgb(16, 124, 16)
 	Public WidgetHighDisabledBackColor As Color = Color.FromArgb(75, 75, 75)
 
-	'For: Label, MenuBar, Panel, TabControl, TabPage
+	'For: CheckBox label, Label, MenuBar, Panel, TabControl, TabPage
 	Public WidgetBackColor As Color = Color.FromArgb(45, 45, 45)
 	Public WidgetSelectedBackColor As Color = Color.FromArgb(16, 124, 16)
 	Public WidgetDisabledBackColor As Color = Color.FromArgb(45, 45, 45)
@@ -17,9 +17,9 @@
 	' For: ListView, Menu, MenuItem, TextBox, TreeView
 	Public WidgetDeepBackColor As Color = Color.FromArgb(30, 30, 30)
 	Public WidgetDeepSelectedBackColor As Color = Color.FromArgb(16, 124, 16)
-	Public WidgetDeepDisabledBackColor As Color = Color.FromArgb(30, 30, 30)
+	Public WidgetDeepDisabledBackColor As Color = Color.FromArgb(45, 45, 45)
 
 
-	Public Windows10GlobalAccentColor As Color = Color.Red
+	Public Windows10GlobalAccentColor As Color = Color.Green
 
 End Module

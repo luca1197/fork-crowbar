@@ -135,7 +135,7 @@ Public Class GarrysModTagsUserControl
 			'Water
 			Me.CheckBox9.Location = New System.Drawing.Point(294, 20)
 			'GroupBox1
-			Me.GroupBox1.Size = New System.Drawing.Size(356, 68)
+			Me.GroupBox1.Size = New System.Drawing.Size(356, 67)
 		Else
 			''Build
 			'Me.CheckBox1.Location = New System.Drawing.Point(6, 20)

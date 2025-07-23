@@ -5,81 +5,48 @@
 		MyBase.New()
 
 		Me.BackColor = WidgetConstants.WidgetBackColor
-
-		'Me.Renderer = New ToolStripProfessionalRenderer(New CustomProfessionalColors())
-		Me.Renderer = New ToolStripOverride()
+		Me.Renderer = New ToolStripRendererOverride()
 	End Sub
 
-	Private Class ToolStripOverride
-		Inherits ToolStripProfessionalRenderer
+	'Public Overloads Property Renderer() As ToolStripRenderer
+	'	Get
+	'		Return MyBase.Renderer
+	'	End Get
+	'	Set
+	'		MyBase.Renderer = Value
+	'	End Set
+	'End Property
+
+	Public Class ToolStripRendererOverride
+		Inherits ToolStripSystemRenderer
+		'Inherits ToolStripProfessionalRenderer
+		'Inherits ToolStripRenderer
 
 		Public Sub New()
+			MyBase.New()
 		End Sub
 
 		'NOTE: Intentionally do nothing to remove the incomplete border.
 		Protected Overrides Sub OnRenderToolStripBorder(ByVal e As ToolStripRenderEventArgs)
-			'Using backColorPen As New Pen(Color.Red)
-			'	Dim aRect As Rectangle = e.AffectedBounds
-			'	aRect.X += 1
-			'	aRect.Width -= 3
-			'	aRect.Height -= 2
-			'	e.Graphics.DrawRectangle(backColorPen, aRect)
-			'End Using
+			If TypeOf e.ToolStrip IsNot ToolStrip Then
+				MyBase.OnRenderToolStripBorder(e)
+				'Else
+				'	Using backColorPen As New Pen(Color.Red)
+				'		Dim aRect As Rectangle = e.AffectedBounds
+				'		aRect.X += 1
+				'		aRect.Width -= 3
+				'		aRect.Height -= 2
+				'		e.Graphics.DrawRectangle(backColorPen, aRect)
+				'	End Using
+			End If
 		End Sub
 
+		'Protected Overrides Sub OnRenderLabelBackground(ByVal e As ToolStripItemRenderEventArgs)
+		'	Using brush As New SolidBrush(e.Item.BackColor)
+		'		e.Graphics.FillRectangle(brush, New Rectangle(Point.Empty, e.Item.Size))
+		'	End Using
+		'End Sub
+
 	End Class
-
-	'Class CustomProfessionalColors
-	'	Inherits ProfessionalColorTable
-
-	'	Public Overrides ReadOnly Property ToolStripBorder() As Color
-	'		Get
-	'			Return Color.Red
-	'		End Get
-	'	End Property
-
-	'	Public Overrides ReadOnly Property RaftingContainerGradientBegin() As Color
-	'		Get
-	'			Return Color.Red
-	'		End Get
-	'	End Property
-
-	'	Public Overrides ReadOnly Property RaftingContainerGradientEnd() As Color
-	'		Get
-	'			Return Color.Red
-	'		End Get
-	'	End Property
-
-	'	'Public Overrides ReadOnly Property ToolStripGradientBegin() As Color
-	'	'	Get
-	'	'		Return Color.BlueViolet
-	'	'	End Get
-	'	'End Property
-
-	'	'Public Overrides ReadOnly Property ToolStripGradientMiddle() As Color
-	'	'	Get
-	'	'		Return Color.CadetBlue
-	'	'	End Get
-	'	'End Property
-
-	'	'Public Overrides ReadOnly Property ToolStripGradientEnd() As Color
-	'	'	Get
-	'	'		Return Color.CornflowerBlue
-	'	'	End Get
-	'	'End Property
-
-	'	'Public Overrides ReadOnly Property MenuStripGradientBegin() As Color
-	'	'	Get
-	'	'		Return Color.Salmon
-	'	'	End Get
-	'	'End Property
-
-	'	'Public Overrides ReadOnly Property MenuStripGradientEnd() As Color
-	'	'	Get
-	'	'		Return Color.OrangeRed
-	'	'	End Get
-	'	'End Property
-
-	'End Class
 
 End Class

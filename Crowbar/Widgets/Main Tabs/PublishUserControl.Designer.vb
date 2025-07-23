@@ -44,12 +44,12 @@ Partial Class PublishUserControl
 		Me.DescriptionChangeNoteSplitContainer = New System.Windows.Forms.SplitContainer()
 		Me.ItemDescriptionTextBox = New Crowbar.RichTextBoxEx()
 		Me.ItemDescriptionTopPanel = New Crowbar.PanelEx()
-		Me.ToggleWordWrapForDescriptionCheckBox = New System.Windows.Forms.CheckBox()
+		Me.ToggleWordWrapForDescriptionCheckBox = New CheckBoxEx()
 		Me.ItemDescriptionLabel = New System.Windows.Forms.Label()
 		Me.ItemChangeNoteTextBox = New Crowbar.RichTextBoxEx()
 		Me.ItemChangeNoteTopPanel = New Crowbar.PanelEx()
 		Me.ToggleWordWrapForChangeNotePanel = New Crowbar.PanelEx()
-		Me.ToggleWordWrapForChangeNoteCheckBox = New System.Windows.Forms.CheckBox()
+		Me.ToggleWordWrapForChangeNoteCheckBox = New CheckBoxEx()
 		Me.ItemChangeNoteLabel = New System.Windows.Forms.Label()
 		Me.ItemTopPanel = New Crowbar.PanelEx()
 		Me.ItemIDLabel = New System.Windows.Forms.Label()
@@ -1107,8 +1107,8 @@ Partial Class PublishUserControl
 	Friend WithEvents SearchItemsToolStripComboBox As ToolStripComboBoxEx
 	Friend WithEvents SaveTemplateButton As ButtonEx
 	Friend WithEvents QuotaProgressBar As ProgressBarEx
-	Friend WithEvents ToggleWordWrapForDescriptionCheckBox As CheckBox
-	Friend WithEvents ToggleWordWrapForChangeNoteCheckBox As CheckBox
+	Friend WithEvents ToggleWordWrapForDescriptionCheckBox As CheckBoxEx
+	Friend WithEvents ToggleWordWrapForChangeNoteCheckBox As CheckBoxEx
 	Friend WithEvents RefreshGameItemsButton As ButtonEx
 	Friend WithEvents SearchItemsToolStripButton As ToolStripButtonEx
 	Friend WithEvents ItemsPanel As PanelEx

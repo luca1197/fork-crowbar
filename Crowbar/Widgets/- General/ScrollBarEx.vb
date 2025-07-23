@@ -11,7 +11,7 @@ Public Class ScrollBarEx
 		Me.theLargeChange = 10
 
 		_scrollTimer = New Timer()
-		_scrollTimer.Interval = 1
+		_scrollTimer.Interval = Consts.SmallChangeStartDelay
 		AddHandler _scrollTimer.Tick, AddressOf ScrollTimerTick
 	End Sub
 
@@ -169,8 +169,8 @@ Public Class ScrollBarEx
 					Return
 				End If
 				Dim loc As Integer = e.Location.Y
-				loc -= _upArrowArea.Bottom - 1
-				loc -= CInt(_thumbArea.Height / 2)
+				'loc -= _upArrowArea.Bottom - 1
+				'loc -= CInt(_thumbArea.Height / 2)
 				'ScrollToPhysical(loc)
 				Dim directionFactor As Integer = If(loc < _thumbArea.Top, -1, 1)
 				Me.ScrollBy(Me.theLargeChange * directionFactor)
@@ -180,8 +180,8 @@ Public Class ScrollBarEx
 					Return
 				End If
 				Dim loc As Integer = e.Location.X
-				loc -= _upArrowArea.Right - 1
-				loc -= CInt(_thumbArea.Width / 2)
+				'loc -= _upArrowArea.Right - 1
+				'loc -= CInt(_thumbArea.Width / 2)
 				'ScrollToPhysical(loc)
 				Dim directionFactor As Integer = If(loc < _thumbArea.Left, -1, 1)
 				Me.ScrollBy(Me.theLargeChange * directionFactor)
@@ -209,6 +209,19 @@ Public Class ScrollBarEx
 		_upArrowClicked = False
 		_downArrowClicked = False
 		Invalidate()
+	End Sub
+
+	Protected Overrides Sub OnMouseClick(ByVal e As MouseEventArgs)
+		_scrollTimer.Enabled = False
+		_scrollTimer.Interval = Consts.SmallChangeStartDelay
+		MyBase.OnMouseClick(e)
+		If _upArrowClicked Then
+			'ScrollBy(-1)
+			Me.ScrollBy(-Me.theSmallChange)
+		ElseIf _downArrowClicked Then
+			'ScrollBy(1)
+			Me.ScrollBy(Me.theSmallChange)
+		End If
 	End Sub
 
 	Protected Overrides Sub OnMouseMove(ByVal e As MouseEventArgs)
@@ -268,11 +281,28 @@ Public Class ScrollBarEx
 		Invalidate()
 	End Sub
 
+	Protected Overrides Sub OnMouseWheel(e As MouseEventArgs)
+		MyBase.OnMouseWheel(e)
+
+		Dim upOrDownValue As Integer = Me.theSmallChange * 3
+		If e.Delta > 0 Then
+			' Moving wheel away from user = up.
+			Me.ScrollBy(-upOrDownValue)
+		Else
+			' Moving wheel toward user = down.
+			Me.ScrollBy(upOrDownValue)
+		End If
+	End Sub
+
 	Private Sub ScrollTimerTick(ByVal sender As Object, ByVal e As EventArgs)
 		If Not _upArrowClicked AndAlso Not _downArrowClicked Then
 			_scrollTimer.Enabled = False
+			_scrollTimer.Interval = Consts.SmallChangeStartDelay
 			Return
 		End If
+
+		'_scrollTimer.Interval = 150
+		_scrollTimer.Interval = 75
 
 		If _upArrowClicked Then
 			'ScrollBy(-1)
@@ -299,6 +329,7 @@ Public Class ScrollBarEx
 	Public Sub ScrollBy(ByVal offset As Integer)
 		Dim newValue As Integer = Value + offset
 		ScrollTo(newValue)
+		'Console.WriteLine("ScrollBy " + newValue.ToString())
 	End Sub
 
 	Public Sub ScrollByPhysical(ByVal offsetInPixels As Integer)
@@ -424,6 +455,8 @@ Public Class ScrollBarEx
 		Public Shared ScrollBarSize As Integer = 15
 		Public Shared ArrowButtonSize As Integer = 15
 		Public Shared MinimumThumbSize As Integer = 11
+		'Public Shared SmallChangeStartDelay As Integer = 500
+		Public Shared SmallChangeStartDelay As Integer = 250
 	End Class
 
 End Class

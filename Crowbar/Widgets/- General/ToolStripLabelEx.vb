@@ -5,7 +5,7 @@
 		MyBase.New()
 
 		Me.ForeColor = WidgetTextColor
-		Me.BackColor = WidgetHighBackColor
+		Me.BackColor = WidgetBackColor
 	End Sub
 
 End Class

@@ -51,14 +51,9 @@ Public Class UnpackUserControl
 		Me.PackageListView.Columns.Add("Count", 50)
 		Me.PackageListView.Columns.Add("Type", 100)
 		Me.PackageListView.Columns.Add("Extension", 100)
-		Me.PackageListView.Columns.Add("Archive", 100)
+		Me.PackageListView.Columns.Add("Package", 100)
 		Me.theSortColumnIndex = 0
 		Me.PackageListView.ListViewItemSorter = New FolderAndFileListViewItemComparer(Me.theSortColumnIndex, Me.PackageListView.Sorting)
-
-		Me.SearchToolStripComboBox.ComboBox.DisplayMember = "Value"
-		Me.SearchToolStripComboBox.ComboBox.ValueMember = "Key"
-		Me.SearchToolStripComboBox.ComboBox.DataSource = EnumHelper.ToList(GetType(UnpackSearchFieldOptions))
-		Me.SearchToolStripComboBox.ComboBox.DataBindings.Add("SelectedValue", TheApp.Settings, "UnpackSearchField", False, DataSourceUpdateMode.OnPropertyChanged)
 
 		''NOTE: The DataSource, DisplayMember, and ValueMember need to be set before DataBindings, or else an exception is raised.
 		'Me.GameSetupComboBox.DisplayMember = "GameName"
