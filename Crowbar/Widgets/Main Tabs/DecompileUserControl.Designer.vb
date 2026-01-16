@@ -263,7 +263,7 @@ Partial Class DecompileUserControl
 		Me.MdlPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.MdlPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.MdlPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.MdlPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.MdlPathFileNameTextBox.CueBannerText = ""
 		Me.MdlPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.MdlPathFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -323,7 +323,7 @@ Partial Class DecompileUserControl
 		Me.OutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.OutputPathTextBox.CueBannerText = ""
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputPathTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -341,7 +341,7 @@ Partial Class DecompileUserControl
 		Me.OutputSubfolderTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.OutputSubfolderTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.OutputSubfolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.OutputSubfolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.OutputSubfolderTextBox.CueBannerText = ""
 		Me.OutputSubfolderTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.OutputSubfolderTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -686,7 +686,7 @@ Partial Class DecompileUserControl
 		'DecompilerLogTextBox
 		'
 		Me.DecompilerLogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.DecompilerLogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.DecompilerLogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.DecompilerLogTextBox.CueBannerText = ""
 		Me.DecompilerLogTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.DecompilerLogTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)

@@ -23,7 +23,8 @@ Public Class RichTextBoxEx
 		'Me.theNonClientPaddingColor = WidgetDeepBackColor
 		'TEST:
 		'Me.theNonClientPaddingColor = Color.Pink
-		Me.theBorderColor = WidgetConstants.Windows10GlobalAccentColor
+		Me.theBorderColor = WidgetHighBackColor
+		Me.theBorderStyle = BorderStyle.FixedSingle
 
 		Me.HorizontalScrollbar = New ScrollBarEx()
 		Me.Controls.Add(Me.HorizontalScrollbar)
@@ -108,6 +109,7 @@ Public Class RichTextBoxEx
 	<Browsable(True)>
 	<Category("Appearance")>
 	<Description("Colorable BorderStyle.")>
+	<DefaultValue(BorderStyle.FixedSingle)>
 	Public Overloads Property BorderStyle As BorderStyle
 		Get
 			Return Me.theBorderStyle
@@ -297,6 +299,10 @@ Public Class RichTextBoxEx
 				End If
 
 				TextRenderer.DrawText(g, Me.Text, Me.theOriginalFont, Me.GetPositionFromCharIndex(0), textColor, backgroundColor, Me.theTextFormatFlags)
+
+				If Me.SelectionLength > 0 Then
+					Me.DrawSelectedText(g, Me.SelectionStart, Me.GetFirstCharIndexFromLine(0), Me.SelectionStart + Me.SelectionLength - 1)
+				End If
 			Else
 				'DEBUG: Color the clip rectangle.
 				'If Me.theTestColorIsBlue Then
@@ -861,7 +867,7 @@ Public Class RichTextBoxEx
 					g.FillRectangle(backColorBrush, aRect)
 				End Using
 				' Draw border.
-				If Me.BorderStyle = Windows.Forms.BorderStyle.FixedSingle Then
+				If Me.theBorderStyle = BorderStyle.FixedSingle Then
 					'Using borderColorPen As New Pen(WidgetDisabledTextColor)
 					Using borderColorPen As New Pen(Me.theBorderColor)
 						'NOTE: DrawRectangle width and height are interpreted as the right and bottom pixels to draw.

@@ -137,8 +137,6 @@ Partial Class SetUpGamesUserControl
         Me.SteamAppPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SteamAppPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.SteamAppPathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.SteamAppPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.SteamAppPathFileNameTextBox.CueBannerText = ""
         Me.SteamAppPathFileNameTextBox.DetectUrls = False
         Me.SteamAppPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -279,8 +277,6 @@ Partial Class SetUpGamesUserControl
         Me.MappingToolPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MappingToolPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.MappingToolPathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.MappingToolPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MappingToolPathFileNameTextBox.CueBannerText = ""
         Me.MappingToolPathFileNameTextBox.DetectUrls = False
         Me.MappingToolPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -317,8 +313,6 @@ Partial Class SetUpGamesUserControl
         'GameAppOptionsTextBox
         '
         Me.GameAppOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GameAppOptionsTextBox.BorderColor = System.Drawing.Color.Green
-        Me.GameAppOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.GameAppOptionsTextBox.CueBannerText = ""
         Me.GameAppOptionsTextBox.DetectUrls = False
         Me.GameAppOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -371,8 +365,6 @@ Partial Class SetUpGamesUserControl
         Me.GameAppPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GameAppPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GameAppPathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.GameAppPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.GameAppPathFileNameTextBox.CueBannerText = ""
         Me.GameAppPathFileNameTextBox.DetectUrls = False
         Me.GameAppPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -423,8 +415,6 @@ Partial Class SetUpGamesUserControl
         Me.PackerPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PackerPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.PackerPathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.PackerPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.PackerPathFileNameTextBox.CueBannerText = ""
         Me.PackerPathFileNameTextBox.DetectUrls = False
         Me.PackerPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -465,8 +455,6 @@ Partial Class SetUpGamesUserControl
         Me.ViewerPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ViewerPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.ViewerPathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.ViewerPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ViewerPathFileNameTextBox.CueBannerText = ""
         Me.ViewerPathFileNameTextBox.DetectUrls = False
         Me.ViewerPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -496,8 +484,6 @@ Partial Class SetUpGamesUserControl
         Me.GameNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GameNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GameNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.GameNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.GameNameTextBox.CueBannerText = ""
         Me.GameNameTextBox.DetectUrls = False
         Me.GameNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -548,8 +534,6 @@ Partial Class SetUpGamesUserControl
         Me.GamePathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GamePathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GamePathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.GamePathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.GamePathFileNameTextBox.CueBannerText = ""
         Me.GamePathFileNameTextBox.DetectUrls = False
         Me.GamePathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -590,8 +574,6 @@ Partial Class SetUpGamesUserControl
         Me.CompilerPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CompilerPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.CompilerPathFileNameTextBox.BorderColor = System.Drawing.Color.Green
-        Me.CompilerPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CompilerPathFileNameTextBox.CueBannerText = ""
         Me.CompilerPathFileNameTextBox.DetectUrls = False
         Me.CompilerPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)

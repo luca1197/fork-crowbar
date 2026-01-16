@@ -69,7 +69,7 @@ Partial Class ViewUserControl
 		Me.MdlPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.MdlPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.MdlPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.MdlPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.MdlPathFileNameTextBox.CueBannerText = ""
 		Me.MdlPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.MdlPathFileNameTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -226,7 +226,7 @@ Partial Class ViewUserControl
 		'InfoRichTextBox
 		'
 		Me.InfoRichTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.InfoRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.InfoRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.InfoRichTextBox.CueBannerText = ""
 		Me.InfoRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.InfoRichTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -330,7 +330,7 @@ Partial Class ViewUserControl
 			Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.MessageTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.MessageTextBox.CueBannerText = ""
 		Me.MessageTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.MessageTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))

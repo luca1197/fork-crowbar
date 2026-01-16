@@ -428,17 +428,19 @@ Public Class ListViewEx
 			pageChange = scrollInfo.nPage
 		End If
 		Dim thumbValue As Integer = Win32Api.GetScrollPos(Me.Handle, Win32Api.ScrollBarType.SB_VERT)
-		If e.Value < thumbValue Then
-			If thumbValue - e.Value < pageChange Then
-				For i As Integer = thumbValue To e.Value + 1 Step -1
+		Dim value As Integer = e.Value
+		Dim currentThumbValue As Integer = thumbValue
+		If value < currentThumbValue Then
+			If currentThumbValue - value < pageChange Then
+				For i As Integer = currentThumbValue - 1 To value Step -1
 					Win32Api.SendMessage(Me.Handle, Win32Api.WindowsMessages.WM_VSCROLL, Win32Api.SB.SB_LINEUP, IntPtr.Zero)
 				Next
 			Else
 				Win32Api.SendMessage(Me.Handle, Win32Api.WindowsMessages.WM_VSCROLL, Win32Api.SB.SB_PAGEUP, IntPtr.Zero)
 			End If
-		ElseIf e.Value > thumbValue Then
-			If e.Value - thumbValue < pageChange Then
-				For i As Integer = thumbValue To e.Value - 1
+		ElseIf value > currentThumbValue Then
+			If value - currentThumbValue < pageChange Then
+				For i As Integer = currentThumbValue + 1 To value
 					Win32Api.SendMessage(Me.Handle, Win32Api.WindowsMessages.WM_VSCROLL, Win32Api.SB.SB_LINEDOWN, IntPtr.Zero)
 				Next
 			Else
@@ -621,7 +623,10 @@ Public Class ListViewEx
 					'Me.CustomVerticalScrollBar.ViewSize = Me.ClientRectangle.Height
 					'Me.CustomVerticalScrollBar.ViewSize = (Me.ClientRectangle.Height \ Me.theHeaderHeight) - 1
 					' The -1 is needed for scrolling to partially-shown bottom-most node in tree.
-					Me.CustomVerticalScrollBar.ViewSize = (Me.ClientRectangle.Height \ Me.FontHeight) - 1
+					'Me.CustomVerticalScrollBar.ViewSize = (Me.ClientRectangle.Height \ Me.FontHeight) - 1
+					' The -5 gives best results. No idea why.
+					Me.CustomVerticalScrollBar.ViewSize = (Me.ClientRectangle.Height - Me.NonClientPadding.Bottom) \ Me.FontHeight - 5
+					'Me.CustomVerticalScrollBar.ViewSize = (Me.ClientRectangle.Height - Me.NonClientPadding.Bottom) \ Me.FontHeight - CInt(Me.FontHeight * 0.5)
 					Me.CustomVerticalScrollBar.SmallChange = 1
 					Me.CustomVerticalScrollBar.LargeChange = scrollInfo.nPage
 				End If

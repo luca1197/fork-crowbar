@@ -106,7 +106,7 @@ Partial Class UpdateUserControl
 		'ChangelogTextBox
 		'
 		Me.ChangelogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.ChangelogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.ChangelogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.ChangelogTextBox.CueBannerText = ""
 		Me.ChangelogTextBox.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ChangelogTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -159,7 +159,7 @@ Partial Class UpdateUserControl
 		Me.CheckForUpdateTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.CheckForUpdateTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.CheckForUpdateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.CheckForUpdateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.CheckForUpdateTextBox.CueBannerText = ""
 		Me.CheckForUpdateTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.CheckForUpdateTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -220,7 +220,7 @@ Partial Class UpdateUserControl
 		Me.DownloadFolderTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.DownloadFolderTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.DownloadFolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.DownloadFolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.DownloadFolderTextBox.CueBannerText = ""
 		Me.DownloadFolderTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.DownloadFolderTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
@@ -340,7 +340,7 @@ Partial Class UpdateUserControl
 		Me.UpdateFolderTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.UpdateFolderTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.UpdateFolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.UpdateFolderTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.UpdateFolderTextBox.CueBannerText = ""
 		Me.UpdateFolderTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.UpdateFolderTextBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))

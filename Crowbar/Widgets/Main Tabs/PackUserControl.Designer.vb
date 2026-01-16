@@ -133,7 +133,7 @@ Partial Class PackUserControl
 		Me.OutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.OutputPathTextBox.CueBannerText = ""
 		Me.OutputPathTextBox.DetectUrls = False
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -151,7 +151,7 @@ Partial Class PackUserControl
 		Me.OutputParentPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.OutputParentPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.OutputParentPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.OutputParentPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.OutputParentPathTextBox.CueBannerText = ""
 		Me.OutputParentPathTextBox.DetectUrls = False
 		Me.OutputParentPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -225,7 +225,7 @@ Partial Class PackUserControl
 		Me.InputPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.InputPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.InputPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.InputPathFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.InputPathFileNameTextBox.CueBannerText = ""
 		Me.InputPathFileNameTextBox.DetectUrls = False
 		Me.InputPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -375,7 +375,7 @@ Partial Class PackUserControl
 		'GmaTitleTextBox
 		'
 		Me.GmaTitleTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.GmaTitleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.GmaTitleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.GmaTitleTextBox.CueBannerText = ""
 		Me.GmaTitleTextBox.DetectUrls = False
 		Me.GmaTitleTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -480,7 +480,7 @@ Partial Class PackUserControl
 		'DirectPackOptionsTextBox
 		'
 		Me.DirectPackOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.DirectPackOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.DirectPackOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.DirectPackOptionsTextBox.CueBannerText = ""
 		Me.DirectPackOptionsTextBox.DetectUrls = False
 		Me.DirectPackOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -513,7 +513,7 @@ Partial Class PackUserControl
 		'PackOptionsTextBox
 		'
 		Me.PackOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.PackOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.PackOptionsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.PackOptionsTextBox.CueBannerText = ""
 		Me.PackOptionsTextBox.DetectUrls = False
 		Me.PackOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -541,7 +541,7 @@ Partial Class PackUserControl
 		'LogRichTextBox
 		'
 		Me.LogRichTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.LogRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.LogRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.LogRichTextBox.CueBannerText = ""
 		Me.LogRichTextBox.DetectUrls = False
 		Me.LogRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill

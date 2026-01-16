@@ -1073,6 +1073,8 @@ Public Class Win32Api
 		SB_ENDSCROLL = 8
 	End Enum
 
+	Public Declare Function ShowScrollBar Lib "user32" (ByVal hwnd As IntPtr, ByVal wBar As Integer, ByVal bShow As Boolean) As Boolean
+
 #Region "Win32DarkMode"
 
 	Public Enum PreferredAppMode

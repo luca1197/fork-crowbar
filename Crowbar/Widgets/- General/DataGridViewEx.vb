@@ -666,7 +666,11 @@ Public Class DataGridViewEx
 
             If Me.RowCount > 0 Then
                 Dim rowHeight As Integer = Me.Rows(0).Height
-                Me.FirstDisplayedScrollingRowIndex = CInt(upOrDownValue / rowHeight)
+                Dim rowIndex As Integer = CInt(upOrDownValue / rowHeight)
+                If rowIndex > Me.RowCount - 1 Then
+                    rowIndex = Me.RowCount - 1
+                End If
+                Me.FirstDisplayedScrollingRowIndex = rowIndex
             End If
             Me.Invalidate()
 

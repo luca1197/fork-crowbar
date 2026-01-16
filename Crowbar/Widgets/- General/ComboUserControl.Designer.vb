@@ -45,7 +45,7 @@ Partial Class ComboUserControl
         '
         Me.ComboTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.ComboTextBox.BorderColor = System.Drawing.Color.Green
-        Me.ComboTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ComboTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ComboTextBox.CueBannerText = ""
         Me.ComboTextBox.DetectUrls = False
         Me.ComboTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)

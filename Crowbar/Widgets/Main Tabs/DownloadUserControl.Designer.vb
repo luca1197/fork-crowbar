@@ -69,7 +69,7 @@ Partial Class DownloadUserControl
 		Me.ItemIdTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.ItemIdTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.ItemIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.ItemIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.ItemIdTextBox.CueBannerText = ""
 		Me.ItemIdTextBox.DetectUrls = False
 		Me.ItemIdTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -95,7 +95,7 @@ Partial Class DownloadUserControl
 		'LogTextBox
 		'
 		Me.LogTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.LogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.LogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.LogTextBox.CueBannerText = ""
 		Me.LogTextBox.DetectUrls = False
 		Me.LogTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -147,7 +147,7 @@ Partial Class DownloadUserControl
 		Me.OutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.OutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.OutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.OutputPathTextBox.CueBannerText = ""
 		Me.OutputPathTextBox.DetectUrls = False
 		Me.OutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -300,7 +300,7 @@ Partial Class DownloadUserControl
 		Me.ExampleOutputFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.ExampleOutputFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.ExampleOutputFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.ExampleOutputFileNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.ExampleOutputFileNameTextBox.CueBannerText = ""
 		Me.ExampleOutputFileNameTextBox.DetectUrls = False
 		Me.ExampleOutputFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -350,7 +350,7 @@ Partial Class DownloadUserControl
 		Me.DocumentsOutputPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.DocumentsOutputPathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.DocumentsOutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.DocumentsOutputPathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.DocumentsOutputPathTextBox.CueBannerText = ""
 		Me.DocumentsOutputPathTextBox.DetectUrls = False
 		Me.DocumentsOutputPathTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -369,7 +369,7 @@ Partial Class DownloadUserControl
 		Me.DownloadedItemTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.DownloadedItemTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.DownloadedItemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.DownloadedItemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.DownloadedItemTextBox.CueBannerText = ""
 		Me.DownloadedItemTextBox.DetectUrls = False
 		Me.DownloadedItemTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)

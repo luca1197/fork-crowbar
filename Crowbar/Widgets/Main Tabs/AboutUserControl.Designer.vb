@@ -46,7 +46,7 @@ Partial Class AboutUserControl
 		'
 		Me.ProductInfoTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.ProductInfoTextBox.BorderColor = System.Drawing.Color.Green
-		Me.ProductInfoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.ProductInfoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.ProductInfoTextBox.CueBannerText = ""
 		Me.ProductInfoTextBox.DetectUrls = False
 		Me.ProductInfoTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -65,7 +65,7 @@ Partial Class AboutUserControl
 		'
 		Me.ProductDescriptionTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.ProductDescriptionTextBox.BorderColor = System.Drawing.Color.Green
-		Me.ProductDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.ProductDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.ProductDescriptionTextBox.CueBannerText = ""
 		Me.ProductDescriptionTextBox.DetectUrls = False
 		Me.ProductDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -107,7 +107,7 @@ Partial Class AboutUserControl
 		'
 		Me.CreditsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.CreditsTextBox.BorderColor = System.Drawing.Color.Green
-		Me.CreditsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.CreditsTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.CreditsTextBox.CueBannerText = ""
 		Me.CreditsTextBox.DetectUrls = False
 		Me.CreditsTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -233,7 +233,7 @@ Partial Class AboutUserControl
 		'
 		Me.Credits2TextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.Credits2TextBox.BorderColor = System.Drawing.Color.Green
-		Me.Credits2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.Credits2TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.Credits2TextBox.CueBannerText = ""
 		Me.Credits2TextBox.DetectUrls = False
 		Me.Credits2TextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -254,7 +254,7 @@ Partial Class AboutUserControl
 		'
 		Me.Credits3TextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		Me.Credits3TextBox.BorderColor = System.Drawing.Color.Green
-		Me.Credits3TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+		Me.Credits3TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.Credits3TextBox.CueBannerText = ""
 		Me.Credits3TextBox.DetectUrls = False
 		Me.Credits3TextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)

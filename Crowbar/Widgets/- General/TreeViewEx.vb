@@ -47,7 +47,7 @@ Public Class TreeViewEx
 		Me.CustomVerticalScrollBar.TabIndex = 7
 		Me.CustomVerticalScrollBar.Visible = False
 
-		Me.ScrollbarCornerPanel = New PanelEx()
+		Me.ScrollbarCornerPanel = New Panel()
 		Me.Controls.Add(Me.ScrollbarCornerPanel)
 		Me.ScrollbarCornerPanel.Name = "ScrollbarCornerPanel"
 		Me.ScrollbarCornerPanel.Size = New System.Drawing.Size(ScrollBarEx.Consts.ScrollBarSize, ScrollBarEx.Consts.ScrollBarSize)
@@ -835,7 +835,7 @@ Public Class TreeViewEx
 	'Private CustomHorizontalScrollbarPopup As Popup
 	Private WithEvents CustomHorizontalScrollbar As ScrollBarEx
 	Private WithEvents CustomVerticalScrollBar As ScrollBarEx
-	Private ScrollbarCornerPanel As PanelEx
+	Private ScrollbarCornerPanel As Panel
 	Private theControlHasShown As Boolean
 	Private theScrollingIsActive As Boolean
 	Private theMouseWheelHasMoved As Boolean

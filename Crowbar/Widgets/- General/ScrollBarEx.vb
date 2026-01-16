@@ -36,10 +36,19 @@ Public Class ScrollBarEx
 			Return _value
 		End Get
 		Set(ByVal value As Integer)
-			If value < Minimum Then value = Minimum
+			If value < Minimum Then
+				value = Minimum
+			End If
 			Dim maximumValue As Integer = Maximum - ViewSize
-			If value > maximumValue Then value = maximumValue
-			If _value = value Then Return
+			'If Maximum <= ViewSize Then
+			'	maximumValue = Maximum
+			'End If
+			If value > maximumValue Then
+				value = maximumValue
+			End If
+			If _value = value Then
+				Return
+			End If
 			_value = value
 			UpdateThumb(True)
 			RaiseEvent ValueChanged(Me, New ScrollValueEventArgs(value))
@@ -151,6 +160,7 @@ Public Class ScrollBarEx
 		If _upArrowArea.Contains(e.Location) AndAlso e.Button = MouseButtons.Left Then
 			_upArrowClicked = True
 			_scrollTimer.Enabled = True
+			Me.ScrollBy(-Me.theSmallChange)
 			Invalidate()
 			Return
 		End If
@@ -158,6 +168,7 @@ Public Class ScrollBarEx
 		If _downArrowArea.Contains(e.Location) AndAlso e.Button = MouseButtons.Left Then
 			_downArrowClicked = True
 			_scrollTimer.Enabled = True
+			Me.ScrollBy(Me.theSmallChange)
 			Invalidate()
 			Return
 		End If
@@ -168,23 +179,27 @@ Public Class ScrollBarEx
 				If Not modRect.Contains(e.Location) Then
 					Return
 				End If
+				_verticalTrackAreaClicked = True
+				_scrollTimer.Enabled = True
 				Dim loc As Integer = e.Location.Y
 				'loc -= _upArrowArea.Bottom - 1
 				'loc -= CInt(_thumbArea.Height / 2)
 				'ScrollToPhysical(loc)
-				Dim directionFactor As Integer = If(loc < _thumbArea.Top, -1, 1)
-				Me.ScrollBy(Me.theLargeChange * directionFactor)
+				_directionFactor = If(loc < _thumbArea.Top, -1, 1)
+				Me.ScrollBy(Me.theLargeChange * _directionFactor)
 			Else
 				Dim modRect As New Rectangle(_trackArea.Left, _thumbArea.Top, _trackArea.Width, _thumbArea.Height)
 				If Not modRect.Contains(e.Location) Then
 					Return
 				End If
+				_horizontalTrackAreaClicked = True
+				_scrollTimer.Enabled = True
 				Dim loc As Integer = e.Location.X
 				'loc -= _upArrowArea.Right - 1
 				'loc -= CInt(_thumbArea.Width / 2)
 				'ScrollToPhysical(loc)
-				Dim directionFactor As Integer = If(loc < _thumbArea.Left, -1, 1)
-				Me.ScrollBy(Me.theLargeChange * directionFactor)
+				_directionFactor = If(loc < _thumbArea.Left, -1, 1)
+				Me.ScrollBy(Me.theLargeChange * _directionFactor)
 			End If
 
 			_isScrolling = True
@@ -208,6 +223,8 @@ Public Class ScrollBarEx
 		_thumbClicked = False
 		_upArrowClicked = False
 		_downArrowClicked = False
+		_verticalTrackAreaClicked = False
+		_horizontalTrackAreaClicked = False
 		Invalidate()
 	End Sub
 
@@ -215,13 +232,13 @@ Public Class ScrollBarEx
 		_scrollTimer.Enabled = False
 		_scrollTimer.Interval = Consts.SmallChangeStartDelay
 		MyBase.OnMouseClick(e)
-		If _upArrowClicked Then
-			'ScrollBy(-1)
-			Me.ScrollBy(-Me.theSmallChange)
-		ElseIf _downArrowClicked Then
-			'ScrollBy(1)
-			Me.ScrollBy(Me.theSmallChange)
-		End If
+		'If _upArrowClicked Then
+		'	'ScrollBy(-1)
+		'	Me.ScrollBy(-Me.theSmallChange)
+		'ElseIf _downArrowClicked Then
+		'	'ScrollBy(1)
+		'	Me.ScrollBy(Me.theSmallChange)
+		'End If
 	End Sub
 
 	Protected Overrides Sub OnMouseMove(ByVal e As MouseEventArgs)
@@ -250,7 +267,7 @@ Public Class ScrollBarEx
 			End If
 		End If
 
-		If _isScrolling Then
+		If _isScrolling AndAlso Not _verticalTrackAreaClicked AndAlso Not _horizontalTrackAreaClicked Then
 
 			If e.Button <> MouseButtons.Left Then
 				OnMouseUp(Nothing)
@@ -295,7 +312,7 @@ Public Class ScrollBarEx
 	End Sub
 
 	Private Sub ScrollTimerTick(ByVal sender As Object, ByVal e As EventArgs)
-		If Not _upArrowClicked AndAlso Not _downArrowClicked Then
+		If Not _upArrowClicked AndAlso Not _downArrowClicked AndAlso Not _verticalTrackAreaClicked AndAlso Not _horizontalTrackAreaClicked Then
 			_scrollTimer.Enabled = False
 			_scrollTimer.Interval = Consts.SmallChangeStartDelay
 			Return
@@ -310,6 +327,10 @@ Public Class ScrollBarEx
 		ElseIf _downArrowClicked Then
 			'ScrollBy(1)
 			Me.ScrollBy(Me.theSmallChange)
+		ElseIf _verticalTrackAreaClicked Then
+			Me.ScrollBy(Me.theLargeChange * _directionFactor)
+		ElseIf _horizontalTrackAreaClicked Then
+			Me.ScrollBy(Me.theLargeChange * _directionFactor)
 		End If
 	End Sub
 
@@ -443,6 +464,9 @@ Public Class ScrollBarEx
 	Private _thumbClicked As Boolean
 	Private _upArrowClicked As Boolean
 	Private _downArrowClicked As Boolean
+	Private _verticalTrackAreaClicked As Boolean
+	Private _horizontalTrackAreaClicked As Boolean
+	Private _directionFactor As Integer
 	Private _isScrolling As Boolean
 	Private _initialValue As Integer
 	Private _initialContact As Point
