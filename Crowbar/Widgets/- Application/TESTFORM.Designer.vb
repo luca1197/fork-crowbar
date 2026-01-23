@@ -30,23 +30,27 @@ Partial Class TESTFORM
         Me.CheckBoxEx2 = New Crowbar.CheckBoxEx()
         Me.CheckBoxEx1 = New Crowbar.CheckBoxEx()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabControlEx1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.PanelEx1.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControlEx1
         '
         Me.TabControlEx1.Controls.Add(Me.TabPage1)
         Me.TabControlEx1.Controls.Add(Me.TabPage2)
-        Me.TabControlEx1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControlEx1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TabControlEx1.HotTrack = True
         Me.TabControlEx1.Location = New System.Drawing.Point(0, 0)
         Me.TabControlEx1.Name = "TabControlEx1"
         Me.TabControlEx1.SelectedIndex = 0
         Me.TabControlEx1.SelectedTabBackColor = System.Drawing.Color.Red
         Me.TabControlEx1.ShowToolTips = True
-        Me.TabControlEx1.Size = New System.Drawing.Size(800, 450)
+        Me.TabControlEx1.Size = New System.Drawing.Size(800, 225)
         Me.TabControlEx1.TabBackColor1 = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.TabControlEx1.TabBackColor2 = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.TabControlEx1.TabIndex = 0
@@ -58,7 +62,7 @@ Partial Class TESTFORM
         Me.TabPage1.Controls.Add(Me.PanelEx1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(792, 424)
+        Me.TabPage1.Size = New System.Drawing.Size(792, 199)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -77,7 +81,7 @@ Partial Class TESTFORM
         Me.PanelEx1.Name = "PanelEx1"
         Me.PanelEx1.SelectedIndex = -1
         Me.PanelEx1.SelectedValue = Nothing
-        Me.PanelEx1.Size = New System.Drawing.Size(792, 424)
+        Me.PanelEx1.Size = New System.Drawing.Size(792, 199)
         Me.PanelEx1.TabIndex = 0
         '
         'CheckBoxEx4
@@ -138,11 +142,43 @@ Partial Class TESTFORM
         Me.TabPage2.Text = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TabControl1.Location = New System.Drawing.Point(0, 246)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(800, 204)
+        Me.TabControl1.TabIndex = 1
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(792, 178)
+        Me.TabPage3.TabIndex = 0
+        Me.TabPage3.Text = "TabPage3"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(192, 74)
+        Me.TabPage4.TabIndex = 1
+        Me.TabPage4.Text = "TabPage4"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
         'TESTFORM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.TabControlEx1)
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Name = "TESTFORM"
@@ -151,6 +187,7 @@ Partial Class TESTFORM
         Me.TabPage1.ResumeLayout(False)
         Me.PanelEx1.ResumeLayout(False)
         Me.PanelEx1.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -163,4 +200,7 @@ Partial Class TESTFORM
 	Friend WithEvents CheckBoxEx3 As CheckBoxEx
 	Friend WithEvents CheckBoxEx2 As CheckBoxEx
 	Friend WithEvents CheckBoxEx1 As CheckBoxEx
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents TabPage4 As TabPage
 End Class

@@ -12,12 +12,17 @@ Public Class TabControlEx
 		'NOTE: To workaround a bug with TabControl.TabPages.Insert() not inserting, force the handle to be created.
 		Dim h As IntPtr = Me.Handle
 
-		Me.theBackColor = WidgetBackColor
-		Me.theTabBackColor1 = WidgetHighBackColor
-		Me.theTabBackColor2 = WidgetHighBackColor
+		'Me.theBackColor = WidgetBackColor
+		'Me.theTabBackColor1 = WidgetHighBackColor
+		'Me.theTabBackColor2 = WidgetHighBackColor
+		'Me.theSelectedTabBackColor = Windows10GlobalAccentColor
+		'Me.theTabPageForeColor = WidgetTextColor
+		'Me.theTabPageBackColor = WidgetBackColor
+		Me.theTabBackColor1 = Color.Transparent
+		Me.theTabBackColor2 = Color.Transparent
 		Me.theSelectedTabBackColor = Windows10GlobalAccentColor
-		Me.theTabPageForeColor = WidgetTextColor
-		Me.theTabPageBackColor = WidgetBackColor
+		Me.theTabPageForeColor = SystemColors.ControlText
+		Me.theTabPageBackColor = Color.Transparent
 		Me.ShowToolTips = True
 
 		Me.HotTrack = True
@@ -27,14 +32,14 @@ Public Class TabControlEx
 		Me.SetStyle(ControlStyles.UserPaint, True)
 	End Sub
 
-	Public Overrides Property BackColor() As Color
-		Get
-			Return Me.theBackColor
-		End Get
-		Set(ByVal value As Color)
-			Me.theBackColor = value
-		End Set
-	End Property
+	'Public Overrides Property BackColor() As Color
+	'	Get
+	'		Return Me.theBackColor
+	'	End Get
+	'	Set(ByVal value As Color)
+	'		Me.theBackColor = value
+	'	End Set
+	'End Property
 
 	Public Property TabBackColor1() As Color
 		Get
@@ -802,7 +807,7 @@ Public Class TabControlEx
 
 #Region "Data"
 
-	Private theBackColor As Color
+	'Private theBackColor As Color
 	Private theTabBackColor1 As Color
 	Private theTabBackColor2 As Color
 	Private theSelectedTabBackColor As Color

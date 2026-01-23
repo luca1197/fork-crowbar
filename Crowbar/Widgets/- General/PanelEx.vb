@@ -68,8 +68,8 @@ Public Class PanelEx
         Me.theControlHasShown = False
 
         Me.theSelectedIndex = -1
-        Me.ForeColor = WidgetTextColor
-        Me.BackColor = WidgetBackColor
+        'Me.ForeColor = WidgetTextColor
+        'Me.BackColor = WidgetBackColor
     End Sub
 
 #End Region

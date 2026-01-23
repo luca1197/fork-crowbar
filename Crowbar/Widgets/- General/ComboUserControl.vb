@@ -102,7 +102,12 @@ Public Class ComboUserControl
     <Browsable(False)>
     Public Property ValueMember() As String
         Get
-            Return Me.TextHistoryDataGridView.Columns(0).Name
+            ' This check prevents problems with viewing and saving Forms in VS Designer.
+            Dim columnName As String = ""
+            If Me.TextHistoryDataGridView.Columns.Count > 0 Then
+                columnName = Me.TextHistoryDataGridView.Columns(0).Name
+            End If
+            Return columnName
         End Get
         Set
             Me.TextHistoryDataGridView.Columns.Clear()
@@ -126,17 +131,22 @@ Public Class ComboUserControl
     <Browsable(False)>
     Public Property SelectedIndex() As Integer
         Get
-            'Return Me.TextHistoryDataGridView.SelectedIndex
-            Return Me.TextHistoryDataGridView.SelectedRows(0).Index
+            ' This check prevents problems with viewing and saving Forms in VS Designer.
+            Dim rowIndex As Integer = -1
+            If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
+                rowIndex = Me.TextHistoryDataGridView.SelectedRows(0).Index
+            End If
+            Return rowIndex
         End Get
         Set
-            'Me.TextHistoryDataGridView.SelectedIndex = Value
-            If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
-                Me.TextHistoryDataGridView.SelectedRows(0).Selected = False
+            If Me.TextHistoryDataGridView.Rows.Count > 0 Then
+                If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
+                    Me.TextHistoryDataGridView.SelectedRows(0).Selected = False
+                End If
+                Me.TextHistoryDataGridView.Rows(Value).Selected = True
+                Me.ComboTextBox.Text = CStr(Me.TextHistoryDataGridView.Rows(Value).Cells(0).Value)
+                RaiseEvent SelectedIndexChanged(Me, New EventArgs())
             End If
-            Me.TextHistoryDataGridView.Rows(Value).Selected = True
-            Me.ComboTextBox.Text = CStr(Me.TextHistoryDataGridView.Rows(Value).Cells(0).Value)
-            RaiseEvent SelectedIndexChanged(Me, New EventArgs())
         End Set
     End Property
 

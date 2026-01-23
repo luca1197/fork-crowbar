@@ -78,7 +78,6 @@ Partial Class SetUpGamesUserControl
         'AddLibraryPathButton
         '
         Me.AddLibraryPathButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddLibraryPathButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.AddLibraryPathButton.Location = New System.Drawing.Point(613, 412)
         Me.AddLibraryPathButton.Name = "AddLibraryPathButton"
         Me.AddLibraryPathButton.Size = New System.Drawing.Size(75, 23)
@@ -90,7 +89,6 @@ Partial Class SetUpGamesUserControl
         'DeleteLibraryPathButton
         '
         Me.DeleteLibraryPathButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DeleteLibraryPathButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.DeleteLibraryPathButton.Location = New System.Drawing.Point(613, 441)
         Me.DeleteLibraryPathButton.Name = "DeleteLibraryPathButton"
         Me.DeleteLibraryPathButton.Size = New System.Drawing.Size(75, 50)
@@ -123,7 +121,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForSteamAppPathFileNameButton
         '
         Me.BrowseForSteamAppPathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForSteamAppPathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForSteamAppPathFileNameButton.Location = New System.Drawing.Point(613, 364)
         Me.BrowseForSteamAppPathFileNameButton.Name = "BrowseForSteamAppPathFileNameButton"
         Me.BrowseForSteamAppPathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -137,6 +134,7 @@ Partial Class SetUpGamesUserControl
         Me.SteamAppPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SteamAppPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.SteamAppPathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.SteamAppPathFileNameTextBox.CueBannerText = ""
         Me.SteamAppPathFileNameTextBox.DetectUrls = False
         Me.SteamAppPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -153,7 +151,9 @@ Partial Class SetUpGamesUserControl
         'AddGameSetupButton
         '
         Me.AddGameSetupButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddGameSetupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
+        Me.AddGameSetupButton.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.AddGameSetupButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.AddGameSetupButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aqua
         Me.AddGameSetupButton.Location = New System.Drawing.Point(706, 3)
         Me.AddGameSetupButton.Name = "AddGameSetupButton"
         Me.AddGameSetupButton.Size = New System.Drawing.Size(75, 22)
@@ -250,7 +250,6 @@ Partial Class SetUpGamesUserControl
         'CreateModelsFolderTreeButton
         '
         Me.CreateModelsFolderTreeButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CreateModelsFolderTreeButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.CreateModelsFolderTreeButton.Location = New System.Drawing.Point(502, 275)
         Me.CreateModelsFolderTreeButton.Name = "CreateModelsFolderTreeButton"
         Me.CreateModelsFolderTreeButton.Size = New System.Drawing.Size(270, 23)
@@ -263,7 +262,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForMappingToolPathFileNameButton
         '
         Me.BrowseForMappingToolPathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForMappingToolPathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForMappingToolPathFileNameButton.Location = New System.Drawing.Point(697, 217)
         Me.BrowseForMappingToolPathFileNameButton.Name = "BrowseForMappingToolPathFileNameButton"
         Me.BrowseForMappingToolPathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -277,6 +275,7 @@ Partial Class SetUpGamesUserControl
         Me.MappingToolPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MappingToolPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.MappingToolPathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.MappingToolPathFileNameTextBox.CueBannerText = ""
         Me.MappingToolPathFileNameTextBox.DetectUrls = False
         Me.MappingToolPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -313,6 +312,7 @@ Partial Class SetUpGamesUserControl
         'GameAppOptionsTextBox
         '
         Me.GameAppOptionsTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GameAppOptionsTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.GameAppOptionsTextBox.CueBannerText = ""
         Me.GameAppOptionsTextBox.DetectUrls = False
         Me.GameAppOptionsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -339,7 +339,6 @@ Partial Class SetUpGamesUserControl
         'ClearGameAppOptionsButton
         '
         Me.ClearGameAppOptionsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ClearGameAppOptionsButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.ClearGameAppOptionsButton.Location = New System.Drawing.Point(697, 101)
         Me.ClearGameAppOptionsButton.Name = "ClearGameAppOptionsButton"
         Me.ClearGameAppOptionsButton.Size = New System.Drawing.Size(75, 23)
@@ -351,7 +350,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForGameAppPathFileNameButton
         '
         Me.BrowseForGameAppPathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForGameAppPathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForGameAppPathFileNameButton.Location = New System.Drawing.Point(697, 72)
         Me.BrowseForGameAppPathFileNameButton.Name = "BrowseForGameAppPathFileNameButton"
         Me.BrowseForGameAppPathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -365,6 +363,7 @@ Partial Class SetUpGamesUserControl
         Me.GameAppPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GameAppPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GameAppPathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.GameAppPathFileNameTextBox.CueBannerText = ""
         Me.GameAppPathFileNameTextBox.DetectUrls = False
         Me.GameAppPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -401,7 +400,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForUnpackerPathFileNameButton
         '
         Me.BrowseForUnpackerPathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForUnpackerPathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForUnpackerPathFileNameButton.Location = New System.Drawing.Point(697, 246)
         Me.BrowseForUnpackerPathFileNameButton.Name = "BrowseForUnpackerPathFileNameButton"
         Me.BrowseForUnpackerPathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -415,6 +413,7 @@ Partial Class SetUpGamesUserControl
         Me.PackerPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PackerPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.PackerPathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.PackerPathFileNameTextBox.CueBannerText = ""
         Me.PackerPathFileNameTextBox.DetectUrls = False
         Me.PackerPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -441,7 +440,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForViewerPathFileNameButton
         '
         Me.BrowseForViewerPathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForViewerPathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForViewerPathFileNameButton.Location = New System.Drawing.Point(697, 188)
         Me.BrowseForViewerPathFileNameButton.Name = "BrowseForViewerPathFileNameButton"
         Me.BrowseForViewerPathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -455,6 +453,7 @@ Partial Class SetUpGamesUserControl
         Me.ViewerPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ViewerPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.ViewerPathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.ViewerPathFileNameTextBox.CueBannerText = ""
         Me.ViewerPathFileNameTextBox.DetectUrls = False
         Me.ViewerPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -470,7 +469,6 @@ Partial Class SetUpGamesUserControl
         '
         'CloneGameSetupButton
         '
-        Me.CloneGameSetupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.CloneGameSetupButton.Location = New System.Drawing.Point(6, 275)
         Me.CloneGameSetupButton.Name = "CloneGameSetupButton"
         Me.CloneGameSetupButton.Size = New System.Drawing.Size(75, 23)
@@ -484,6 +482,7 @@ Partial Class SetUpGamesUserControl
         Me.GameNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GameNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GameNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.GameNameTextBox.CueBannerText = ""
         Me.GameNameTextBox.DetectUrls = False
         Me.GameNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -508,7 +507,6 @@ Partial Class SetUpGamesUserControl
         '
         'DeleteGameSetupButton
         '
-        Me.DeleteGameSetupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.DeleteGameSetupButton.Location = New System.Drawing.Point(87, 275)
         Me.DeleteGameSetupButton.Name = "DeleteGameSetupButton"
         Me.DeleteGameSetupButton.Size = New System.Drawing.Size(75, 23)
@@ -520,7 +518,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForGamePathFileNameButton
         '
         Me.BrowseForGamePathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForGamePathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForGamePathFileNameButton.Location = New System.Drawing.Point(697, 130)
         Me.BrowseForGamePathFileNameButton.Name = "BrowseForGamePathFileNameButton"
         Me.BrowseForGamePathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -534,6 +531,7 @@ Partial Class SetUpGamesUserControl
         Me.GamePathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GamePathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GamePathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.GamePathFileNameTextBox.CueBannerText = ""
         Me.GamePathFileNameTextBox.DetectUrls = False
         Me.GamePathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -560,7 +558,6 @@ Partial Class SetUpGamesUserControl
         'BrowseForCompilerPathFileNameButton
         '
         Me.BrowseForCompilerPathFileNameButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BrowseForCompilerPathFileNameButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.BrowseForCompilerPathFileNameButton.Location = New System.Drawing.Point(697, 159)
         Me.BrowseForCompilerPathFileNameButton.Name = "BrowseForCompilerPathFileNameButton"
         Me.BrowseForCompilerPathFileNameButton.Size = New System.Drawing.Size(75, 23)
@@ -574,6 +571,7 @@ Partial Class SetUpGamesUserControl
         Me.CompilerPathFileNameTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CompilerPathFileNameTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CompilerPathFileNameTextBox.BorderColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.CompilerPathFileNameTextBox.CueBannerText = ""
         Me.CompilerPathFileNameTextBox.DetectUrls = False
         Me.CompilerPathFileNameTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -599,7 +597,6 @@ Partial Class SetUpGamesUserControl
         'GoBackButton
         '
         Me.GoBackButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GoBackButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
         Me.GoBackButton.Enabled = False
         Me.GoBackButton.Location = New System.Drawing.Point(706, 520)
         Me.GoBackButton.Name = "GoBackButton"
@@ -663,7 +660,6 @@ Partial Class SetUpGamesUserControl
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.Panel1.Controls.Add(Me.ComboUserControl1)
         Me.Panel1.Controls.Add(Me.GoBackButton)
         Me.Panel1.Controls.Add(Me.GameSetupComboBox)
@@ -677,7 +673,6 @@ Partial Class SetUpGamesUserControl
         Me.Panel1.Controls.Add(Me.AddGameSetupButton)
         Me.Panel1.Controls.Add(Me.GameGroupBox)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.SelectedIndex = -1
@@ -690,7 +685,8 @@ Partial Class SetUpGamesUserControl
         Me.ComboUserControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboUserControl1.BackColor = System.Drawing.SystemColors.Control
-        Me.ComboUserControl1.BorderStyle = BorderStyle.FixedSingle
+        Me.ComboUserControl1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ComboUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ComboUserControl1.DataSource = Nothing
         Me.ComboUserControl1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.ComboUserControl1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -699,11 +695,13 @@ Partial Class SetUpGamesUserControl
         Me.ComboUserControl1.MaxDropDownItems = 30
         Me.ComboUserControl1.MultipleInputsIsAllowed = False
         Me.ComboUserControl1.Name = "ComboUserControl1"
+        Me.ComboUserControl1.SelectedIndex = -1
         Me.ComboUserControl1.Size = New System.Drawing.Size(697, 22)
         Me.ComboUserControl1.TabIndex = 53
         Me.ComboUserControl1.TextHistoryIsKept = False
         Me.ComboUserControl1.TextHistoryMaxSize = 15
         Me.ComboUserControl1.TextIsPathFileNames = False
+        Me.ComboUserControl1.ValueMember = ""
         '
         'SetUpGamesUserControl
         '

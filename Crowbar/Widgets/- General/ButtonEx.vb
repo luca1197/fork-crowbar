@@ -1,12 +1,28 @@
 ﻿Public Class ButtonEx
 	Inherits Button
 
+#Region "Create and Destroy"
+
 	Public Sub New()
 		MyBase.New()
 
-		Me.BackColor = WidgetConstants.WidgetHighBackColor
+		'Me.BackColor = WidgetConstants.WidgetHighBackColor
 		Me.theMouseIsOverButton = False
 	End Sub
+
+#End Region
+
+#Region "Init and Free"
+
+	'Public Sub Init()
+	'End Sub
+
+	'Private Sub Free()
+	'End Sub
+
+#End Region
+
+#Region "Properties"
 
 	Public Property SpecialImage() As ButtonEx.SpecialImageType
 		Get
@@ -19,6 +35,20 @@
 		End Set
 	End Property
 
+#End Region
+
+#Region "Enums"
+
+	Public Enum SpecialImageType
+		None
+		DownArrow
+		RightArrow
+	End Enum
+
+#End Region
+
+#Region "Methods"
+
 	Public Sub Highlight()
 		Me.theButtonShouldBeHighlighted = True
 		Me.Invalidate()
@@ -28,6 +58,14 @@
 		Me.theButtonShouldBeHighlighted = False
 		Me.Invalidate()
 	End Sub
+
+#End Region
+
+#Region "Events"
+
+#End Region
+
+#Region "Private Methods"
 
 	Protected Overrides Sub OnMouseEnter(e As EventArgs)
 		MyBase.OnMouseEnter(e)
@@ -42,53 +80,73 @@
 	Protected Overrides Sub OnPaint(e As PaintEventArgs)
 		MyBase.OnPaint(e)
 
-		Dim g As Graphics = e.Graphics
-		Dim clientRectangle As Rectangle = Me.ClientRectangle
+		Dim backColor1 As Color
+		Dim backColor2 As Color
+		Dim textColor As Color
+		Dim textBackColor As Color
 
-		Dim backColor1 As Color = WidgetHighBackColor
-		Dim backColor2 As Color = WidgetHighBackColor
-		Dim textColor As Color = WidgetTextColor
-
-		'If Me.Image Is Nothing Then
-		If Me.Enabled Then
-			If Me.theMouseIsOverButton OrElse Me.theButtonShouldBeHighlighted Then
-				backColor1 = Color.Green
-				backColor2 = WidgetHighBackColor
-				textColor = WidgetTextColor
+		Dim theme As ButtonTheme = Nothing
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.ButtonTheme
+		End If
+		If theme IsNot Nothing Then
+			If Me.Enabled Then
+				If Me.theMouseIsOverButton OrElse Me.theButtonShouldBeHighlighted Then
+					' Focus
+					backColor1 = theme.FocusForeColor
+					backColor2 = theme.FocusBackColor
+					textColor = theme.TextFocusForeColor
+					textBackColor = Color.Transparent
+				Else
+					backColor1 = theme.EnabledBackColor
+					backColor2 = theme.EnabledBackColor
+					textColor = theme.TextEnabledForeColor
+					textBackColor = theme.TextEnabledBackColor
+				End If
 			Else
-				''Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, WidgetHighBackColor, WidgetHighBackColor, Drawing2D.LinearGradientMode.Vertical)
-				'Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, Color.Green, WidgetHighBackColor, Drawing2D.LinearGradientMode.Vertical)
-				'	g.FillRectangle(aColorBrush, clientRectangle)
-				'End Using
-				'TextRenderer.DrawText(g, Me.Text, Me.Font, clientRectangle, WidgetTextColor, TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordBreak)
-				'------
-				'backColor1 = WidgetHighBackColor
-				'backColor2 = WidgetHighBackColor
-				backColor1 = Me.BackColor
-				backColor2 = Me.BackColor
-				textColor = WidgetTextColor
+				backColor1 = theme.DisabledBackColor
+				backColor2 = theme.DisabledBackColor
+				textColor = theme.TextDisabledForeColor
+				textBackColor = theme.TextDisabledBackColor
 			End If
 		Else
-			'Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, WidgetDeepBackColor, WidgetDeepBackColor, Drawing2D.LinearGradientMode.Vertical)
-			'	g.FillRectangle(aColorBrush, clientRectangle)
-			'End Using
-			'TextRenderer.DrawText(g, Me.Text, Me.Font, clientRectangle, WidgetDisabledTextColor)
-			'------
-			'backColor1 = WidgetDeepBackColor
-			'backColor2 = WidgetDeepBackColor
-			backColor1 = Me.BackColor
-			backColor2 = Me.BackColor
-			textColor = WidgetDisabledTextColor
+			If Me.Enabled Then
+				If Me.theMouseIsOverButton OrElse Me.theButtonShouldBeHighlighted Then
+					' Focus
+					'backColor1 = Color.Green
+					'backColor2 = WidgetHighBackColor
+					'textColor = WidgetTextColor
+					backColor1 = Me.BackColor
+					backColor2 = Me.BackColor
+					textColor = Me.ForeColor
+					textBackColor = Me.BackColor
+				Else
+					backColor1 = Me.BackColor
+					backColor2 = Me.BackColor
+					textColor = Me.ForeColor
+					textBackColor = Me.BackColor
+				End If
+			Else
+				backColor1 = Me.BackColor
+				backColor2 = Me.BackColor
+				textColor = Me.ForeColor
+				textBackColor = Me.BackColor
+			End If
 		End If
+
+		Dim g As Graphics = e.Graphics
+		Dim clientRectangle As Rectangle = Me.ClientRectangle
 
 		' Draw background.
 		Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, backColor1, backColor2, Drawing2D.LinearGradientMode.Vertical)
 			g.FillRectangle(aColorBrush, clientRectangle)
 		End Using
 
+		' Draw text or image.
 		If Me.Image Is Nothing Then
 			If Me.theSpecialImage = SpecialImageType.None Then
-				TextRenderer.DrawText(g, Me.Text, Me.Font, clientRectangle, textColor, TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordBreak)
+				TextRenderer.DrawText(g, Me.Text, Me.Font, clientRectangle, textColor, textBackColor, TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordBreak)
 			ElseIf Me.theSpecialImage = SpecialImageType.DownArrow Then
 				' Draw drop-down arrow.
 				Dim dropDownRect As Rectangle = Me.ClientRectangle
@@ -100,20 +158,18 @@
 			ElseIf Me.theSpecialImage = SpecialImageType.RightArrow Then
 			End If
 		Else
-			' Draw image.
 			g.DrawImage(Me.Image, New Point(CInt(Me.Width * 0.5 - Me.Image.Width * 0.5), CInt(Me.Height * 0.5 - Me.Image.Height * 0.5)))
 		End If
-		'End If
 	End Sub
+
+#End Region
+
+#Region "Data"
 
 	Private theMouseIsOverButton As Boolean
 	Private theButtonShouldBeHighlighted As Boolean
 	Private theSpecialImage As ButtonEx.SpecialImageType
 
-	Public Enum SpecialImageType
-		None
-		DownArrow
-		RightArrow
-	End Enum
+#End Region
 
 End Class

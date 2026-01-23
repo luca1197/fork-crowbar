@@ -218,7 +218,7 @@ Public Class DataGridViewEx
     Protected Overrides Sub OnCellEnter(ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
         MyBase.OnCellEnter(e)
         If (e.RowIndex > -1) AndAlso (e.ColumnIndex > -1) Then
-            If Me.theCellWherePointerIs IsNot Nothing Then
+            If Me.theCellWherePointerIs IsNot Nothing AndAlso (Me.theCellWherePointerIs.RowIndex > -1) AndAlso (Me.theCellWherePointerIs.ColumnIndex > -1) Then
                 Me.InvalidateCell(Me.theCellWherePointerIs)
             End If
             Me.theCellWherePointerIs = Me.Rows(e.RowIndex).Cells(e.ColumnIndex)

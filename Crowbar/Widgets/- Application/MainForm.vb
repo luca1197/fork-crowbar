@@ -1,5 +1,6 @@
 Imports System.Collections.ObjectModel
 Imports System.IO
+Imports Microsoft.Win32
 
 Public Class MainForm
 
@@ -102,6 +103,8 @@ Public Class MainForm
         'Me.PreviewViewUserControl.RunDataViewer()
         'Me.ViewViewUserControl.RunDataViewer()
 
+        AddHandler SystemEvents.UserPreferenceChanged, AddressOf OnUserPreferenceChanged
+
         AddHandler Me.SetUpGamesUserControl1.GoBackButton.Click, AddressOf Me.SetUpGamesGoBackButton_Click
         AddHandler Me.DownloadUserControl1.UseInUnpackButton.Click, AddressOf Me.DownloadUserControl1_UseInUnpackButton_Click
         AddHandler Me.UnpackUserControl1.UseAllInDecompileButton.Click, AddressOf Me.UnpackUserControl_UseAllInDecompileButton_Click
@@ -148,6 +151,8 @@ Public Class MainForm
         RemoveHandler Me.PublishUserControl1.UseInDownloadToolStripMenuItem.Click, AddressOf Me.PublishUserControl1_UseInDownloadToolStripMenuItem_Click
         RemoveHandler Me.UpdateUserControl1.UpdateAvailable, AddressOf Me.UpdateUserControl1_UpdateAvailable
 
+        RemoveHandler SystemEvents.UserPreferenceChanged, AddressOf OnUserPreferenceChanged
+
         Me.PreviewViewUserControl.Free()
         Me.ViewViewUserControl.Free()
         Me.PublishUserControl1.Free()
@@ -185,6 +190,17 @@ Public Class MainForm
                 'Next
                 'MessageBox.Show(text.ToString())
             End If
+        End If
+    End Sub
+
+#End Region
+
+#Region "System Events"
+
+    Private Sub OnUserPreferenceChanged(sender As Object, e As UserPreferenceChangedEventArgs)
+        If e.Category = UserPreferenceCategory.General Then
+            TheApp.LoadThemeData()
+            Me.Refresh()
         End If
     End Sub
 
