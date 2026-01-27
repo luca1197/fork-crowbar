@@ -33,11 +33,11 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property GlobalTheme() As WidgetTheme
+    Public Property GlobalTheme() As GlobalTheme
         Get
             Return Me.theGlobalTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As GlobalTheme)
             Me.theGlobalTheme = value
         End Set
     End Property
@@ -60,20 +60,20 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property ComboUserControlTheme() As WidgetTheme
+    Public Property ComboUserControlTheme() As ComboUserControlTheme
         Get
             Return Me.theComboUserControlTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As ComboUserControlTheme)
             Me.theComboUserControlTheme = value
         End Set
     End Property
 
-    Public Property DataGridViewTheme() As WidgetTheme
+    Public Property DataGridViewTheme() As DataGridViewTheme
         Get
             Return Me.theDataGridViewTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As DataGridViewTheme)
             Me.theDataGridViewTheme = value
         End Set
     End Property
@@ -87,11 +87,11 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property GroupBoxTheme() As WidgetTheme
+    Public Property GroupBoxTheme() As GroupBoxTheme
         Get
             Return Me.theGroupBoxTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As GroupBoxTheme)
             Me.theGroupBoxTheme = value
         End Set
     End Property
@@ -114,11 +114,11 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property PanelTheme() As WidgetTheme
+    Public Property PanelTheme() As PanelTheme
         Get
             Return Me.thePanelTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As PanelTheme)
             Me.thePanelTheme = value
         End Set
     End Property
@@ -141,11 +141,11 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property RichTextBoxTheme() As WidgetTheme
+    Public Property RichTextBoxTheme() As RichTextBoxTheme
         Get
             Return Me.theRichTextBoxTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As RichTextBoxTheme)
             Me.theRichTextBoxTheme = value
         End Set
     End Property
@@ -168,11 +168,11 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property TabControlTheme() As WidgetTheme
+    Public Property TabControlTheme() As TabControlTheme
         Get
             Return Me.theTabControlTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As TabControlTheme)
             Me.theTabControlTheme = value
         End Set
     End Property
@@ -221,23 +221,23 @@ Public Class AppTheme
 #Region "Data"
 
     Private theName As String
-    Private theGlobalTheme As WidgetTheme
+    Private theGlobalTheme As GlobalTheme
 
     Private theButtonTheme As ButtonTheme
     Private theCheckboxTheme As WidgetTheme
-    Private theComboUserControlTheme As WidgetTheme
-    Private theDataGridViewTheme As WidgetTheme
+    Private theComboUserControlTheme As ComboUserControlTheme
+    Private theDataGridViewTheme As DataGridViewTheme
     Private theDateTimeTextBoxTheme As WidgetTheme
-    Private theGroupBoxTheme As WidgetTheme
+    Private theGroupBoxTheme As GroupBoxTheme
     Private theListBoxTheme As WidgetTheme
     Private theListViewTheme As WidgetTheme
-    Private thePanelTheme As WidgetTheme
+    Private thePanelTheme As PanelTheme
     Private theProgressBarTheme As WidgetTheme
     Private theRadioButtonTheme As WidgetTheme
-    Private theRichTextBoxTheme As WidgetTheme
+    Private theRichTextBoxTheme As RichTextBoxTheme
     Private theScrollBarTheme As WidgetTheme
     Private theSplitContainerTheme As WidgetTheme
-    Private theTabControlTheme As WidgetTheme
+    Private theTabControlTheme As TabControlTheme
     Private theTabPageTheme As WidgetTheme
     Private theTabScrollerTheme As WidgetTheme
     Private theTreeViewTheme As WidgetTheme

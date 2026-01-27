@@ -16,8 +16,8 @@ Public Class RichTextBoxEx
 		MyBase.BorderStyle = BorderStyle.None
 		MyBase.ScrollBars = RichTextBoxScrollBars.None
 
-		Me.ForeColor = WidgetTextColor
-		Me.BackColor = WidgetDeepBackColor
+		'Me.ForeColor = WidgetTextColor
+		'Me.BackColor = WidgetDeepBackColor
 		'Me.SelectionColor = WidgetTextColor
 		'Me.SelectionBackColor = WidgetDeepSelectedBackColor
 		'Me.theNonClientPaddingColor = WidgetDeepBackColor
@@ -141,10 +141,17 @@ Public Class RichTextBoxEx
 		Set
 			MyBase.ReadOnly = Value
 
-			If MyBase.ReadOnly Then
-				Me.BackColor = WidgetDeepDisabledBackColor
-			Else
-				Me.BackColor = WidgetDeepBackColor
+			Dim theme As RichTextBoxTheme = Nothing
+			' This check prevents problems with viewing and saving Forms in VS Designer.
+			If TheApp IsNot Nothing Then
+				theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+			End If
+			If theme IsNot Nothing Then
+				If MyBase.[ReadOnly] Then
+					Me.BackColor = theme.DisabledBackColor
+				Else
+					Me.BackColor = theme.EnabledBackColor
+				End If
 			End If
 		End Set
 	End Property
@@ -200,7 +207,12 @@ Public Class RichTextBoxEx
 	Protected Overrides Sub OnHandleCreated(e As EventArgs)
 		MyBase.OnHandleCreated(e)
 
-		If Me.theOriginalFont Is Nothing Then
+		Dim theme As RichTextBoxTheme = Nothing
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+		End If
+		If theme IsNot Nothing AndAlso Me.theOriginalFont Is Nothing Then
 			Me.Font = New Font(SystemFonts.MessageBoxFont.Name, 8.25)
 			'NOTE: Font gets changed at some point after changing style, messing up when cue banner is turned off, 
 			'      so save the Font before changing style.
@@ -280,6 +292,27 @@ Public Class RichTextBoxEx
 		'NOTE: Completely override painting by OS.
 		'MyBase.OnPaint(e)
 
+		Dim theme As RichTextBoxTheme = Nothing
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+		End If
+		If theme IsNot Nothing Then
+			'IMPORTANT: Only assign ForeColor and BackColor once in OnPaint();
+			'           otherwise OnPaint will be called over 100 times
+			'           and much of the window will not be painted.
+			If Me.Enabled Then
+				Me.ForeColor = theme.EnabledForeColor
+			Else
+				Me.ForeColor = theme.DisabledForeColor
+			End If
+			If MyBase.[ReadOnly] Then
+				Me.BackColor = theme.DisabledBackColor
+			Else
+				Me.BackColor = theme.EnabledBackColor
+			End If
+		End If
+
 		Dim g As Graphics = e.Graphics
 		Dim clipRectangle As Rectangle = e.ClipRectangle
 		Dim clientRectangle As Rectangle = Me.ClientRectangle
@@ -289,16 +322,7 @@ Public Class RichTextBoxEx
 			If Not Me.theControlIsBehavingAsMultiLine AndAlso Not Me.WordWrap Then
 				' Draw full text.
 
-				Dim textColor As Color = WidgetConstants.WidgetTextColor
-				Dim backgroundColor As Color = WidgetConstants.WidgetDeepBackColor
-				If MyBase.[ReadOnly] Then
-					backgroundColor = WidgetConstants.WidgetDeepDisabledBackColor
-				End If
-				If Not Me.Enabled Then
-					textColor = WidgetConstants.WidgetDisabledTextColor
-				End If
-
-				TextRenderer.DrawText(g, Me.Text, Me.theOriginalFont, Me.GetPositionFromCharIndex(0), textColor, backgroundColor, Me.theTextFormatFlags)
+				TextRenderer.DrawText(g, Me.Text, Me.theOriginalFont, Me.GetPositionFromCharIndex(0), Me.ForeColor, Me.BackColor, Me.theTextFormatFlags)
 
 				If Me.SelectionLength > 0 Then
 					Me.DrawSelectedText(g, Me.SelectionStart, Me.GetFirstCharIndexFromLine(0), Me.SelectionStart + Me.SelectionLength - 1)
@@ -712,21 +736,12 @@ Public Class RichTextBoxEx
 		textPositionRect.Location = Me.GetPositionFromCharIndex(startCharIndex)
 		g.IntersectClip(textPositionRect)
 
-		Dim textColor As Color = WidgetConstants.WidgetTextColor
-		Dim backgroundColor As Color = WidgetConstants.WidgetDeepBackColor
-		If MyBase.[ReadOnly] Then
-			backgroundColor = WidgetConstants.WidgetDeepDisabledBackColor
-		End If
-		If Not Me.Enabled Then
-			textColor = WidgetConstants.WidgetDisabledTextColor
-		End If
-
 		'Dim formatFlags As TextFormatFlags = Me.theFormatFlags
 		'If Me.TextAlign = HorizontalAlignment.Center Then
 		'	formatFlags = formatFlags Or TextFormatFlags.HorizontalCenter
 		'End If
 
-		TextRenderer.DrawText(g, Me.Text.Substring(startOfLineCharIndex, endOfLineCharIndex - startOfLineCharIndex + 1), Me.theOriginalFont, textLinePositionRect, textColor, backgroundColor, Me.theTextFormatFlags)
+		TextRenderer.DrawText(g, Me.Text.Substring(startOfLineCharIndex, endOfLineCharIndex - startOfLineCharIndex + 1), Me.theOriginalFont, textLinePositionRect, Me.ForeColor, Me.BackColor, Me.theTextFormatFlags)
 		g.ResetClip()
 	End Sub
 
@@ -737,21 +752,33 @@ Public Class RichTextBoxEx
 		textPositionRect.Location = Me.GetPositionFromCharIndex(startCharIndex)
 		g.IntersectClip(textPositionRect)
 
-		Dim textColor As Color = WidgetConstants.WidgetTextColor
-		Dim backgroundColor As Color = WidgetConstants.WidgetDeepSelectedBackColor
-		'If [ReadOnly] Then
-		'	backgroundColor = WidgetConstants.WidgetDeepDisabledBackColor
-		'End If
-		'If Not Me.Enabled Then
-		'	textColor = WidgetConstants.WidgetDisabledTextColor
-		'End If
+		'Dim selectedTextForeColor As Color = WidgetConstants.WidgetTextColor
+		'Dim selectedTextBackColor As Color = WidgetConstants.WidgetDeepSelectedBackColor
+		''If [ReadOnly] Then
+		''	backgroundColor = WidgetConstants.WidgetDeepDisabledBackColor
+		''End If
+		''If Not Me.Enabled Then
+		''	textColor = WidgetConstants.WidgetDisabledTextColor
+		''End If
+		'------
+		Dim selectedTextForeColor As Color = Me.ForeColor
+		Dim selectedTextBackColor As Color = SystemColors.Highlight
+		Dim theme As RichTextBoxTheme = Nothing
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+		End If
+		If theme IsNot Nothing Then
+			selectedTextForeColor = theme.SelectedForeColor
+			selectedTextBackColor = theme.SelectedBackColor
+		End If
 
 		'Dim formatFlags As TextFormatFlags = Me.theFormatFlags
 		'If Me.TextAlign = HorizontalAlignment.Center Then
 		'	formatFlags = formatFlags Or TextFormatFlags.HorizontalCenter
 		'End If
 
-		TextRenderer.DrawText(g, Me.Text.Substring(startOfLineCharIndex, endOfLineCharIndex - startOfLineCharIndex + 1), Me.theOriginalFont, textLinePositionRect, textColor, backgroundColor, Me.theTextFormatFlags)
+		TextRenderer.DrawText(g, Me.Text.Substring(startOfLineCharIndex, endOfLineCharIndex - startOfLineCharIndex + 1), Me.theOriginalFont, textLinePositionRect, selectedTextForeColor, selectedTextBackColor, Me.theTextFormatFlags)
 		g.ResetClip()
 	End Sub
 
@@ -861,6 +888,27 @@ Public Class RichTextBoxEx
 	Private Sub OnNonClientPaint(ByRef m As Message)
 		Dim hDC As IntPtr = Win32Api.GetWindowDC(Me.Handle)
 		Try
+			Dim theme As RichTextBoxTheme = Nothing
+			' This check prevents problems with viewing and saving Forms in VS Designer.
+			If TheApp IsNot Nothing Then
+				theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+			End If
+			If theme IsNot Nothing Then
+				'IMPORTANT: Only assign ForeColor and BackColor once in OnPaint();
+				'           otherwise OnPaint will be called over 100 times
+				'           and much of the window will not be painted.
+				If Me.Enabled Then
+					Me.ForeColor = theme.EnabledForeColor
+				Else
+					Me.ForeColor = theme.DisabledForeColor
+				End If
+				If MyBase.[ReadOnly] Then
+					Me.BackColor = theme.DisabledBackColor
+				Else
+					Me.BackColor = theme.EnabledBackColor
+				End If
+			End If
+
 			Using g As Graphics = Graphics.FromHdc(hDC)
 				Dim aRect As RectangleF = g.VisibleClipBounds
 				Using backColorBrush As New SolidBrush(Me.BackColor)

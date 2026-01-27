@@ -115,15 +115,9 @@ Partial Class MainForm
 		Me.MainTabControl.SelectedIndex = 0
 		Me.MainTabControl.ShowToolTips = True
 		Me.MainTabControl.Size = New System.Drawing.Size(792, 572)
-		Me.MainTabControl.TabBackColor1 = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
-		Me.MainTabControl.TabBackColor2 = System.Drawing.Color.FromArgb(CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(75, Byte), Integer))
-		Me.MainTabControl.TabIndex = 12
-		Me.MainTabControl.TabPageBackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-		Me.MainTabControl.TabPageForeColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer), CType(CType(241, Byte), Integer))
 		'
 		'SetUpGamesTabPage
 		'
-		Me.SetUpGamesTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.SetUpGamesTabPage.Controls.Add(Me.SetUpGamesUserControl1)
 		Me.SetUpGamesTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.SetUpGamesTabPage.Name = "SetUpGamesTabPage"
@@ -142,7 +136,6 @@ Partial Class MainForm
 		'
 		'DownloadTabPage
 		'
-		Me.DownloadTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.DownloadTabPage.Controls.Add(Me.DownloadUserControl1)
 		Me.DownloadTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.DownloadTabPage.Name = "DownloadTabPage"
@@ -161,7 +154,6 @@ Partial Class MainForm
 		'
 		'UnpackTabPage
 		'
-		Me.UnpackTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.UnpackTabPage.Controls.Add(Me.UnpackUserControl1)
 		Me.UnpackTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.UnpackTabPage.Name = "UnpackTabPage"
@@ -180,7 +172,6 @@ Partial Class MainForm
 		'
 		'PreviewTabPage
 		'
-		Me.PreviewTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.PreviewTabPage.Controls.Add(Me.PreviewViewUserControl)
 		Me.PreviewTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.PreviewTabPage.Name = "PreviewTabPage"
@@ -190,7 +181,6 @@ Partial Class MainForm
 		'
 		'PreviewViewUserControl
 		'
-		Me.PreviewViewUserControl.BackColor = System.Drawing.SystemColors.Control
 		Me.PreviewViewUserControl.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.PreviewViewUserControl.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.PreviewViewUserControl.Location = New System.Drawing.Point(0, 0)
@@ -201,7 +191,6 @@ Partial Class MainForm
 		'
 		'DecompileTabPage
 		'
-		Me.DecompileTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.DecompileTabPage.Controls.Add(Me.DecompilerUserControl1)
 		Me.DecompileTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.DecompileTabPage.Name = "DecompileTabPage"
@@ -220,7 +209,6 @@ Partial Class MainForm
 		'
 		'CompileTabPage
 		'
-		Me.CompileTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.CompileTabPage.Controls.Add(Me.CompilerUserControl1)
 		Me.CompileTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.CompileTabPage.Name = "CompileTabPage"
@@ -239,7 +227,6 @@ Partial Class MainForm
 		'
 		'ViewTabPage
 		'
-		Me.ViewTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.ViewTabPage.Controls.Add(Me.ViewViewUserControl)
 		Me.ViewTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.ViewTabPage.Name = "ViewTabPage"
@@ -249,7 +236,6 @@ Partial Class MainForm
 		'
 		'ViewViewUserControl
 		'
-		Me.ViewViewUserControl.BackColor = System.Drawing.SystemColors.Control
 		Me.ViewViewUserControl.Dock = System.Windows.Forms.DockStyle.Fill
 		Me.ViewViewUserControl.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		Me.ViewViewUserControl.Location = New System.Drawing.Point(0, 0)
@@ -260,7 +246,6 @@ Partial Class MainForm
 		'
 		'PackTabPage
 		'
-		Me.PackTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.PackTabPage.Controls.Add(Me.PackUserControl1)
 		Me.PackTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.PackTabPage.Name = "PackTabPage"
@@ -279,7 +264,6 @@ Partial Class MainForm
 		'
 		'PublishTabPage
 		'
-		Me.PublishTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.PublishTabPage.Controls.Add(Me.PublishUserControl1)
 		Me.PublishTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.PublishTabPage.Name = "PublishTabPage"
@@ -299,7 +283,6 @@ Partial Class MainForm
 		'
 		'OptionsTabPage
 		'
-		Me.OptionsTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.OptionsTabPage.Controls.Add(Me.OptionsUserControl1)
 		Me.OptionsTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.OptionsTabPage.Name = "OptionsTabPage"
@@ -318,7 +301,6 @@ Partial Class MainForm
 		'
 		'HelpTabPage
 		'
-		Me.HelpTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.HelpTabPage.Controls.Add(Me.HelpUserControl1)
 		Me.HelpTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.HelpTabPage.Name = "HelpTabPage"
@@ -337,7 +319,6 @@ Partial Class MainForm
 		'
 		'AboutTabPage
 		'
-		Me.AboutTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.AboutTabPage.Controls.Add(Me.AboutUserControl1)
 		Me.AboutTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.AboutTabPage.Name = "AboutTabPage"
@@ -356,7 +337,6 @@ Partial Class MainForm
 		'
 		'UpdateTabPage
 		'
-		Me.UpdateTabPage.BackColor = System.Drawing.SystemColors.Control
 		Me.UpdateTabPage.Controls.Add(Me.UpdateUserControl1)
 		Me.UpdateTabPage.Location = New System.Drawing.Point(4, 25)
 		Me.UpdateTabPage.Name = "UpdateTabPage"

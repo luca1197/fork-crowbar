@@ -39,32 +39,33 @@ Public Class DataGridViewEx
 
         Me.theControlHasShown = False
 
-        'NOTE: Need these settings so that ColumnHeadersDefaultCellStyle, DefaultCellStyle, and GridColor properties are used.
-        '      Might affect other properties, too.
-        Me.EnableHeadersVisualStyles = False
-        Me.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
-        Me.CellBorderStyle = DataGridViewCellBorderStyle.Single
-        Me.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        Me.EnableHeadersVisualStyles = True
+        ''NOTE: Need these settings so that ColumnHeadersDefaultCellStyle, DefaultCellStyle, and GridColor properties are used.
+        ''      Might affect other properties, too.
+        'Me.EnableHeadersVisualStyles = False
+        'Me.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        'Me.CellBorderStyle = DataGridViewCellBorderStyle.Single
+        'Me.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
 
-        Me.ForeColor = WidgetConstants.WidgetTextColor
-        Me.BackgroundColor = WidgetConstants.WidgetBackColor
+        'Me.ForeColor = WidgetConstants.WidgetTextColor
+        'Me.BackgroundColor = WidgetConstants.WidgetBackColor
 
-        Me.ColumnHeadersDefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
-        Me.ColumnHeadersDefaultCellStyle.BackColor = WidgetConstants.WidgetBackColor
-        Me.ColumnHeadersDefaultCellStyle.SelectionForeColor = WidgetConstants.WidgetTextColor
-        Me.ColumnHeadersDefaultCellStyle.SelectionBackColor = WidgetConstants.WidgetSelectedBackColor
+        'Me.ColumnHeadersDefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
+        'Me.ColumnHeadersDefaultCellStyle.BackColor = WidgetConstants.WidgetBackColor
+        'Me.ColumnHeadersDefaultCellStyle.SelectionForeColor = WidgetConstants.WidgetTextColor
+        'Me.ColumnHeadersDefaultCellStyle.SelectionBackColor = WidgetConstants.WidgetSelectedBackColor
 
-        Me.DefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
-        Me.DefaultCellStyle.BackColor = WidgetConstants.WidgetBackColor
-        Me.DefaultCellStyle.SelectionForeColor = WidgetConstants.WidgetTextColor
-        Me.DefaultCellStyle.SelectionBackColor = WidgetConstants.WidgetSelectedBackColor
+        'Me.DefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
+        'Me.DefaultCellStyle.BackColor = WidgetConstants.WidgetBackColor
+        'Me.DefaultCellStyle.SelectionForeColor = WidgetConstants.WidgetTextColor
+        'Me.DefaultCellStyle.SelectionBackColor = WidgetConstants.WidgetSelectedBackColor
 
-        Me.RowHeadersDefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
-        Me.RowHeadersDefaultCellStyle.BackColor = WidgetConstants.WidgetBackColor
-        Me.RowHeadersDefaultCellStyle.SelectionForeColor = WidgetConstants.WidgetTextColor
-        Me.RowHeadersDefaultCellStyle.SelectionBackColor = WidgetConstants.WidgetSelectedBackColor
+        'Me.RowHeadersDefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
+        'Me.RowHeadersDefaultCellStyle.BackColor = WidgetConstants.WidgetBackColor
+        'Me.RowHeadersDefaultCellStyle.SelectionForeColor = WidgetConstants.WidgetTextColor
+        'Me.RowHeadersDefaultCellStyle.SelectionBackColor = WidgetConstants.WidgetSelectedBackColor
 
-        Me.GridColor = WidgetConstants.WidgetDisabledTextColor
+        'Me.GridColor = WidgetConstants.WidgetDisabledTextColor
         'Me.GridColor = Color.Green
         Me.BorderStyle = BorderStyle.None
 
@@ -235,99 +236,129 @@ Public Class DataGridViewEx
     End Sub
 
     Protected Overrides Sub OnCellPainting(ByVal e As DataGridViewCellPaintingEventArgs)
-        If (e.RowIndex > -1) AndAlso (e.ColumnIndex > -1) Then
-            If TypeOf Me.Columns(e.ColumnIndex) Is DataGridViewRadioButtonColumn Then
-                e.PaintBackground(e.CellBounds, False)
-                DataGridViewRadioButtonColumn.Paint(e.Graphics, e.CellBounds, (e.FormattedValue.ToString().Length > 0))
-                e.Handled = True
-            ElseIf TypeOf Me.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
-                'Dim column As DataGridViewButtonColumn = CType(Me.Columns(e.ColumnIndex), DataGridViewButtonColumn)
-                Dim cell As DataGridViewCell = Me.Rows(e.RowIndex).Cells(e.ColumnIndex)
+        Dim theme As DataGridViewTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.DataGridViewTheme
+        End If
+        If theme IsNot Nothing Then
+            If e.RowIndex = -1 Then
+                Me.ColumnHeadersDefaultCellStyle.BackColor = theme.EnabledBackColor
+            End If
+            If (e.RowIndex > -1) AndAlso (e.ColumnIndex > -1) Then
+                If TypeOf Me.Columns(e.ColumnIndex) Is DataGridViewRadioButtonColumn Then
+                    e.PaintBackground(e.CellBounds, False)
+                    DataGridViewRadioButtonColumn.Paint(e.Graphics, e.CellBounds, (e.FormattedValue.ToString().Length > 0))
+                    e.Handled = True
+                ElseIf TypeOf Me.Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+                    'Dim column As DataGridViewButtonColumn = CType(Me.Columns(e.ColumnIndex), DataGridViewButtonColumn)
+                    Dim cell As DataGridViewCell = Me.Rows(e.RowIndex).Cells(e.ColumnIndex)
 
-                Dim g As Graphics = e.Graphics
-                Dim clientRectangle As Rectangle = e.CellBounds
-                'clientRectangle.Width -= 2
-                'clientRectangle.Height -= 2
+                    Dim g As Graphics = e.Graphics
+                    Dim clientRectangle As Rectangle = e.CellBounds
+                    'clientRectangle.Width -= 2
+                    'clientRectangle.Height -= 2
 
-                Dim backColor1 As Color = WidgetHighBackColor
-                Dim backColor2 As Color = WidgetHighBackColor
-                Dim textColor As Color = WidgetTextColor
+                    Dim backColor1 As Color
+                    Dim backColor2 As Color
+                    Dim textColor As Color
+                    Dim textBackColor As Color
+                    'Dim borderColor As Color
 
-                If Me.Enabled Then
-                    If cell.Selected Then
-                        backColor1 = Windows10GlobalAccentColor
-                        backColor2 = Windows10GlobalAccentColor
-                        textColor = WidgetTextColor
-                    ElseIf cell Is Me.theCellWherePointerIs Then
-                        backColor1 = Windows10GlobalAccentColor
-                        backColor2 = WidgetHighBackColor
-                        textColor = WidgetTextColor
+                    If Me.Enabled Then
+                        If cell.Selected Then
+                            backColor1 = theme.SelectedBackColor
+                            backColor2 = theme.SelectedBackColor
+                            textColor = theme.SelectedForeColor
+                            textBackColor = Color.Transparent
+                            'borderColor = theme.SelectedBorderColor
+                        ElseIf cell Is Me.theCellWherePointerIs Then
+                            backColor1 = theme.FocusBackColor
+                            backColor2 = theme.FocusBackColor
+                            textColor = theme.FocusForeColor
+                            textBackColor = Color.Transparent
+                            'borderColor = theme.FocusBorderColor
+                        Else
+                            backColor1 = theme.EnabledBackColor
+                            backColor2 = theme.EnabledBackColor
+                            textColor = theme.EnabledForeColor
+                            textBackColor = Color.Transparent
+                            'borderColor = theme.EnabledBorderColor
+                        End If
                     Else
-                        backColor1 = WidgetHighBackColor
-                        backColor2 = WidgetHighBackColor
-                        textColor = WidgetTextColor
+                        backColor1 = theme.DisabledBackColor
+                        backColor2 = theme.DisabledBackColor
+                        textColor = theme.DisabledForeColor
+                        textBackColor = Color.Transparent
+                        'borderColor = theme.DisabledBorderColor
                     End If
-                Else
-                    backColor1 = WidgetDeepBackColor
-                    backColor2 = WidgetDeepBackColor
-                    textColor = WidgetDisabledTextColor
-                End If
 
-                ' Draw background.
-                Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, backColor1, backColor2, Drawing2D.LinearGradientMode.Vertical)
-                    g.FillRectangle(aColorBrush, clientRectangle)
-                End Using
-                TextRenderer.DrawText(g, CType(cell.Value, String), Me.Font, clientRectangle, textColor, TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordBreak)
+                    ' Draw background.
+                    Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, backColor1, backColor2, Drawing2D.LinearGradientMode.Vertical)
+                        g.FillRectangle(aColorBrush, clientRectangle)
+                    End Using
+                    TextRenderer.DrawText(g, CType(cell.Value, String), Me.Font, clientRectangle, textColor, textBackColor, TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordBreak)
 
-                ' Draw the grid lines (only the right and bottom lines;
-                ' DataGridView takes care of the others).
-                Dim gridBrush As New SolidBrush(Me.GridColor)
-                Dim gridLinePen As New Pen(gridBrush)
-                e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left, e.CellBounds.Bottom - 1, e.CellBounds.Right - 1, e.CellBounds.Bottom - 1)
-                e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1, e.CellBounds.Top, e.CellBounds.Right - 1, e.CellBounds.Bottom - 1)
+                    ' Draw the grid lines (only the right and bottom lines;
+                    ' DataGridView takes care of the others).
+                    Dim gridBrush As New SolidBrush(Me.GridColor)
+                    Dim gridLinePen As New Pen(gridBrush)
+                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left, e.CellBounds.Bottom - 1, e.CellBounds.Right - 1, e.CellBounds.Bottom - 1)
+                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1, e.CellBounds.Top, e.CellBounds.Right - 1, e.CellBounds.Bottom - 1)
 
-                e.Handled = True
-            ElseIf TypeOf Me.Columns(e.ColumnIndex) Is DataGridViewTextBoxColumn Then
-                Dim cell As DataGridViewCell = Me.Rows(e.RowIndex).Cells(e.ColumnIndex)
+                    e.Handled = True
+                ElseIf TypeOf Me.Columns(e.ColumnIndex) Is DataGridViewTextBoxColumn Then
+                    Dim cell As DataGridViewCell = Me.Rows(e.RowIndex).Cells(e.ColumnIndex)
 
-                Dim g As Graphics = e.Graphics
-                Dim clientRectangle As Rectangle = e.CellBounds
+                    Dim g As Graphics = e.Graphics
+                    Dim clientRectangle As Rectangle = e.CellBounds
 
-                Dim backColor1 As Color = WidgetHighBackColor
-                Dim backColor2 As Color = WidgetHighBackColor
-                Dim textColor As Color = WidgetTextColor
+                    Dim backColor1 As Color
+                    Dim backColor2 As Color
+                    Dim textColor As Color
+                    Dim textBackColor As Color
+                    'Dim borderColor As Color
 
-                If Me.Enabled Then
-                    If cell.Selected Then
-                        backColor1 = Windows10GlobalAccentColor
-                        backColor2 = Windows10GlobalAccentColor
-                        textColor = WidgetTextColor
-                    ElseIf cell Is Me.theCellWherePointerIs Then
-                        backColor1 = Windows10GlobalAccentColor
-                        backColor2 = WidgetHighBackColor
-                        textColor = WidgetTextColor
+                    If Me.Enabled Then
+                        If cell.Selected Then
+                            backColor1 = theme.SelectedBackColor
+                            backColor2 = theme.SelectedBackColor
+                            textColor = theme.SelectedForeColor
+                            textBackColor = Color.Transparent
+                            'borderColor = theme.SelectedBorderColor
+                        ElseIf cell Is Me.theCellWherePointerIs Then
+                            backColor1 = theme.FocusBackColor
+                            backColor2 = theme.FocusBackColor
+                            textColor = theme.FocusForeColor
+                            textBackColor = Color.Transparent
+                            'borderColor = theme.FocusBorderColor
+                        Else
+                            backColor1 = theme.EnabledBackColor
+                            backColor2 = theme.EnabledBackColor
+                            textColor = theme.EnabledForeColor
+                            textBackColor = Color.Transparent
+                            'borderColor = theme.EnabledBorderColor
+                        End If
                     Else
-                        backColor1 = WidgetHighBackColor
-                        backColor2 = WidgetHighBackColor
-                        textColor = WidgetTextColor
+                        backColor1 = theme.DisabledBackColor
+                        backColor2 = theme.DisabledBackColor
+                        textColor = theme.DisabledForeColor
+                        textBackColor = Color.Transparent
+                        'borderColor = theme.DisabledBorderColor
                     End If
-                Else
-                    backColor1 = WidgetDeepBackColor
-                    backColor2 = WidgetDeepBackColor
-                    textColor = WidgetDisabledTextColor
-                End If
 
-                ' Draw background.
-                Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, backColor1, backColor2, Drawing2D.LinearGradientMode.Vertical)
-                    g.FillRectangle(aColorBrush, clientRectangle)
-                End Using
-                Dim textFormat As TextFormatFlags = TextFormatFlags.Default
-                If cell.InheritedStyle.WrapMode = DataGridViewTriState.True Then
-                    textFormat = textFormat Or TextFormatFlags.WordBreak
-                End If
-                TextRenderer.DrawText(g, CType(cell.Value, String), Me.Font, clientRectangle, textColor, TextFormatFlags.VerticalCenter)
+                    ' Draw background.
+                    Using aColorBrush As New Drawing2D.LinearGradientBrush(clientRectangle, backColor1, backColor2, Drawing2D.LinearGradientMode.Vertical)
+                        g.FillRectangle(aColorBrush, clientRectangle)
+                    End Using
+                    Dim textFormat As TextFormatFlags = TextFormatFlags.Default
+                    If cell.InheritedStyle.WrapMode = DataGridViewTriState.True Then
+                        textFormat = textFormat Or TextFormatFlags.WordBreak
+                    End If
+                    TextRenderer.DrawText(g, CType(cell.Value, String), Me.Font, clientRectangle, textColor, textBackColor, TextFormatFlags.VerticalCenter)
 
-                e.Handled = True
+                    e.Handled = True
+                End If
             End If
         End If
 
@@ -549,16 +580,39 @@ Public Class DataGridViewEx
     End Sub
 
     Protected Overrides Sub OnPaint(e As PaintEventArgs)
+        Dim theme As DataGridViewTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.DataGridViewTheme
+        End If
+        If theme IsNot Nothing Then
+            If Me.Enabled Then
+                Me.GridColor = theme.EnabledForeColor
+                Me.BackgroundColor = theme.EnabledBackColor
+            Else
+                Me.GridColor = theme.DisabledForeColor
+                Me.BackgroundColor = theme.DisabledBackColor
+            End If
+        End If
+
         MyBase.OnPaint(e)
 
-        ' Draw outer border.
-        If Me.BorderStyle <> BorderStyle.None Then
-            Using backColorPen As New Pen(WidgetConstants.WidgetDisabledTextColor)
-                Dim aRect As Rectangle = Me.ClientRectangle
-                aRect.Width -= 1
-                aRect.Height -= 1
-                e.Graphics.DrawRectangle(backColorPen, aRect)
-            End Using
+        'Dim theme As DataGridViewTheme = Nothing
+        '' This check prevents problems with viewing and saving Forms in VS Designer.
+        'If TheApp IsNot Nothing Then
+        '    theme = TheApp.Settings.SelectedAppTheme.DataGridViewTheme
+        'End If
+        If theme IsNot Nothing Then
+            Dim g As Graphics = e.Graphics
+            Dim clientRectangle As Rectangle = Me.ClientRectangle
+            ' Draw outer border.
+            If Me.BorderStyle <> BorderStyle.None Then
+                Dim borderColor As Color
+                borderColor = theme.EnabledBorderColor
+                Using borderColorPen As New Pen(borderColor)
+                    g.DrawRectangle(borderColorPen, clientRectangle.Left, clientRectangle.Top, clientRectangle.Width - 1, clientRectangle.Height - 1)
+                End Using
+            End If
         End If
     End Sub
 
@@ -574,33 +628,47 @@ Public Class DataGridViewEx
     End Sub
 
     Private Sub OnNonClientCalcSize(ByRef m As Message)
-        Me.UpdateNonClientPadding()
-        If CInt(m.WParam) = 0 Then
-            Dim rect As Win32Api.RECT = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.RECT)), Win32Api.RECT)
-            Me.ResizeClientRect(Me.NonClientPadding, rect)
-            Marshal.StructureToPtr(rect, m.LParam, False)
-            m.Result = IntPtr.Zero
-        ElseIf CInt(m.WParam) = 1 Then
-            Dim nccsp As Win32Api.NCCALCSIZE_PARAMS = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.NCCALCSIZE_PARAMS)), Win32Api.NCCALCSIZE_PARAMS)
-            Me.ResizeClientRect(Me.NonClientPadding, nccsp.rect0)
-            Marshal.StructureToPtr(nccsp, m.LParam, False)
-            m.Result = IntPtr.Zero
+        Dim theme As DataGridViewTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.DataGridViewTheme
+        End If
+        If theme IsNot Nothing Then
+            Me.UpdateNonClientPadding()
+            If CInt(m.WParam) = 0 Then
+                Dim rect As Win32Api.RECT = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.RECT)), Win32Api.RECT)
+                Me.ResizeClientRect(Me.NonClientPadding, rect)
+                Marshal.StructureToPtr(rect, m.LParam, False)
+                m.Result = IntPtr.Zero
+            ElseIf CInt(m.WParam) = 1 Then
+                Dim nccsp As Win32Api.NCCALCSIZE_PARAMS = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.NCCALCSIZE_PARAMS)), Win32Api.NCCALCSIZE_PARAMS)
+                Me.ResizeClientRect(Me.NonClientPadding, nccsp.rect0)
+                Marshal.StructureToPtr(nccsp, m.LParam, False)
+                m.Result = IntPtr.Zero
+            End If
         End If
     End Sub
 
     Private Sub OnNonClientPaint(ByRef m As Message)
-        Dim hDC As IntPtr = Win32Api.GetWindowDC(Me.Handle)
-        Try
-            Using g As Graphics = Graphics.FromHdc(hDC)
-                Using backColorBrush As New SolidBrush(Me.theNonClientPaddingColor)
-                    Dim aRect As RectangleF = g.VisibleClipBounds
-                    g.FillRectangle(backColorBrush, aRect)
+        Dim theme As DataGridViewTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.DataGridViewTheme
+        End If
+        If theme IsNot Nothing Then
+            Dim hDC As IntPtr = Win32Api.GetWindowDC(Me.Handle)
+            Try
+                Using g As Graphics = Graphics.FromHdc(hDC)
+                    Using backColorBrush As New SolidBrush(Me.theNonClientPaddingColor)
+                        Dim aRect As RectangleF = g.VisibleClipBounds
+                        g.FillRectangle(backColorBrush, aRect)
+                    End Using
                 End Using
-            End Using
-        Finally
-            Win32Api.ReleaseDC(Me.Handle, hDC)
-        End Try
-        m.Result = IntPtr.Zero
+            Finally
+                Win32Api.ReleaseDC(Me.Handle, hDC)
+            End Try
+            m.Result = IntPtr.Zero
+        End If
     End Sub
 
 #End Region

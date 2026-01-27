@@ -344,8 +344,14 @@ Public Class App
 		Me.theThemeData.AppThemes.Add(defaultTheme)
 		Dim defaultCrowbarTheme As New AppTheme()
 		defaultCrowbarTheme.Name = "Crowbar Dark"
-		defaultCrowbarTheme.GlobalTheme = New WidgetTheme()
+		defaultCrowbarTheme.GlobalTheme = New GlobalTheme()
 		defaultCrowbarTheme.ButtonTheme = New ButtonTheme()
+		defaultCrowbarTheme.ComboUserControlTheme = New ComboUserControlTheme()
+		defaultCrowbarTheme.DataGridViewTheme = New DataGridViewTheme()
+		defaultCrowbarTheme.GroupBoxTheme = New GroupBoxTheme()
+		defaultCrowbarTheme.PanelTheme = New PanelTheme()
+		defaultCrowbarTheme.RichTextBoxTheme = New RichTextBoxTheme()
+		defaultCrowbarTheme.TabControlTheme = New TabControlTheme()
 		Me.theThemeData.AppThemes.Add(defaultCrowbarTheme)
 
 		Me.SaveThemeData()

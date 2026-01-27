@@ -211,10 +211,21 @@ Public Class PanelEx
         End If
     End Sub
 
-    'Protected Overrides Sub OnPaint(e As PaintEventArgs)
-    '	e.Graphics.TranslateTransform(-Me.CustomHorizontalScrollbar.Value, -Me.CustomVerticalScrollBar.Value)
-    '	MyBase.OnPaint(e)
-    'End Sub
+    Protected Overrides Sub OnPaint(e As PaintEventArgs)
+        Dim theme As PanelTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.PanelTheme
+        End If
+        If theme IsNot Nothing Then
+            Me.ForeColor = WidgetTextColor
+            Me.BackColor = WidgetBackColor
+        End If
+
+        'e.Graphics.TranslateTransform(-Me.CustomHorizontalScrollbar.Value, -Me.CustomVerticalScrollBar.Value)
+
+        MyBase.OnPaint(e)
+    End Sub
 
     'Protected Overrides Sub OnScroll(e As ScrollEventArgs)
     '	MyBase.OnScroll(e)
@@ -276,17 +287,24 @@ Public Class PanelEx
     End Sub
 
     Private Sub OnNonClientCalcSize(ByRef m As Message)
-        Me.UpdateNonClientPadding()
-        If CInt(m.WParam) = 0 Then
-            Dim rect As Win32Api.RECT = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.RECT)), Win32Api.RECT)
-            Me.ResizeClientRect(Me.NonClientPadding, rect)
-            Marshal.StructureToPtr(rect, m.LParam, False)
-            m.Result = IntPtr.Zero
-        ElseIf CInt(m.WParam) = 1 Then
-            Dim nccsp As Win32Api.NCCALCSIZE_PARAMS = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.NCCALCSIZE_PARAMS)), Win32Api.NCCALCSIZE_PARAMS)
-            Me.ResizeClientRect(Me.NonClientPadding, nccsp.rect0)
-            Marshal.StructureToPtr(nccsp, m.LParam, False)
-            m.Result = IntPtr.Zero
+        Dim theme As PanelTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.PanelTheme
+        End If
+        If theme IsNot Nothing Then
+            Me.UpdateNonClientPadding()
+            If CInt(m.WParam) = 0 Then
+                Dim rect As Win32Api.RECT = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.RECT)), Win32Api.RECT)
+                Me.ResizeClientRect(Me.NonClientPadding, rect)
+                Marshal.StructureToPtr(rect, m.LParam, False)
+                m.Result = IntPtr.Zero
+            ElseIf CInt(m.WParam) = 1 Then
+                Dim nccsp As Win32Api.NCCALCSIZE_PARAMS = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.NCCALCSIZE_PARAMS)), Win32Api.NCCALCSIZE_PARAMS)
+                Me.ResizeClientRect(Me.NonClientPadding, nccsp.rect0)
+                Marshal.StructureToPtr(nccsp, m.LParam, False)
+                m.Result = IntPtr.Zero
+            End If
         End If
     End Sub
 

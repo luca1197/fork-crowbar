@@ -1176,7 +1176,8 @@ Public Class Win32Api
 		End If
 	End Sub
 
-	Public Shared Function EnableWin32DarkMode(hWnd As IntPtr, enable As Boolean) As Boolean
+	' If on Win10 or later, use the mode that Windows is using.
+	Public Shared Function UseWindowsTitleBarThemeColor(hWnd As IntPtr, enable As Boolean) As Boolean
 		AllowDarkModeForApp(True)
 		RefreshImmersiveColorPolicyState()
 		Dim retval As Boolean = AllowDarkModeForWindow(hWnd, enable)

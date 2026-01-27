@@ -7,30 +7,35 @@ Public Class WidgetTheme
     Public Sub New()
         'MyBase.New()
 
-        Me.theEnabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theEnabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theEnabledBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theEnabledForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theEnabledBackColor = New XmlColor(Color.FromArgb(&HFF2D2D2D))
+        Me.theEnabledBorderColor = New XmlColor(Color.FromArgb(&HFF555555))
 
-        Me.theDisabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theDisabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theDisabledBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theDisabledForeColor = New XmlColor(Color.FromArgb(&HFF808080))
+        Me.theDisabledBackColor = New XmlColor(Color.FromArgb(&HFF2D2D2D))
+        Me.theDisabledBorderColor = New XmlColor(Color.FromArgb(&HFF454545))
 
-        Me.theFocusForeColor = New XmlColor("WindowColorizationColor")
-        Me.theFocusBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theFocusBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theSelectedForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theSelectedBackColor = New XmlColor("WindowColorizationColor")
+        Me.theSelectedBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
-        Me.theTextEnabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theTextEnabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
+        Me.theFocusForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theFocusBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        'Me.theFocusTopBackColor = New XmlColor("WindowColorizationColor")
+        'Me.theFocusBottomBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theFocusBorderColor = New XmlColor("WindowColorizationColor")
 
-        Me.theTextDisabledForeColor = New XmlColor(Color.FromArgb(&H808080))
-        Me.theTextDisabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
+        'Me.theTextEnabledForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        'Me.theTextEnabledBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
 
-        Me.theTextFocusForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theTextFocusBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
+        'Me.theTextDisabledForeColor = New XmlColor(Color.FromArgb(&HFF808080))
+        'Me.theTextDisabledBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
 
-        Me.theTextSelectedForeColor = New XmlColor(Color.FromArgb(&H107C10))
-        Me.theTextSelectedBackColor = New XmlColor(Color.FromArgb(&H107C10))
+        'Me.theTextFocusForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        'Me.theTextFocusBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
 
+        'Me.theTextSelectedForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        'Me.theTextSelectedBackColor = New XmlColor("WindowColorizationColor")
     End Sub
 
 #End Region
@@ -101,6 +106,33 @@ Public Class WidgetTheme
         End Set
     End Property
 
+    Public Property SelectedForeColor As XmlColor
+        Get
+            Return Me.theSelectedForeColor
+        End Get
+        Set(value As XmlColor)
+            Me.theSelectedForeColor = value
+        End Set
+    End Property
+
+    Public Property SelectedBackColor As XmlColor
+        Get
+            Return Me.theSelectedBackColor
+        End Get
+        Set(value As XmlColor)
+            Me.theSelectedBackColor = value
+        End Set
+    End Property
+
+    Public Property SelectedBorderColor As XmlColor
+        Get
+            Return Me.theSelectedBorderColor
+        End Get
+        Set(value As XmlColor)
+            Me.theSelectedBorderColor = value
+        End Set
+    End Property
+
     Public Property FocusForeColor As XmlColor
         Get
             Return Me.theFocusForeColor
@@ -128,113 +160,113 @@ Public Class WidgetTheme
         End Set
     End Property
 
-    Public Property TextEnabledForeColor() As XmlColor
-        Get
-            Return Me.theTextEnabledForeColor
-        End Get
-        Set(ByVal value As XmlColor)
-            Me.theTextEnabledForeColor = value
-        End Set
-    End Property
-
-    Public Property TextEnabledBackColor As XmlColor
-        Get
-            Return Me.theTextEnabledBackColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextEnabledBackColor = value
-        End Set
-    End Property
-
-    'Public Property TextEnabledBorderColor As XmlColor
+    'Public Property TextEnabledForeColor() As XmlColor
     '    Get
-    '        Return Me.theTextEnabledBorderColor
+    '        Return Me.theTextEnabledForeColor
     '    End Get
-    '    Set(value As XmlColor)
-    '        Me.theTextEnabledBorderColor = value
+    '    Set(ByVal value As XmlColor)
+    '        Me.theTextEnabledForeColor = value
     '    End Set
     'End Property
 
-    Public Property TextDisabledForeColor As XmlColor
-        Get
-            Return Me.theTextDisabledForeColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextDisabledForeColor = value
-        End Set
-    End Property
-
-    Public Property TextDisabledBackColor As XmlColor
-        Get
-            Return Me.theTextDisabledBackColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextDisabledBackColor = value
-        End Set
-    End Property
-
-    'Public Property TextDisabledBorderColor As XmlColor
+    'Public Property TextEnabledBackColor As XmlColor
     '    Get
-    '        Return Me.theTextDisabledBorderColor
+    '        Return Me.theTextEnabledBackColor
     '    End Get
     '    Set(value As XmlColor)
-    '        Me.theTextDisabledBorderColor = value
+    '        Me.theTextEnabledBackColor = value
     '    End Set
     'End Property
 
-    Public Property TextFocusForeColor As XmlColor
-        Get
-            Return Me.theTextFocusForeColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextFocusForeColor = value
-        End Set
-    End Property
+    ''Public Property TextEnabledBorderColor As XmlColor
+    ''    Get
+    ''        Return Me.theTextEnabledBorderColor
+    ''    End Get
+    ''    Set(value As XmlColor)
+    ''        Me.theTextEnabledBorderColor = value
+    ''    End Set
+    ''End Property
 
-    Public Property TextFocusBackColor As XmlColor
-        Get
-            Return Me.theTextFocusBackColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextFocusBackColor = value
-        End Set
-    End Property
-
-    'Public Property TextFocusBorderColor As XmlColor
+    'Public Property TextDisabledForeColor As XmlColor
     '    Get
-    '        Return Me.theTextFocusBorderColor
+    '        Return Me.theTextDisabledForeColor
     '    End Get
     '    Set(value As XmlColor)
-    '        Me.theTextFocusBorderColor = value
+    '        Me.theTextDisabledForeColor = value
     '    End Set
     'End Property
 
-    Public Property TextSelectedForeColor As XmlColor
-        Get
-            Return Me.theTextSelectedForeColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextSelectedForeColor = value
-        End Set
-    End Property
-
-    Public Property TextSelectedBackColor As XmlColor
-        Get
-            Return Me.theTextSelectedBackColor
-        End Get
-        Set(value As XmlColor)
-            Me.theTextSelectedBackColor = value
-        End Set
-    End Property
-
-    'Public Property TextSelectedBorderColor As XmlColor
+    'Public Property TextDisabledBackColor As XmlColor
     '    Get
-    '        Return Me.theTextSelectedBorderColor
+    '        Return Me.theTextDisabledBackColor
     '    End Get
     '    Set(value As XmlColor)
-    '        Me.theTextSelectedBorderColor = value
+    '        Me.theTextDisabledBackColor = value
     '    End Set
     'End Property
+
+    ''Public Property TextDisabledBorderColor As XmlColor
+    ''    Get
+    ''        Return Me.theTextDisabledBorderColor
+    ''    End Get
+    ''    Set(value As XmlColor)
+    ''        Me.theTextDisabledBorderColor = value
+    ''    End Set
+    ''End Property
+
+    'Public Property TextFocusForeColor As XmlColor
+    '    Get
+    '        Return Me.theTextFocusForeColor
+    '    End Get
+    '    Set(value As XmlColor)
+    '        Me.theTextFocusForeColor = value
+    '    End Set
+    'End Property
+
+    'Public Property TextFocusBackColor As XmlColor
+    '    Get
+    '        Return Me.theTextFocusBackColor
+    '    End Get
+    '    Set(value As XmlColor)
+    '        Me.theTextFocusBackColor = value
+    '    End Set
+    'End Property
+
+    ''Public Property TextFocusBorderColor As XmlColor
+    ''    Get
+    ''        Return Me.theTextFocusBorderColor
+    ''    End Get
+    ''    Set(value As XmlColor)
+    ''        Me.theTextFocusBorderColor = value
+    ''    End Set
+    ''End Property
+
+    'Public Property TextSelectedForeColor As XmlColor
+    '    Get
+    '        Return Me.theTextSelectedForeColor
+    '    End Get
+    '    Set(value As XmlColor)
+    '        Me.theTextSelectedForeColor = value
+    '    End Set
+    'End Property
+
+    'Public Property TextSelectedBackColor As XmlColor
+    '    Get
+    '        Return Me.theTextSelectedBackColor
+    '    End Get
+    '    Set(value As XmlColor)
+    '        Me.theTextSelectedBackColor = value
+    '    End Set
+    'End Property
+
+    ''Public Property TextSelectedBorderColor As XmlColor
+    ''    Get
+    ''        Return Me.theTextSelectedBorderColor
+    ''    End Get
+    ''    Set(value As XmlColor)
+    ''        Me.theTextSelectedBorderColor = value
+    ''    End Set
+    ''End Property
 
 #End Region
 
@@ -253,33 +285,37 @@ Public Class WidgetTheme
 
 #Region "Data"
 
-    Private theEnabledForeColor As XmlColor
-    Private theEnabledBackColor As XmlColor
-    Private theEnabledBorderColor As XmlColor
+    Protected theEnabledForeColor As XmlColor
+    Protected theEnabledBackColor As XmlColor
+    Protected theEnabledBorderColor As XmlColor
 
-    Private theDisabledForeColor As XmlColor
-    Private theDisabledBackColor As XmlColor
-    Private theDisabledBorderColor As XmlColor
+    Protected theDisabledForeColor As XmlColor
+    Protected theDisabledBackColor As XmlColor
+    Protected theDisabledBorderColor As XmlColor
 
-    Private theFocusForeColor As XmlColor
-    Private theFocusBackColor As XmlColor
-    Private theFocusBorderColor As XmlColor
+    Protected theSelectedForeColor As XmlColor
+    Protected theSelectedBackColor As XmlColor
+    Protected theSelectedBorderColor As XmlColor
 
-    Private theTextEnabledForeColor As XmlColor
-    Private theTextEnabledBackColor As XmlColor
-    'Private theTextEnabledBorderColor As XmlColor
+    Protected theFocusForeColor As XmlColor
+    Protected theFocusBackColor As XmlColor
+    Protected theFocusBorderColor As XmlColor
 
-    Private theTextDisabledForeColor As XmlColor
-    Private theTextDisabledBackColor As XmlColor
-    'Private theTextDisabledBorderColor As XmlColor
+    'Protected theTextEnabledForeColor As XmlColor
+    'Protected theTextEnabledBackColor As XmlColor
+    ''Protected theTextEnabledBorderColor As XmlColor
 
-    Private theTextFocusForeColor As XmlColor
-    Private theTextFocusBackColor As XmlColor
-    'Private theTextFocusBorderColor As XmlColor
+    'Protected theTextDisabledForeColor As XmlColor
+    'Protected theTextDisabledBackColor As XmlColor
+    ''Protected theTextDisabledBorderColor As XmlColor
 
-    Private theTextSelectedForeColor As XmlColor
-    Private theTextSelectedBackColor As XmlColor
-    'Private theTextSelectedBorderColor As XmlColor
+    'Protected theTextFocusForeColor As XmlColor
+    'Protected theTextFocusBackColor As XmlColor
+    ''Protected theTextFocusBorderColor As XmlColor
+
+    'Protected theTextSelectedForeColor As XmlColor
+    'Protected theTextSelectedBackColor As XmlColor
+    ''Protected theTextSelectedBorderColor As XmlColor
 
 #End Region
 

@@ -22,10 +22,10 @@ Public Class SetUpGamesUserControl
 		'Me.GameSetupComboBox.DataBindings.Add("SelectedIndex", TheApp.Settings, "SetUpGamesGameSetupSelectedIndex", False, DataSourceUpdateMode.OnPropertyChanged)
 
 		'NOTE: For ListBox (which is inside ComboUserControl), must assign DataSource before ValueMember.
-		Me.ComboUserControl1.DataSource = TheApp.Settings.GameSetups
+		Me.GameSetupComboUserControl.DataSource = TheApp.Settings.GameSetups
 		'Me.ComboUserControl1.DisplayMember = "GameName"
-		Me.ComboUserControl1.ValueMember = "GameName"
-		Me.ComboUserControl1.DataBindings.Add("SelectedIndex", TheApp.Settings, "SetUpGamesGameSetupSelectedIndex", False, DataSourceUpdateMode.OnPropertyChanged)
+		Me.GameSetupComboUserControl.ValueMember = "GameName"
+		Me.GameSetupComboUserControl.DataBindings.Add("SelectedIndex", TheApp.Settings, "SetUpGamesGameSetupSelectedIndex", False, DataSourceUpdateMode.OnPropertyChanged)
 
 		Dim textColumn As DataGridViewTextBoxColumn
 		Dim buttonColumn As DataGridViewButtonColumn
@@ -101,8 +101,8 @@ Public Class SetUpGamesUserControl
 		RemoveHandler Me.SteamLibraryPathsDataGridView.ChangeToThisMacroInSelectedGameSetupToolStripMenuItem.Click, AddressOf Me.ChangeToThisMacroInSelectedGameSetupToolStripMenuItem_Click
 		RemoveHandler Me.SteamLibraryPathsDataGridView.ChangeToThisMacroInAllGameSetupsToolStripMenuItem.Click, AddressOf Me.ChangeToThisMacroInAllGameSetupsToolStripMenuItem_Click
 
-		Me.ComboUserControl1.DataSource = Nothing
-		Me.ComboUserControl1.DataBindings.Clear()
+		Me.GameSetupComboUserControl.DataSource = Nothing
+		Me.GameSetupComboUserControl.DataBindings.Clear()
 		'Me.GameSetupComboBox.DataSource = Nothing
 		'Me.GameSetupComboBox.DataBindings.Clear()
 		Me.SteamAppPathFileNameTextBox.DataBindings.Clear()
@@ -132,7 +132,7 @@ Public Class SetUpGamesUserControl
 	'	Me.UpdateWidgetsBasedOnGameEngine()
 	'End Sub
 	'------
-	Private Sub ComboUserControl1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboUserControl1.SelectedIndexChanged
+	Private Sub ComboUserControl1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GameSetupComboUserControl.SelectedIndexChanged
 		Me.UpdateWidgets()
 		Me.UpdateWidgetsBasedOnGameEngine()
 	End Sub
@@ -143,7 +143,7 @@ Public Class SetUpGamesUserControl
 		TheApp.Settings.GameSetups.Add(gamesetup)
 
 		'Me.GameSetupComboBox.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(gamesetup)
-		Me.ComboUserControl1.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(gamesetup)
+		Me.GameSetupComboUserControl.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(gamesetup)
 
 		Me.UpdateWidgets()
 		Me.UpdateUseCounts()
@@ -302,7 +302,7 @@ Public Class SetUpGamesUserControl
 		TheApp.Settings.GameSetups.Add(cloneGameSetup)
 
 		'Me.GameSetupComboBox.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(cloneGameSetup)
-		Me.ComboUserControl1.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(cloneGameSetup)
+		Me.GameSetupComboUserControl.SelectedIndex = TheApp.Settings.GameSetups.IndexOf(cloneGameSetup)
 
 		Me.UpdateWidgets()
 		Me.UpdateUseCounts()
@@ -474,7 +474,7 @@ Public Class SetUpGamesUserControl
 		gameSetupCount = TheApp.Settings.GameSetups.Count
 
 		'Me.GameSetupComboBox.Enabled = (gameSetupCount > 0)
-		Me.ComboUserControl1.Enabled = (gameSetupCount > 0)
+		Me.GameSetupComboUserControl.Enabled = (gameSetupCount > 0)
 
 		Me.GamePathFileNameTextBox.Enabled = (gameSetupCount > 0)
 		Me.BrowseForGamePathFileNameButton.Enabled = (gameSetupCount > 0)
@@ -500,7 +500,7 @@ Public Class SetUpGamesUserControl
 		'NOTE: Reset the bindings, because a new game setup has been chosen.
 
 		'Me.theSelectedGameSetup = TheApp.Settings.GameSetups(Me.GameSetupComboBox.SelectedIndex)
-		Me.theSelectedGameSetup = TheApp.Settings.GameSetups(Me.ComboUserControl1.SelectedIndex)
+		Me.theSelectedGameSetup = TheApp.Settings.GameSetups(Me.GameSetupComboUserControl.SelectedIndex)
 
 		Me.GameNameTextBox.DataBindings.Clear()
 		Me.GameNameTextBox.DataBindings.Add("Text", Me.theSelectedGameSetup, "GameName", False, DataSourceUpdateMode.OnValidation)
@@ -553,8 +553,7 @@ Public Class SetUpGamesUserControl
 
 		Me.EngineComboBox.DataBindings.Clear()
 		Try
-			Me.EngineComboBox.DisplayMember = "Value"
-			Me.EngineComboBox.ValueMember = "Key"
+			Me.EngineComboBox.ValueMember = "Value"
 			Me.EngineComboBox.DataSource = anEnumList
 			Me.EngineComboBox.DataBindings.Add("SelectedValue", Me.theSelectedGameSetup, "GameEngine", False, DataSourceUpdateMode.OnPropertyChanged)
 		Catch ex As Exception

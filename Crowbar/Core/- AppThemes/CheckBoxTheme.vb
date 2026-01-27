@@ -8,29 +8,29 @@ Public Class CheckBoxTheme
     Public Sub New()
         MyBase.New()
 
-        Me.theUntickedEnabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theUntickedEnabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theUntickedEnabledBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theUntickedEnabledForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theUntickedEnabledBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theUntickedEnabledBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
-        Me.theUntickedDisabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theUntickedDisabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theUntickedDisabledBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theUntickedDisabledForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theUntickedDisabledBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theUntickedDisabledBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
         Me.theUntickedFocusForeColor = New XmlColor("WindowColorizationColor")
-        Me.theUntickedFocusBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theUntickedFocusBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theUntickedFocusBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theUntickedFocusBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
-        Me.theTickedEnabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theTickedEnabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theTickedEnabledBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theTickedEnabledForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theTickedEnabledBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theTickedEnabledBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
-        Me.theTickedDisabledForeColor = New XmlColor(Color.FromArgb(&HF1F1F1))
-        Me.theTickedDisabledBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theTickedDisabledBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theTickedDisabledForeColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
+        Me.theTickedDisabledBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theTickedDisabledBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
         Me.theTickedFocusForeColor = New XmlColor("WindowColorizationColor")
-        Me.theTickedFocusBackColor = New XmlColor(Color.FromArgb(&H4B4B4B))
-        Me.theTickedFocusBorderColor = New XmlColor(Color.FromArgb(&HF1F1F1))
+        Me.theTickedFocusBackColor = New XmlColor(Color.FromArgb(&HFF4B4B4B))
+        Me.theTickedFocusBorderColor = New XmlColor(Color.FromArgb(&HFFF1F1F1))
 
     End Sub
 

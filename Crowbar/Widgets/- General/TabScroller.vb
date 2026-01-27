@@ -50,8 +50,6 @@ Public Class TabScroller
 		Me.LeftScroller.TabIndex = 0
 		' "3" in Marlett font is a left arrow.
 		Me.LeftScroller.Text = "3"
-		Me.LeftScroller.BackColor = WidgetHighBackColor
-		Me.LeftScroller.ForeColor = WidgetTextColor
 		'Me.LeftScroller.UseVisualStyleBackColor = True
 		'
 		'RightScroller
@@ -65,8 +63,6 @@ Public Class TabScroller
 		Me.RightScroller.TabIndex = 1
 		' "4" in Marlett font is a right arrow.
 		Me.RightScroller.Text = "4"
-		Me.RightScroller.BackColor = WidgetHighBackColor
-		Me.RightScroller.ForeColor = WidgetTextColor
 		''
 		''CloseButton
 		''

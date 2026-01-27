@@ -1,6 +1,8 @@
 Public Class TabControlEx
 	Inherits System.Windows.Forms.TabControl
 
+#Region "Creation and Destruction"
+
 	Public Sub New()
 		MyBase.New()
 
@@ -12,25 +14,37 @@ Public Class TabControlEx
 		'NOTE: To workaround a bug with TabControl.TabPages.Insert() not inserting, force the handle to be created.
 		Dim h As IntPtr = Me.Handle
 
-		'Me.theBackColor = WidgetBackColor
+		''Me.theBackColor = WidgetBackColor
 		'Me.theTabBackColor1 = WidgetHighBackColor
 		'Me.theTabBackColor2 = WidgetHighBackColor
 		'Me.theSelectedTabBackColor = Windows10GlobalAccentColor
 		'Me.theTabPageForeColor = WidgetTextColor
 		'Me.theTabPageBackColor = WidgetBackColor
-		Me.theTabBackColor1 = Color.Transparent
-		Me.theTabBackColor2 = Color.Transparent
-		Me.theSelectedTabBackColor = Windows10GlobalAccentColor
-		Me.theTabPageForeColor = SystemColors.ControlText
-		Me.theTabPageBackColor = Color.Transparent
-		Me.ShowToolTips = True
+		''Me.theTabBackColor1 = Color.Transparent
+		''Me.theTabBackColor2 = Color.Transparent
+		''Me.theSelectedTabBackColor = Windows10GlobalAccentColor
+		''Me.theTabPageForeColor = SystemColors.ControlText
+		''Me.theTabPageBackColor = Color.Transparent
 
+		Me.ShowToolTips = True
 		Me.HotTrack = True
 		Me.theCursorIsOverTabs = False
 
 		'Me.DrawMode = TabDrawMode.OwnerDrawFixed
 		Me.SetStyle(ControlStyles.UserPaint, True)
 	End Sub
+
+#Region "Init and Free"
+
+	'Private Sub Init()
+	'End Sub
+
+	'Private Sub Free()
+	'End Sub
+
+#End Region
+
+#Region "Properties"
 
 	'Public Overrides Property BackColor() As Color
 	'	Get
@@ -106,6 +120,10 @@ Public Class TabControlEx
 			Return multiplier
 		End Get
 	End Property
+
+#End Region
+
+#Region "Widget Event Handlers"
 
 	'	'Protected Overrides Sub OnControlAdded(ByVal e As ControlEventArgs)
 	'	'	If TypeOf e.Control Is TabPage Then
@@ -305,9 +323,22 @@ Public Class TabControlEx
 	'		MyBase.OnMouseDown(e)
 	'	End Sub
 
-	'Draw the tab page And the tab items.
+	'Draw the tab page and the tab items.
 	Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
 		If Me.TabCount > 0 Then
+			Dim theme As TabControlTheme = Nothing
+			' This check prevents problems with viewing and saving Forms in VS Designer.
+			If TheApp IsNot Nothing Then
+				theme = TheApp.Settings.SelectedAppTheme.TabControlTheme
+			End If
+			If theme IsNot Nothing Then
+				Me.theTabBackColor1 = theme.EnabledBackColor
+				Me.theTabBackColor2 = theme.EnabledBackColor
+				Me.theSelectedTabBackColor = theme.SelectedBackColor
+				Me.theTabPageForeColor = theme.EnabledForeColor
+				Me.theTabPageBackColor = theme.EnabledBackColor
+			End If
+
 			Dim redChannel As Byte = 0
 			Dim greenChannel As Byte = 0
 			Dim blueChannel As Byte = 0
@@ -715,12 +746,6 @@ Public Class TabControlEx
 
 	'#End Region
 
-#Region "Handle custom scrollbar (updowncontrol)"
-
-	'FROM: Mick Doherty's TabControl Tips
-	'      Add a custom Scroller to Tabcontrol.
-	'      https://dotnetrix.co.uk/tabcontrol.htm#tip15
-
 	Protected Overrides Sub OnHandleCreated(ByVal e As System.EventArgs)
 		MyBase.OnHandleCreated(e)
 
@@ -757,6 +782,39 @@ Public Class TabControlEx
 		End If
 	End Sub
 
+	Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
+		If m.Msg = Win32Api.WindowsMessages.WM_PARENTNOTIFY Then
+			If (m.WParam.ToInt32() And &HFFFF) = Win32Api.WindowsMessages.WM_CREATE Then
+				Dim WindowName As New System.Text.StringBuilder(16)
+				Win32Api.RealGetWindowClass(m.LParam, WindowName, 16)
+				If WindowName.ToString = "msctls_updown32" Then
+					'unhook the existing updown control as it will be recreated if 
+					'the tabcontrol is recreated (alignment, visible changed etc..)
+					If UPDown IsNot Nothing Then
+						UPDown.ReleaseHandle()
+					End If
+					'and hook it.
+					UPDown = New NativeUpDown
+					UPDown.AssignHandle(m.LParam)
+				End If
+			End If
+		End If
+
+		MyBase.WndProc(m)
+	End Sub
+
+#End Region
+
+#End Region
+
+#Region "Child Widget Event Handlers"
+
+#Region "Handle custom scrollbar (updowncontrol)"
+
+	'FROM: Mick Doherty's TabControl Tips
+	'      Add a custom Scroller to Tabcontrol.
+	'      https://dotnetrix.co.uk/tabcontrol.htm#tip15
+
 	Private Sub Scroller_ScrollLeft(ByVal sender As Object, ByVal e As System.EventArgs) Handles Scroller.ScrollLeft
 		If Me.TabCount = 0 Then
 			Return
@@ -782,26 +840,7 @@ Public Class TabControlEx
 	'	End If
 	'End Sub
 
-	Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
-		If m.Msg = Win32Api.WindowsMessages.WM_PARENTNOTIFY Then
-			If (m.WParam.ToInt32() And &HFFFF) = Win32Api.WindowsMessages.WM_CREATE Then
-				Dim WindowName As New System.Text.StringBuilder(16)
-				Win32Api.RealGetWindowClass(m.LParam, WindowName, 16)
-				If WindowName.ToString = "msctls_updown32" Then
-					'unhook the existing updown control as it will be recreated if 
-					'the tabcontrol is recreated (alignment, visible changed etc..)
-					If UPDown IsNot Nothing Then
-						UPDown.ReleaseHandle()
-					End If
-					'and hook it.
-					UPDown = New NativeUpDown
-					UPDown.AssignHandle(m.LParam)
-				End If
-			End If
-		End If
-
-		MyBase.WndProc(m)
-	End Sub
+#End Region
 
 #End Region
 
@@ -819,6 +858,7 @@ Public Class TabControlEx
 
 	Dim theCursorIsOverTabs As Boolean
 
+	' Most likely this internal widget is needed to allow scrolling via the WM_HSCROLL message.
 	Private UPDown As NativeUpDown
 	Private WithEvents Scroller As New TabScroller
 

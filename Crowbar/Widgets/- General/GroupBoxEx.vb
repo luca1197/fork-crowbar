@@ -9,8 +9,8 @@ Public Class GroupBoxEx
 		MyBase.New()
 
 		'Me.theSelectedIndex = -1
-		Me.ForeColor = WidgetTextColor
-		Me.BackColor = WidgetBackColor
+		'Me.ForeColor = WidgetTextColor
+		'Me.BackColor = WidgetBackColor
 
 		'Me.SetStyle(ControlStyles.UserPaint, True)
 	End Sub
@@ -141,6 +141,8 @@ Public Class GroupBoxEx
 		End Set
 	End Property
 
+#Region "Widget Event Handlers"
+
 	Protected Overloads Overrides Sub OnControlAdded(ByVal e As ControlEventArgs)
 		If TypeOf e.Control Is RadioButton Then
 			Dim radioButton As RadioButton = CType(e.Control, RadioButton)
@@ -159,41 +161,60 @@ Public Class GroupBoxEx
 		MyBase.OnControlRemoved(e)
 	End Sub
 
-	Protected Overrides Sub OnHandleCreated(e As EventArgs)
-		MyBase.OnHandleCreated(e)
-		'SetStyle(ControlStyles.AllPaintingInWmPaint, True)
-		'SetStyle(ControlStyles.DoubleBuffer, True)
-		SetStyle(ControlStyles.UserPaint, True)
-	End Sub
+	'Protected Overrides Sub OnHandleCreated(e As EventArgs)
+	'	MyBase.OnHandleCreated(e)
+
+	'	Dim theme As GroupBoxTheme = Nothing
+	'	' This check prevents problems with viewing and saving Forms in VS Designer.
+	'	If TheApp IsNot Nothing Then
+	'		theme = TheApp.Settings.SelectedAppTheme.GroupBoxTheme
+	'	End If
+	'	If theme IsNot Nothing Then
+	'		'SetStyle(ControlStyles.AllPaintingInWmPaint, True)
+	'		'SetStyle(ControlStyles.DoubleBuffer, True)
+	'		SetStyle(ControlStyles.UserPaint, True)
+	'	End If
+	'End Sub
 
 	Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
 		'MyBase.OnPaint(e)
 
-		Dim g As Graphics = e.Graphics
-		Dim clientRectangle As Rectangle = Me.ClientRectangle
+		Dim theme As GroupBoxTheme = Nothing
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.GroupBoxTheme
+		End If
+		If theme IsNot Nothing Then
+			Dim g As Graphics = e.Graphics
+			Dim clientRectangle As Rectangle = Me.ClientRectangle
 
-		' Draw background.
-		Using backColorBrush As New SolidBrush(WidgetBackColor)
-			g.FillRectangle(backColorBrush, clientRectangle)
-		End Using
+			' Draw background.
+			Using backColorBrush As New SolidBrush(WidgetBackColor)
+				g.FillRectangle(backColorBrush, clientRectangle)
+			End Using
 
-		Dim stringSize As SizeF = TextRenderer.MeasureText(Me.Text, Me.Font)
+			Dim stringSize As SizeF = TextRenderer.MeasureText(Me.Text, Me.Font)
 
-		' Draw groupbox border.
-		Using borderPen As New Pen(WidgetDisabledTextColor)
-			Dim borderRect As New Rectangle(0, CInt(stringSize.Height / 2), clientRectangle.Width - 1, clientRectangle.Height - CInt(stringSize.Height / 2) - 1)
-			g.DrawRectangle(borderPen, borderRect)
-		End Using
+			' Draw groupbox border.
+			Using borderPen As New Pen(WidgetDisabledTextColor)
+				Dim borderRect As New Rectangle(0, CInt(stringSize.Height / 2), clientRectangle.Width - 1, clientRectangle.Height - CInt(stringSize.Height / 2) - 1)
+				g.DrawRectangle(borderPen, borderRect)
+			End Using
 
-		' Draw text background and text.
-		Dim textIndent As Integer = 6
-		Dim textRect As New Rectangle(clientRectangle.X + textIndent, clientRectangle.Y, clientRectangle.Width - (textIndent * 2), CInt(stringSize.Height))
-		TextRenderer.DrawText(g, Me.Text, Me.Font, textRect, WidgetTextColor, WidgetBackColor, TextFormatFlags.Left Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordEllipsis Or TextFormatFlags.LeftAndRightPadding)
+			' Draw text background and text.
+			Dim textIndent As Integer = 6
+			Dim textRect As New Rectangle(clientRectangle.X + textIndent, clientRectangle.Y, clientRectangle.Width - (textIndent * 2), CInt(stringSize.Height))
+			TextRenderer.DrawText(g, Me.Text, Me.Font, textRect, WidgetTextColor, WidgetBackColor, TextFormatFlags.Left Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordEllipsis Or TextFormatFlags.LeftAndRightPadding)
+		End If
 	End Sub
 
 	Protected Overridable Sub OnSelectedValueChanged(ByVal e As EventArgs)
 		RaiseEvent SelectedValueChanged(Me, e)
 	End Sub
+
+#End Region
+
+#Region "Child Widget Event Handlers"
 
 	Private Sub RadioButton_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
 		Dim radioButton As RadioButton = CType(sender, RadioButton)
@@ -214,6 +235,10 @@ Public Class GroupBoxEx
 		End If
 	End Sub
 
+#End Region
+
+#Region "Private Methods"
+
 	Private Sub SetValue(ByVal value As System.Enum)
 		'If Me.theDataSource Is Nothing Then
 		'	Return
@@ -233,6 +258,10 @@ Public Class GroupBoxEx
 		Me.OnSelectedValueChanged(New EventArgs())
 	End Sub
 
+#End Region
+
+#Region "Data"
+
 	Protected theControlIsReadOnly As Boolean
 	'Private theDataSource As List(Of KeyValuePair(Of System.Enum, String))
 	'Private theDisplayMember As String
@@ -240,5 +269,7 @@ Public Class GroupBoxEx
 	Private theRadioButtonList As New System.Collections.Generic.List(Of RadioButton)()
 	'Private theSelectedIndex As Integer
 	Private theSelectedValue As System.Enum
+
+#End Region
 
 End Class
