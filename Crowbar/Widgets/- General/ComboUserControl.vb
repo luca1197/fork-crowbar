@@ -325,7 +325,8 @@ Public Class ComboUserControl
 				Me.theBorderColor = theme.DisabledBorderColor
 			End If
 		Else
-			Me.theBorderColor = WidgetConstants.Windows10GlobalAccentColor
+			'Me.ComboTextBox.BackColor = WidgetConstants.Windows10GlobalAccentColor
+			Me.ComboTextBox.BackColor = SystemColors.Control
 		End If
 
 		'Dim g As Graphics = e.Graphics
@@ -375,13 +376,6 @@ Public Class ComboUserControl
 	End Sub
 
 	Private Sub OnNonClientCalcSize(ByRef m As Message)
-		'Dim theme As ComboUserControlTheme = Nothing
-		'' This check prevents problems with viewing and saving Forms in VS Designer.
-		'If TheApp IsNot Nothing Then
-		'	theme = TheApp.Settings.SelectedAppTheme.ComboUserControlTheme
-		'End If
-		'If theme IsNot Nothing Then
-		'End If
 		Me.UpdateNonClientPadding()
 		If CInt(m.WParam) = 0 Then
 			Dim rect As Win32Api.RECT = CType(Marshal.PtrToStructure(m.LParam, GetType(Win32Api.RECT)), Win32Api.RECT)
@@ -665,8 +659,9 @@ Public Class ComboUserControl
 			'Else
 			'    Me.theBorderColor = WidgetConstants.Windows10GlobalAccentColor
 		End If
-		'NOTE: Raise the OnNonClientCalcSize and OnNonClientPaint "events".
-		Win32Api.SetWindowPos(Me.Handle, IntPtr.Zero, 0, 0, 0, 0, Win32Api.SWP.SWP_FRAMECHANGED Or Win32Api.SWP.SWP_NOMOVE Or Win32Api.SWP.SWP_NOSIZE Or Win32Api.SWP.SWP_NOZORDER)
+		''NOTE: Raise the OnNonClientCalcSize and OnNonClientPaint "events".
+		'Win32Api.SetWindowPos(Me.Handle, IntPtr.Zero, 0, 0, 0, 0, Win32Api.SWP.SWP_FRAMECHANGED Or Win32Api.SWP.SWP_NOMOVE Or Win32Api.SWP.SWP_NOSIZE Or Win32Api.SWP.SWP_NOZORDER)
+		Me.Invalidate()
 	End Sub
 
 	Private Sub Diminish()
@@ -680,8 +675,9 @@ Public Class ComboUserControl
 			'Else
 			'    Me.theBorderColor = WidgetConstants.WidgetDisabledTextColor
 		End If
-		'NOTE: Raise the OnNonClientCalcSize and OnNonClientPaint "events".
-		Win32Api.SetWindowPos(Me.Handle, IntPtr.Zero, 0, 0, 0, 0, Win32Api.SWP.SWP_FRAMECHANGED Or Win32Api.SWP.SWP_NOMOVE Or Win32Api.SWP.SWP_NOSIZE Or Win32Api.SWP.SWP_NOZORDER)
+		''NOTE: Raise the OnNonClientCalcSize and OnNonClientPaint "events".
+		'Win32Api.SetWindowPos(Me.Handle, IntPtr.Zero, 0, 0, 0, 0, Win32Api.SWP.SWP_FRAMECHANGED Or Win32Api.SWP.SWP_NOMOVE Or Win32Api.SWP.SWP_NOSIZE Or Win32Api.SWP.SWP_NOZORDER)
+		Me.Invalidate()
 	End Sub
 
 	Private Sub InitMultipleInputsPopop()

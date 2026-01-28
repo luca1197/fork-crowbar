@@ -23,8 +23,8 @@ Public Class RichTextBoxEx
 		'Me.theNonClientPaddingColor = WidgetDeepBackColor
 		'TEST:
 		'Me.theNonClientPaddingColor = Color.Pink
-		Me.theBorderColor = WidgetHighBackColor
-		Me.theBorderStyle = BorderStyle.FixedSingle
+		'Me.theBorderColor = WidgetHighBackColor
+		'Me.theBorderStyle = BorderStyle.FixedSingle
 
 		Me.HorizontalScrollbar = New ScrollBarEx()
 		Me.Controls.Add(Me.HorizontalScrollbar)
@@ -886,50 +886,51 @@ Public Class RichTextBoxEx
 	End Sub
 
 	Private Sub OnNonClientPaint(ByRef m As Message)
-		Dim hDC As IntPtr = Win32Api.GetWindowDC(Me.Handle)
-		Try
-			Dim theme As RichTextBoxTheme = Nothing
-			' This check prevents problems with viewing and saving Forms in VS Designer.
-			If TheApp IsNot Nothing Then
-				theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+		Dim theme As RichTextBoxTheme = Nothing
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.RichTextBoxTheme
+		End If
+		If theme IsNot Nothing Then
+			'IMPORTANT: Only assign ForeColor and BackColor once in OnPaint();
+			'           otherwise OnPaint will be called over 100 times
+			'           and much of the window will not be painted.
+			If Me.Enabled Then
+				Me.ForeColor = theme.EnabledForeColor
+			Else
+				Me.ForeColor = theme.DisabledForeColor
 			End If
-			If theme IsNot Nothing Then
-				'IMPORTANT: Only assign ForeColor and BackColor once in OnPaint();
-				'           otherwise OnPaint will be called over 100 times
-				'           and much of the window will not be painted.
-				If Me.Enabled Then
-					Me.ForeColor = theme.EnabledForeColor
-				Else
-					Me.ForeColor = theme.DisabledForeColor
-				End If
-				If MyBase.[ReadOnly] Then
-					Me.BackColor = theme.DisabledBackColor
-				Else
-					Me.BackColor = theme.EnabledBackColor
-				End If
+			If MyBase.[ReadOnly] Then
+				Me.BackColor = theme.DisabledBackColor
+			Else
+				Me.BackColor = theme.EnabledBackColor
 			End If
+		End If
 
-			Using g As Graphics = Graphics.FromHdc(hDC)
-				Dim aRect As RectangleF = g.VisibleClipBounds
-				Using backColorBrush As New SolidBrush(Me.BackColor)
-					g.FillRectangle(backColorBrush, aRect)
-				End Using
-				' Draw border.
-				If Me.theBorderStyle = BorderStyle.FixedSingle Then
-					'Using borderColorPen As New Pen(WidgetDisabledTextColor)
-					Using borderColorPen As New Pen(Me.theBorderColor)
-						'NOTE: DrawRectangle width and height are interpreted as the right and bottom pixels to draw.
-						aRect.Width -= 1
-						aRect.Height -= 1
-						g.DrawRectangle(borderColorPen, aRect.Left, aRect.Top, aRect.Width, aRect.Height)
+		Dim hDC As IntPtr = Win32Api.GetWindowDC(Me.Handle)
+			Try
+				Using g As Graphics = Graphics.FromHdc(hDC)
+					Dim aRect As RectangleF = g.VisibleClipBounds
+					Using backColorBrush As New SolidBrush(Me.BackColor)
+						g.FillRectangle(backColorBrush, aRect)
 					End Using
-				End If
-			End Using
-		Finally
-			Win32Api.ReleaseDC(Me.Handle, hDC)
-		End Try
-		m.Result = IntPtr.Zero
-	End Sub
+					' Draw border.
+					If Me.theBorderStyle = BorderStyle.FixedSingle Then
+						'Using borderColorPen As New Pen(WidgetDisabledTextColor)
+						Using borderColorPen As New Pen(Me.theBorderColor)
+							'NOTE: DrawRectangle width and height are interpreted as the right and bottom pixels to draw.
+							aRect.Width -= 1
+							aRect.Height -= 1
+							g.DrawRectangle(borderColorPen, aRect.Left, aRect.Top, aRect.Width, aRect.Height)
+						End Using
+					End If
+				End Using
+			Finally
+				Win32Api.ReleaseDC(Me.Handle, hDC)
+			End Try
+
+			m.Result = IntPtr.Zero
+    End Sub
 
 #End Region
 

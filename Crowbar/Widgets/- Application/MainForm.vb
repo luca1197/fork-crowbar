@@ -366,6 +366,17 @@ Public Class MainForm
 
 #Region "Private Methods"
 
+    Protected Sub UpdateThemeOfChildControls(ByVal parentControl As Control)
+        For Each aChild As Control In parentControl.Controls
+            If TypeOf aChild Is TabControlEx Then
+                CType(aChild, TabControlEx).UpdateTheme()
+            End If
+            If aChild.HasChildren Then
+                Me.UpdateThemeOfChildControls(aChild)
+            End If
+        Next
+    End Sub
+
     'Protected Sub UpdateChildControls(ByVal parentControl As Control)
 
     '	For Each aChild As Control In parentControl.Controls

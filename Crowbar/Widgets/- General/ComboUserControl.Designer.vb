@@ -44,6 +44,7 @@ Partial Class ComboUserControl
 		'ComboTextBox
 		'
 		Me.ComboTextBox.BorderColor = System.Drawing.Color.Empty
+		Me.ComboTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.ComboTextBox.CueBannerText = ""
 		Me.ComboTextBox.DetectUrls = False
 		Me.ComboTextBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -52,7 +53,6 @@ Partial Class ComboUserControl
 		Me.ComboTextBox.Margin = New System.Windows.Forms.Padding(0)
 		Me.ComboTextBox.Multiline = False
 		Me.ComboTextBox.Name = "ComboTextBox"
-		Me.ComboTextBox.ReadOnly = True
 		Me.ComboTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
 		Me.ComboTextBox.Size = New System.Drawing.Size(124, 22)
 		Me.ComboTextBox.TabIndex = 0
@@ -74,6 +74,8 @@ Partial Class ComboUserControl
 		'TextHistoryDropDownButton
 		'
 		Me.TextHistoryDropDownButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.TextHistoryDropDownButton.FlatAppearance.BorderSize = 0
+		Me.TextHistoryDropDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.TextHistoryDropDownButton.Location = New System.Drawing.Point(124, 0)
 		Me.TextHistoryDropDownButton.Margin = New System.Windows.Forms.Padding(0)
 		Me.TextHistoryDropDownButton.Name = "TextHistoryDropDownButton"
@@ -109,7 +111,7 @@ Partial Class ComboUserControl
 		Me.MultipleInputsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
 		Me.MultipleInputsDataGridView.ColumnHeadersVisible = False
 		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+		DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
 		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
@@ -150,7 +152,7 @@ Partial Class ComboUserControl
 		Me.TextHistoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
 		Me.TextHistoryDataGridView.ColumnHeadersVisible = False
 		DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+		DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
 		DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 8.25!)
 		DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
 		DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight

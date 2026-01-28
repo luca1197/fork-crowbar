@@ -39,13 +39,13 @@ Public Class DataGridViewEx
 
         Me.theControlHasShown = False
 
-        Me.EnableHeadersVisualStyles = True
-        ''NOTE: Need these settings so that ColumnHeadersDefaultCellStyle, DefaultCellStyle, and GridColor properties are used.
-        ''      Might affect other properties, too.
+        'Me.EnableHeadersVisualStyles = True
+        'NOTE: Need these settings so that ColumnHeadersDefaultCellStyle, DefaultCellStyle, and GridColor properties are used.
+        '      Might affect other properties, too.
         'Me.EnableHeadersVisualStyles = False
-        'Me.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
-        'Me.CellBorderStyle = DataGridViewCellBorderStyle.Single
-        'Me.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        Me.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+        Me.CellBorderStyle = DataGridViewCellBorderStyle.Single
+        Me.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
 
         'Me.ForeColor = WidgetConstants.WidgetTextColor
         'Me.BackgroundColor = WidgetConstants.WidgetBackColor
@@ -417,14 +417,21 @@ Public Class DataGridViewEx
 
     Protected Overrides Sub OnColumnAdded(e As DataGridViewColumnEventArgs)
         MyBase.OnColumnAdded(e)
-        If TypeOf e.Column Is DataGridViewButtonColumn Then
-            Dim buttonColumn As DataGridViewButtonColumn = CType(e.Column, DataGridViewButtonColumn)
-            buttonColumn.FlatStyle = FlatStyle.Flat
-            'buttonColumn.FlatStyle = FlatStyle.Popup
-            'buttonColumn.DefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
-            'buttonColumn.DefaultCellStyle.BackColor = WidgetConstants.WidgetHighBackColor
-            'buttonColumn.DefaultCellStyle.SelectionForeColor = Color.Red
-            'buttonColumn.DefaultCellStyle.SelectionBackColor = Color.Green
+        Dim theme As DataGridViewTheme = Nothing
+        ' This check prevents problems with viewing and saving Forms in VS Designer.
+        If TheApp IsNot Nothing Then
+            theme = TheApp.Settings.SelectedAppTheme.DataGridViewTheme
+        End If
+        If theme IsNot Nothing Then
+            If TypeOf e.Column Is DataGridViewButtonColumn Then
+                Dim buttonColumn As DataGridViewButtonColumn = CType(e.Column, DataGridViewButtonColumn)
+                buttonColumn.FlatStyle = FlatStyle.Flat
+                'buttonColumn.FlatStyle = FlatStyle.Popup
+                'buttonColumn.DefaultCellStyle.ForeColor = WidgetConstants.WidgetTextColor
+                'buttonColumn.DefaultCellStyle.BackColor = WidgetConstants.WidgetHighBackColor
+                'buttonColumn.DefaultCellStyle.SelectionForeColor = Color.Red
+                'buttonColumn.DefaultCellStyle.SelectionBackColor = Color.Green
+            End If
         End If
     End Sub
 

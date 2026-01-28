@@ -108,10 +108,8 @@ Partial Class MainForm
 		Me.MainTabControl.Controls.Add(Me.AboutTabPage)
 		Me.MainTabControl.Controls.Add(Me.UpdateTabPage)
 		Me.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.MainTabControl.HotTrack = True
 		Me.MainTabControl.Location = New System.Drawing.Point(0, 0)
 		Me.MainTabControl.Name = "MainTabControl"
-		Me.MainTabControl.Padding = New System.Drawing.Point(2, 3)
 		Me.MainTabControl.SelectedIndex = 0
 		Me.MainTabControl.ShowToolTips = True
 		Me.MainTabControl.Size = New System.Drawing.Size(792, 572)

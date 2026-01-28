@@ -31,8 +31,10 @@ Public Class TabControlEx
 		Me.theCursorIsOverTabs = False
 
 		'Me.DrawMode = TabDrawMode.OwnerDrawFixed
-		Me.SetStyle(ControlStyles.UserPaint, True)
+		'Me.SetStyle(ControlStyles.UserPaint, True)
 	End Sub
+
+#End Region
 
 #Region "Init and Free"
 
@@ -120,6 +122,22 @@ Public Class TabControlEx
 			Return multiplier
 		End Get
 	End Property
+
+#End Region
+
+#Region "Methods"
+
+	Public Sub UpdateTheme()
+		Dim theme As TabControlTheme = Nothing
+		If TheApp IsNot Nothing Then
+			theme = TheApp.Settings.SelectedAppTheme.TabControlTheme
+		End If
+		If theme IsNot Nothing Then
+			Me.SetStyle(ControlStyles.UserPaint, True)
+		Else
+			Me.SetStyle(ControlStyles.UserPaint, False)
+		End If
+	End Sub
 
 #End Region
 
@@ -802,8 +820,6 @@ Public Class TabControlEx
 
 		MyBase.WndProc(m)
 	End Sub
-
-#End Region
 
 #End Region
 

@@ -1,4 +1,6 @@
-﻿Public Class ButtonEx
+﻿Imports System.Windows.Forms.VisualStyles
+
+Public Class ButtonEx
 	Inherits Button
 
 #Region "Create and Destroy"
@@ -80,11 +82,7 @@
 	Protected Overrides Sub OnPaint(e As PaintEventArgs)
 		MyBase.OnPaint(e)
 
-		Dim backColor1 As Color
-		Dim backColor2 As Color
-		Dim textColor As Color
-		Dim textBackColor As Color
-		Dim borderColor As Color
+		Dim g As Graphics = e.Graphics
 
 		Dim theme As ButtonTheme = Nothing
 		' This check prevents problems with viewing and saving Forms in VS Designer.
@@ -92,6 +90,12 @@
 			theme = TheApp.Settings.SelectedAppTheme.ButtonTheme
 		End If
 		If theme IsNot Nothing Then
+			Dim backColor1 As Color
+			Dim backColor2 As Color
+			Dim textColor As Color
+			Dim textBackColor As Color
+			Dim borderColor As Color
+
 			If Me.Enabled Then
 				If Me.theMouseIsOverButton OrElse Me.theButtonShouldBeHighlighted Then
 					' Focus
@@ -143,7 +147,6 @@
 			'		borderColor = Me.BackColor
 			'	End If
 
-			Dim g As Graphics = e.Graphics
 			Dim clientRectangle As Rectangle = Me.ClientRectangle
 
 			' Draw background.
@@ -162,8 +165,7 @@
 					TextRenderer.DrawText(g, Me.Text, Me.Font, clientRectangle, textColor, textBackColor, TextFormatFlags.HorizontalCenter Or TextFormatFlags.VerticalCenter Or TextFormatFlags.WordBreak)
 				ElseIf Me.theSpecialImage = SpecialImageType.DownArrow Then
 					' Draw drop-down arrow.
-					Dim dropDownRect As Rectangle = Me.ClientRectangle
-					Dim middle As New Point(CInt((dropDownRect.Left + dropDownRect.Width) * 0.5), CInt((dropDownRect.Top + dropDownRect.Height) * 0.5))
+					Dim middle As New Point(CInt((clientRectangle.Left + clientRectangle.Width) * 0.5), CInt((clientRectangle.Top + clientRectangle.Height) * 0.5))
 					Dim arrow As Point() = {New Point(middle.X - 3, middle.Y - 2), New Point(middle.X + 4, middle.Y - 2), New Point(middle.X, middle.Y + 2)}
 					Using backColorBrush As New SolidBrush(WidgetDisabledTextColor)
 						e.Graphics.FillPolygon(backColorBrush, arrow)
@@ -172,6 +174,19 @@
 				End If
 			Else
 				g.DrawImage(Me.Image, New Point(CInt(Me.Width * 0.5 - Me.Image.Width * 0.5), CInt(Me.Height * 0.5 - Me.Image.Height * 0.5)))
+			End If
+		Else
+			If Me.theSpecialImage = SpecialImageType.DownArrow Then
+				' Draw drop-down arrow.
+				Dim aRect As Rectangle = Rectangle.Truncate(g.VisibleClipBounds)
+				' Inflate to hide the button border.
+				aRect.Inflate(1, 1)
+				If VisualStyleRenderer.IsSupported Then
+					ComboBoxRenderer.DrawDropDownButton(g, aRect, ComboBoxState.Normal)
+				Else
+					ControlPaint.DrawComboButton(g, aRect, ButtonState.Normal)
+				End If
+			ElseIf Me.theSpecialImage = SpecialImageType.RightArrow Then
 			End If
 		End If
 	End Sub
