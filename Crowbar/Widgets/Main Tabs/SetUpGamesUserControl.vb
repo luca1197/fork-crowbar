@@ -505,7 +505,7 @@ Public Class SetUpGamesUserControl
 		Me.GameNameTextBox.DataBindings.Clear()
 		Me.GameNameTextBox.DataBindings.Add("Text", Me.theSelectedGameSetup, "GameName", False, DataSourceUpdateMode.OnValidation)
 
-		Me.UpdateGameEngineComboBox()
+		Me.UpdateGameEngineComboUserControl()
 
 		Me.GamePathFileNameTextBox.DataBindings.Clear()
 		Me.GamePathFileNameTextBox.DataBindings.Add("Text", Me.theSelectedGameSetup, "GamePathFileNameUnprocessed", False, DataSourceUpdateMode.OnValidation)
@@ -544,18 +544,18 @@ Public Class SetUpGamesUserControl
 		AddHandler Me.PackerPathFileNameTextBox.DataBindings("Text").Parse, AddressOf Me.ParsePathFileName
 	End Sub
 
-	Private Sub UpdateGameEngineComboBox()
+	Private Sub UpdateGameEngineComboUserControl()
 		Dim anEnumList As IList
 
 		anEnumList = EnumHelper.ToList(GetType(GameEngine))
 		'NOTE: For now, remove the Source 2 value.
 		EnumHelper.RemoveFromList(GameEngine.Source2, anEnumList)
 
-		Me.EngineComboBox.DataBindings.Clear()
+		Me.EngineComboUserControl.DataBindings.Clear()
 		Try
-			Me.EngineComboBox.ValueMember = "Value"
-			Me.EngineComboBox.DataSource = anEnumList
-			Me.EngineComboBox.DataBindings.Add("SelectedValue", Me.theSelectedGameSetup, "GameEngine", False, DataSourceUpdateMode.OnPropertyChanged)
+			Me.EngineComboUserControl.DataSource = anEnumList
+			Me.EngineComboUserControl.ValueMember = "Value"
+			Me.EngineComboUserControl.DataBindings.Add("SelectedValue", Me.theSelectedGameSetup, "GameEngine", False, DataSourceUpdateMode.OnPropertyChanged)
 		Catch ex As Exception
 			Dim debug As Integer = 4242
 		End Try

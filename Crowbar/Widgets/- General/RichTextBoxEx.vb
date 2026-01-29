@@ -908,29 +908,29 @@ Public Class RichTextBoxEx
 		End If
 
 		Dim hDC As IntPtr = Win32Api.GetWindowDC(Me.Handle)
-			Try
-				Using g As Graphics = Graphics.FromHdc(hDC)
-					Dim aRect As RectangleF = g.VisibleClipBounds
-					Using backColorBrush As New SolidBrush(Me.BackColor)
-						g.FillRectangle(backColorBrush, aRect)
-					End Using
-					' Draw border.
-					If Me.theBorderStyle = BorderStyle.FixedSingle Then
-						'Using borderColorPen As New Pen(WidgetDisabledTextColor)
-						Using borderColorPen As New Pen(Me.theBorderColor)
-							'NOTE: DrawRectangle width and height are interpreted as the right and bottom pixels to draw.
-							aRect.Width -= 1
-							aRect.Height -= 1
-							g.DrawRectangle(borderColorPen, aRect.Left, aRect.Top, aRect.Width, aRect.Height)
-						End Using
-					End If
+		Try
+			Using g As Graphics = Graphics.FromHdc(hDC)
+				Dim aRect As RectangleF = g.VisibleClipBounds
+				Using backColorBrush As New SolidBrush(Me.BackColor)
+					g.FillRectangle(backColorBrush, aRect)
 				End Using
-			Finally
-				Win32Api.ReleaseDC(Me.Handle, hDC)
-			End Try
+				' Draw border.
+				If Me.theBorderStyle = BorderStyle.FixedSingle Then
+					'Using borderColorPen As New Pen(WidgetDisabledTextColor)
+					Using borderColorPen As New Pen(Me.theBorderColor)
+						'NOTE: DrawRectangle width and height are interpreted as the right and bottom pixels to draw.
+						aRect.Width -= 1
+						aRect.Height -= 1
+						g.DrawRectangle(borderColorPen, aRect.Left, aRect.Top, aRect.Width, aRect.Height)
+					End Using
+				End If
+			End Using
+		Finally
+			Win32Api.ReleaseDC(Me.Handle, hDC)
+		End Try
 
-			m.Result = IntPtr.Zero
-    End Sub
+		m.Result = IntPtr.Zero
+	End Sub
 
 #End Region
 

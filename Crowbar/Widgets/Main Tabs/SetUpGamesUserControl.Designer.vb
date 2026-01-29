@@ -34,7 +34,7 @@ Partial Class SetUpGamesUserControl
 		Me.AddGameSetupButton = New Crowbar.ButtonEx()
 		Me.GameGroupBox = New Crowbar.GroupBoxEx()
 		Me.EngineLabel = New System.Windows.Forms.Label()
-		Me.EngineComboBox = New Crowbar.ComboUserControl()
+		Me.EngineComboUserControl = New Crowbar.ComboUserControl()
 		Me.CreateModelsFolderTreeButton = New Crowbar.ButtonEx()
 		Me.BrowseForMappingToolPathFileNameButton = New Crowbar.ButtonEx()
 		Me.MappingToolPathFileNameTextBox = New Crowbar.RichTextBoxEx()
@@ -159,7 +159,7 @@ Partial Class SetUpGamesUserControl
 		Me.GameGroupBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.GameGroupBox.Controls.Add(Me.EngineLabel)
-		Me.GameGroupBox.Controls.Add(Me.EngineComboBox)
+		Me.GameGroupBox.Controls.Add(Me.EngineComboUserControl)
 		Me.GameGroupBox.Controls.Add(Me.CreateModelsFolderTreeButton)
 		Me.GameGroupBox.Controls.Add(Me.BrowseForMappingToolPathFileNameButton)
 		Me.GameGroupBox.Controls.Add(Me.MappingToolPathFileNameTextBox)
@@ -206,21 +206,20 @@ Partial Class SetUpGamesUserControl
 		'
 		'EngineComboBox
 		'
-		Me.EngineComboBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.EngineComboBox.DataSource = Nothing
-		Me.EngineComboBox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-		Me.EngineComboBox.IsReadOnly = False
-		Me.EngineComboBox.Location = New System.Drawing.Point(55, 45)
-		Me.EngineComboBox.MaxDropDownItems = 30
-		Me.EngineComboBox.MultipleInputsIsAllowed = True
-		Me.EngineComboBox.Name = "EngineComboBox"
-		Me.EngineComboBox.SelectedIndex = -1
-		Me.EngineComboBox.Size = New System.Drawing.Size(121, 23)
-		Me.EngineComboBox.TabIndex = 42
-		Me.EngineComboBox.TextHistoryIsKept = False
-		Me.EngineComboBox.TextHistoryMaxSize = 15
-		Me.EngineComboBox.TextIsPathFileNames = False
-		Me.EngineComboBox.ValueMember = ""
+		Me.EngineComboUserControl.DataSource = Nothing
+		Me.EngineComboUserControl.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+		Me.EngineComboUserControl.IsReadOnly = False
+		Me.EngineComboUserControl.Location = New System.Drawing.Point(55, 45)
+		Me.EngineComboUserControl.MaxDropDownItems = 30
+		Me.EngineComboUserControl.MultipleInputsIsAllowed = True
+		Me.EngineComboUserControl.Name = "EngineComboUserControl"
+		Me.EngineComboUserControl.SelectedIndex = -1
+		Me.EngineComboUserControl.Size = New System.Drawing.Size(121, 23)
+		Me.EngineComboUserControl.TabIndex = 42
+		Me.EngineComboUserControl.TextHistoryIsKept = False
+		Me.EngineComboUserControl.TextHistoryMaxSize = 15
+		Me.EngineComboUserControl.TextIsPathFileNames = False
+		Me.EngineComboUserControl.ValueMember = ""
 		'
 		'CreateModelsFolderTreeButton
 		'
@@ -683,7 +682,7 @@ Partial Class SetUpGamesUserControl
 	Friend WithEvents BrowseForCompilerPathFileNameButton As ButtonEx
 	Friend WithEvents CompilerPathFileNameTextBox As Crowbar.RichTextBoxEx
 	Friend WithEvents GamePathLabel As System.Windows.Forms.Label
-	Friend WithEvents EngineComboBox As ComboUserControl
+	Friend WithEvents EngineComboUserControl As ComboUserControl
 	Friend WithEvents EngineLabel As System.Windows.Forms.Label
 	Friend WithEvents GoBackButton As ButtonEx
 	Friend WithEvents ToolTip1 As ToolTip

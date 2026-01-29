@@ -14,14 +14,14 @@ Public Class ComboUserControl
 		'NOTE: Disable to use custom.
 		MyBase.BorderStyle = BorderStyle.None
 
-		'Me.theBorderColor = WidgetConstants.WidgetDisabledTextColor
 		Me.theBorderStyle = BorderStyle.FixedSingle
 		Me.theControlIsReadOnly = False
 		Me.theComboPanelBorderColor = Color.Red
 		Me.CreateContextMenu()
 
-		'Me.ComboTextBox.BorderColor = WidgetConstants.WidgetBackColor
-		'Me.ComboTextBox.BorderColor = Color.Transparent
+		' IMPORTANT: Need to assign the BackColor here so that a later assignment covers the entire TextBox.
+		'            Without this first assignment, the later assignment to SystemColors.Control does not cover the top two rows of pixels.
+		Me.ComboTextBox.BackColor = SystemColors.Control
 
 		Me.theMultipleInputsIsAllowed = True
 		Me.MultipleInputsDropDownButton.Visible = Me.theMultipleInputsIsAllowed
@@ -145,8 +145,40 @@ Public Class ComboUserControl
 					Me.TextHistoryDataGridView.SelectedRows(0).Selected = False
 				End If
 				Me.TextHistoryDataGridView.Rows(Value).Selected = True
-				Me.ComboTextBox.Text = CStr(Me.TextHistoryDataGridView.Rows(Value).Cells(0).Value)
-				RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+				'Me.ComboTextBox.Text = CStr(Me.TextHistoryDataGridView.Rows(Value).Cells(0).Value)
+				'RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+				'RaiseEvent SelectedValueChanged(Me, New EventArgs())
+				Me.UpdateTextBoxWithSelectedHistoryText()
+			End If
+		End Set
+	End Property
+
+	<Browsable(False)>
+	Public Property SelectedValue() As String
+		Get
+			' This check prevents problems with viewing and saving Forms in VS Designer.
+			Dim aSelectedValue As String = ""
+			If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
+				aSelectedValue = CStr(Me.TextHistoryDataGridView.SelectedRows(0).Cells(0).Value)
+			End If
+			Return aSelectedValue
+		End Get
+		Set
+			If Me.TextHistoryDataGridView.Rows.Count > 0 Then
+				If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
+					Me.TextHistoryDataGridView.SelectedRows(0).Selected = False
+				End If
+				For Each row As DataGridViewRow In Me.TextHistoryDataGridView.Rows
+					Dim text As String = CStr(row.Cells(0).Value)
+					If Value = text Then
+						row.Selected = True
+						'Me.ComboTextBox.Text = Value
+						'RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+						'RaiseEvent SelectedValueChanged(Me, New EventArgs())
+						Me.UpdateTextBoxWithSelectedHistoryText()
+						Exit For
+					End If
+				Next
 			End If
 		End Set
 	End Property
@@ -287,6 +319,7 @@ Public Class ComboUserControl
 #Region "Events and Delegates"
 
 	Public Event SelectedIndexChanged As EventHandler
+	Public Event SelectedValueChanged As EventHandler
 
 #End Region
 
@@ -325,7 +358,6 @@ Public Class ComboUserControl
 				Me.theBorderColor = theme.DisabledBorderColor
 			End If
 		Else
-			'Me.ComboTextBox.BackColor = WidgetConstants.Windows10GlobalAccentColor
 			Me.ComboTextBox.BackColor = SystemColors.Control
 		End If
 
@@ -430,6 +462,7 @@ Public Class ComboUserControl
 						'aRect.Inflate(1, 1)
 						'ButtonRenderer.DrawButton(g, aRect, PushButtonState.Normal)
 						'ComboBoxRenderer.DrawTextBox(g, aRect, "", Me.Font, ComboBoxState.Normal)
+						'------
 						' This draws a border closest to what it looks like on Win11 for Crowbar 0.74.
 						ComboBoxRenderer.DrawDropDownButton(g, aRect, ComboBoxState.Normal)
 					Else
@@ -533,13 +566,13 @@ Public Class ComboUserControl
 			'Me.TextHistoryDataGridView.SelectedRows(0).Index -= 1
 			selectedRow.Selected = False
 			Me.TextHistoryDataGridView.Rows(selectedRowIndex - 1).Selected = True
-			RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+			Me.UpdateTextBoxWithSelectedHistoryText()
 		ElseIf e.Delta < 0 AndAlso selectedRowIndex < Me.TextHistoryDataGridView.Rows.Count - 1 Then
 			' Moving wheel toward user = down.
 			'Me.TextHistoryDataGridView.SelectedRows(0).Index += 1
 			selectedRow.Selected = False
 			Me.TextHistoryDataGridView.Rows(selectedRowIndex + 1).Selected = True
-			RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+			Me.UpdateTextBoxWithSelectedHistoryText()
 		End If
 	End Sub
 
@@ -606,8 +639,7 @@ Public Class ComboUserControl
 	Private Sub TextHistoryListBox_KeyDown(sender As Object, e As KeyEventArgs)
 		If e.KeyCode = Keys.Tab OrElse e.KeyCode = Keys.Enter OrElse e.KeyCode = Keys.Return Then
 			Me.TextHistoryPopup.Hide()
-			Me.Text = Me.TextHistoryDataGridView.Text
-			RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+			Me.UpdateTextBoxWithSelectedHistoryText()
 		End If
 	End Sub
 
@@ -803,8 +835,7 @@ Public Class ComboUserControl
 
 	Private Sub OnTextHistoryDataGridView_MouseClick()
 		Me.TextHistoryPopup.Hide()
-		Me.Text = Me.TextHistoryDataGridView.Text
-		RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+		Me.UpdateTextBoxWithSelectedHistoryText()
 	End Sub
 
 	Private Sub CreateContextMenu()
@@ -843,6 +874,18 @@ Public Class ComboUserControl
 		textHistory.Clear()
 
 		'Me.Text = currentText
+	End Sub
+
+	Private Sub UpdateTextBoxWithSelectedHistoryText()
+		'Me.Text = Me.TextHistoryDataGridView.Text
+		' This check prevents problems with viewing and saving Forms in VS Designer.
+		Dim aSelectedValue As String = Me.TextHistoryDataGridView.Text
+		If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
+			aSelectedValue = CStr(Me.TextHistoryDataGridView.SelectedRows(0).Cells(0).Value)
+		End If
+		Me.Text = aSelectedValue
+		RaiseEvent SelectedIndexChanged(Me, New EventArgs())
+		RaiseEvent SelectedValueChanged(Me, New EventArgs())
 	End Sub
 
 #End Region
