@@ -47,6 +47,12 @@ Public Class ComboUserControl
 
 #Region "Init and Free"
 
+	'Protected Sub Init()
+	'End Sub
+
+	'Protected Sub Free()
+	'End Sub
+
 #End Region
 
 #Region "Properties"
@@ -84,22 +90,6 @@ Public Class ComboUserControl
 		End Set
 	End Property
 
-	'<Browsable(False)>
-	'Public Property DisplayMember() As String
-	'	Get
-	'		Return Me.TextHistoryDataGridView.Columns(Me.TextHistoryDataGridView.FirstDisplayedScrollingColumnIndex).Name
-	'	End Get
-	'	Set
-	'		For Each column As DataGridViewColumn In Me.TextHistoryDataGridView.Columns
-	'			If column.Name = Value Then
-	'				column.Visible = True
-	'			Else
-	'				column.Visible = False
-	'			End If
-	'		Next
-	'	End Set
-	'End Property
-
 	<Browsable(False)>
 	Public Property ValueMember() As String
 		Get
@@ -111,12 +101,37 @@ Public Class ComboUserControl
 			Return columnName
 		End Get
 		Set
-			Me.TextHistoryDataGridView.Columns.Clear()
-			Dim column As DataGridViewColumn = New DataGridViewTextBoxColumn()
-			column.DataPropertyName = Value
-			column.Name = Value
-			column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-			Me.TextHistoryDataGridView.Columns.Add(column)
+			If Me.TextHistoryDataGridView.DataSource IsNot Nothing Then
+				Me.TextHistoryDataGridView.Columns.Clear()
+				Dim column As DataGridViewColumn = New DataGridViewTextBoxColumn()
+				column.DataPropertyName = Value
+				column.Name = Value
+				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+				Me.TextHistoryDataGridView.Columns.Add(column)
+			End If
+		End Set
+	End Property
+
+	<Browsable(False)>
+	Public Property DisplayMember() As String
+		Get
+			' This check prevents problems with viewing and saving Forms in VS Designer.
+			Dim columnName As String = ""
+			If Me.TextHistoryDataGridView.Columns.Count > 0 Then
+				columnName = Me.TextHistoryDataGridView.Columns(0).Name
+			End If
+			Return columnName
+		End Get
+		Set
+			Dim columnName As String = ""
+			If Me.TextHistoryDataGridView.Columns.Count > 0 Then
+				Dim column As DataGridViewColumn = New DataGridViewTextBoxColumn()
+				column.DataPropertyName = Value
+				column.Name = Value
+				column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+				Me.TextHistoryDataGridView.Columns(0).Visible = False
+				Me.TextHistoryDataGridView.Columns.Add(column)
+			End If
 		End Set
 	End Property
 
@@ -154,12 +169,16 @@ Public Class ComboUserControl
 	End Property
 
 	<Browsable(False)>
-	Public Property SelectedValue() As String
+	Public Property SelectedValue() As Object
 		Get
 			' This check prevents problems with viewing and saving Forms in VS Designer.
-			Dim aSelectedValue As String = ""
+			Dim aSelectedValue As Object = ""
 			If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
-				aSelectedValue = CStr(Me.TextHistoryDataGridView.SelectedRows(0).Cells(0).Value)
+				'If Me.TextHistoryDataGridView.Columns.Count > 1 Then
+				'	aSelectedValue = Me.TextHistoryDataGridView.SelectedRows(0).Cells(1).Value
+				'Else
+				aSelectedValue = Me.TextHistoryDataGridView.SelectedRows(0).Cells(0).Value
+				'End If
 			End If
 			Return aSelectedValue
 		End Get
@@ -169,12 +188,8 @@ Public Class ComboUserControl
 					Me.TextHistoryDataGridView.SelectedRows(0).Selected = False
 				End If
 				For Each row As DataGridViewRow In Me.TextHistoryDataGridView.Rows
-					Dim text As String = CStr(row.Cells(0).Value)
-					If Value = text Then
+					If Value.ToString() = row.Cells(0).Value.ToString() Then
 						row.Selected = True
-						'Me.ComboTextBox.Text = Value
-						'RaiseEvent SelectedIndexChanged(Me, New EventArgs())
-						'RaiseEvent SelectedValueChanged(Me, New EventArgs())
 						Me.UpdateTextBoxWithSelectedHistoryText()
 						Exit For
 					End If
@@ -558,21 +573,22 @@ Public Class ComboUserControl
 	End Sub
 
 	Private Sub ComboTextBox_MouseWheel(sender As Object, e As MouseEventArgs) Handles ComboTextBox.MouseWheel
-		Dim debug As Integer = 4242
-		Dim selectedRow As DataGridViewRow = Me.TextHistoryDataGridView.SelectedRows(0)
-		Dim selectedRowIndex As Integer = Me.TextHistoryDataGridView.SelectedRows(0).Index
-		If e.Delta > 0 AndAlso selectedRowIndex > 0 Then
-			' Moving wheel away from user = up.
-			'Me.TextHistoryDataGridView.SelectedRows(0).Index -= 1
-			selectedRow.Selected = False
-			Me.TextHistoryDataGridView.Rows(selectedRowIndex - 1).Selected = True
-			Me.UpdateTextBoxWithSelectedHistoryText()
-		ElseIf e.Delta < 0 AndAlso selectedRowIndex < Me.TextHistoryDataGridView.Rows.Count - 1 Then
-			' Moving wheel toward user = down.
-			'Me.TextHistoryDataGridView.SelectedRows(0).Index += 1
-			selectedRow.Selected = False
-			Me.TextHistoryDataGridView.Rows(selectedRowIndex + 1).Selected = True
-			Me.UpdateTextBoxWithSelectedHistoryText()
+		If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
+			Dim selectedRow As DataGridViewRow = Me.TextHistoryDataGridView.SelectedRows(0)
+			Dim selectedRowIndex As Integer = selectedRow.Index
+			If e.Delta > 0 AndAlso selectedRowIndex > 0 Then
+				' Moving wheel away from user = up.
+				'Me.TextHistoryDataGridView.SelectedRows(0).Index -= 1
+				selectedRow.Selected = False
+				Me.TextHistoryDataGridView.Rows(selectedRowIndex - 1).Selected = True
+				Me.UpdateTextBoxWithSelectedHistoryText()
+			ElseIf e.Delta < 0 AndAlso selectedRowIndex < Me.TextHistoryDataGridView.Rows.Count - 1 Then
+				' Moving wheel toward user = down.
+				'Me.TextHistoryDataGridView.SelectedRows(0).Index += 1
+				selectedRow.Selected = False
+				Me.TextHistoryDataGridView.Rows(selectedRowIndex + 1).Selected = True
+				Me.UpdateTextBoxWithSelectedHistoryText()
+			End If
 		End If
 	End Sub
 
@@ -877,11 +893,14 @@ Public Class ComboUserControl
 	End Sub
 
 	Private Sub UpdateTextBoxWithSelectedHistoryText()
-		'Me.Text = Me.TextHistoryDataGridView.Text
 		' This check prevents problems with viewing and saving Forms in VS Designer.
 		Dim aSelectedValue As String = Me.TextHistoryDataGridView.Text
 		If Me.TextHistoryDataGridView.SelectedRows.Count > 0 Then
-			aSelectedValue = CStr(Me.TextHistoryDataGridView.SelectedRows(0).Cells(0).Value)
+			If Me.TextHistoryDataGridView.Columns.Count > 1 Then
+				aSelectedValue = CStr(Me.TextHistoryDataGridView.SelectedRows(0).Cells(1).Value)
+			Else
+				aSelectedValue = CStr(Me.TextHistoryDataGridView.SelectedRows(0).Cells(0).Value)
+			End If
 		End If
 		Me.Text = aSelectedValue
 		RaiseEvent SelectedIndexChanged(Me, New EventArgs())

@@ -109,6 +109,7 @@
     <Compile Include="Core\- AppThemes\GroupBoxTheme.vb" />
     <Compile Include="Core\- AppThemes\DataGridViewTheme.vb" />
     <Compile Include="Core\- AppThemes\ComboUserControlTheme.vb" />
+    <Compile Include="Core\- AppThemes\ProgressBarTheme.vb" />
     <Compile Include="Core\- AppThemes\TabControlTheme.vb" />
     <Compile Include="Core\- AppThemes\RichTextBoxTheme.vb" />
     <Compile Include="Core\- AppThemes\PanelTheme.vb" />

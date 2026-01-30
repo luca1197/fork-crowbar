@@ -346,10 +346,12 @@ Public Class App
 		defaultCrowbarTheme.Name = "Crowbar Dark"
 		defaultCrowbarTheme.GlobalTheme = New GlobalTheme()
 		defaultCrowbarTheme.ButtonTheme = New ButtonTheme()
+		defaultCrowbarTheme.CheckBoxTheme = New CheckBoxTheme()
 		defaultCrowbarTheme.ComboUserControlTheme = New ComboUserControlTheme()
 		defaultCrowbarTheme.DataGridViewTheme = New DataGridViewTheme()
 		defaultCrowbarTheme.GroupBoxTheme = New GroupBoxTheme()
 		defaultCrowbarTheme.PanelTheme = New PanelTheme()
+		defaultCrowbarTheme.ProgressBarTheme = New ProgressBarTheme()
 		defaultCrowbarTheme.RichTextBoxTheme = New RichTextBoxTheme()
 		defaultCrowbarTheme.TabControlTheme = New TabControlTheme()
 		Me.theThemeData.AppThemes.Add(defaultCrowbarTheme)

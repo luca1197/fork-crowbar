@@ -132,8 +132,16 @@ Public Class SetUpGamesUserControl
 	'	Me.UpdateWidgetsBasedOnGameEngine()
 	'End Sub
 	'------
-	Private Sub ComboUserControl1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GameSetupComboUserControl.SelectedIndexChanged
+	'TODO: Instead of this Handles, use AddHandler after the DataSource and DataBindings are set to prevent unneeded processing.
+	Private Sub GameSetupComboUserControl_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GameSetupComboUserControl.SelectedIndexChanged
 		Me.UpdateWidgets()
+		Me.UpdateWidgetsBasedOnGameEngine()
+	End Sub
+
+	'TODO: Instead of this Handles, use AddHandler after the DataSource and DataBindings are set to prevent unneeded processing.
+	Private Sub EngineComboUserControl_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EngineComboUserControl.SelectedValueChanged
+		' Because GameEngine is passed to DataSource as an IList, must manually bind for this direction.
+		Me.theSelectedGameSetup.GameEngine = CType(EngineComboUserControl.SelectedValue, GameEngine)
 		Me.UpdateWidgetsBasedOnGameEngine()
 	End Sub
 
@@ -444,8 +452,9 @@ Public Class SetUpGamesUserControl
 			If e.PropertyDescriptor IsNot Nothing Then
 				If e.PropertyDescriptor.Name = "GamePathFileName" OrElse e.PropertyDescriptor.Name = "GameAppPathFileName" OrElse e.PropertyDescriptor.Name = "CompilerPathFileName" OrElse e.PropertyDescriptor.Name = "ViewerPathFileName" OrElse e.PropertyDescriptor.Name = "MappingToolPathFileName" OrElse e.PropertyDescriptor.Name = "PackerPathFileName" Then
 					Me.UpdateUseCounts()
-				ElseIf e.PropertyDescriptor.Name = "GameEngine" Then
-					Me.UpdateWidgetsBasedOnGameEngine()
+					' This will not be called because GameEngine is passed to DataSource as an IList, which does not raise these events.
+					'ElseIf e.PropertyDescriptor.Name = "GameEngine" Then
+					'	Me.UpdateWidgetsBasedOnGameEngine()
 				End If
 			End If
 		End If
@@ -554,7 +563,9 @@ Public Class SetUpGamesUserControl
 		Me.EngineComboUserControl.DataBindings.Clear()
 		Try
 			Me.EngineComboUserControl.DataSource = anEnumList
-			Me.EngineComboUserControl.ValueMember = "Value"
+			Me.EngineComboUserControl.ValueMember = "Key"
+			Me.EngineComboUserControl.DisplayMember = "Value"
+			' This is only a one-way binding because IList does not raise ListChanged events.
 			Me.EngineComboUserControl.DataBindings.Add("SelectedValue", Me.theSelectedGameSetup, "GameEngine", False, DataSourceUpdateMode.OnPropertyChanged)
 		Catch ex As Exception
 			Dim debug As Integer = 4242

@@ -51,12 +51,12 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property CheckboxTheme() As WidgetTheme
+    Public Property CheckBoxTheme() As CheckBoxTheme
         Get
-            Return Me.theCheckboxTheme
+            Return Me.theCheckBoxTheme
         End Get
-        Set(ByVal value As WidgetTheme)
-            Me.theCheckboxTheme = value
+        Set(ByVal value As CheckBoxTheme)
+            Me.theCheckBoxTheme = value
         End Set
     End Property
 
@@ -123,11 +123,11 @@ Public Class AppTheme
         End Set
     End Property
 
-    Public Property ProgressBarTheme() As WidgetTheme
+    Public Property ProgressBarTheme() As ProgressBarTheme
         Get
             Return Me.theProgressBarTheme
         End Get
-        Set(ByVal value As WidgetTheme)
+        Set(ByVal value As ProgressBarTheme)
             Me.theProgressBarTheme = value
         End Set
     End Property
@@ -224,7 +224,7 @@ Public Class AppTheme
     Private theGlobalTheme As GlobalTheme
 
     Private theButtonTheme As ButtonTheme
-    Private theCheckboxTheme As WidgetTheme
+    Private theCheckBoxTheme As CheckBoxTheme
     Private theComboUserControlTheme As ComboUserControlTheme
     Private theDataGridViewTheme As DataGridViewTheme
     Private theDateTimeTextBoxTheme As WidgetTheme
@@ -232,7 +232,7 @@ Public Class AppTheme
     Private theListBoxTheme As WidgetTheme
     Private theListViewTheme As WidgetTheme
     Private thePanelTheme As PanelTheme
-    Private theProgressBarTheme As WidgetTheme
+    Private theProgressBarTheme As ProgressBarTheme
     Private theRadioButtonTheme As WidgetTheme
     Private theRichTextBoxTheme As RichTextBoxTheme
     Private theScrollBarTheme As WidgetTheme

@@ -80,11 +80,12 @@ Public Class DownloadUserControl
 	Private Sub InitOutputPathComboBox()
 		Dim anEnumList As IList
 
+		Me.OutputPathComboBox.DataBindings.Clear()
 		anEnumList = EnumHelper.ToList(GetType(DownloadOutputPathOptions))
 		Try
-			Me.OutputPathComboBox.DisplayMember = "Value"
-			Me.OutputPathComboBox.ValueMember = "Key"
 			Me.OutputPathComboBox.DataSource = anEnumList
+			Me.OutputPathComboBox.ValueMember = "Key"
+			Me.OutputPathComboBox.DisplayMember = "Value"
 			Me.OutputPathComboBox.DataBindings.Add("SelectedValue", TheApp.Settings, "DownloadOutputFolderOption", False, DataSourceUpdateMode.OnPropertyChanged)
 		Catch ex As Exception
 			Dim debug As Integer = 4242
@@ -133,6 +134,11 @@ Public Class DownloadUserControl
 
 	Private Sub OpenWorkshopPageButton_Click(sender As Object, e As EventArgs) Handles OpenWorkshopPageButton.Click
 		Me.OpenWorkshopPage()
+	End Sub
+
+	Private Sub OutputPathComboBox_SelectedValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OutputPathComboBox.SelectedValueChanged
+		' Because DownloadOutputPathOptions is passed to DataSource as an IList, must manually bind for this direction.
+		TheApp.Settings.DownloadOutputFolderOption = CType(OutputPathComboBox.SelectedValue, DownloadOutputPathOptions)
 	End Sub
 
 	Private Sub OutputPathTextBox_DragDrop(sender As Object, e As DragEventArgs) Handles OutputPathTextBox.DragDrop
